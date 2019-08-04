@@ -2,24 +2,29 @@
 <!-- 참고사이트 -->
 <!-- https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Basic_usage -->
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Canvas tutorial</title>
-        <script type="application/javascript">
-            function draw(){
-                var canvas = document.getElementById("my-canvas"); // <canvas> 태그에서 사용된 id로부터 canvas 객체를 받아온다.
 
-                if(canvas.getContext){ //브라우저가 canvas를 지원하는 경우
-                    var ctx = canvas.getContext("2d");
+<head>
+    <meta charset="utf-8" />
+    <title>Canvas tutorial</title>
+    <script type="application/javascript">
+        function draw() {
+            var canvas = document.getElementById("my-canvas") // <canvas> 태그에서 사용된 id로부터 canvas 객체를 받아온다.
 
-                    ctx.fillStyle = "rgb(200,0,0)"
-                    ctx.fillRect (10,10,50,50)
-                }
+            if (canvas.getContext) { //브라우저가 canvas를 지원하는 경우
+                var ctx = canvas.getContext("2d")
+
+                ctx.fillStyle = "rgb(200,0,0)"
+                ctx.fillRect(25, 25, 100, 100) //색칠된 직사각형 (x,y,width,height)
+                ctx.clearRect(45, 45, 60, 60) //특정 부분을 지우는 직사각형
+                ctx.strokeRect(50, 50, 50, 50) //윤곽만 있는 직사각형
             }
-        </script>
-    </head>
-    <!-- onload 속성을 이용하면 페이지가 로딩 된 후 자동 실행된다. 꿀팁 -->
-    <body onload="draw();"> 
-        <canvas id="my-canvas" width="150" height="150"></canvas>
-    </body>
+        }
+    </script>
+</head>
+<!-- onload 속성을 이용하면 페이지가 로딩 된 후 자동 실행된다. 꿀팁 -->
+
+<body onload="draw();">
+    <canvas id="my-canvas" width="150" height="150"></canvas>
+</body>
+
 </html>
