@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Canvas tutorial</title>
+    <script type="application/javascript">
+        function draw() {
+            var canvas = document.getElementById("my-canvas") // <canvas> 태그에서 사용된 id로부터 canvas 객체를 받아온다.
+
+            if (canvas.getContext) { //브라우저가 canvas를 지원하는 경우
+                var ctx = canvas.getContext("2d")
+
+                var circle = new Path2D() //Path2D 객체 생성!
+                circle.moveTo(125, 35)
+                circle.arc(100, 35, 25, 0, 2 * Math.PI)
+
+                ctx.fill(circle)
+            }
+        }
+    </script>
+</head>
+<!-- onload 속성을 이용하면 페이지가 로딩 된 후 자동 실행된다. 꿀팁 -->
+
+<body onload="draw();">
+    <canvas id="my-canvas" width="150" height="150"></canvas>
+</body>
+
+</html>
