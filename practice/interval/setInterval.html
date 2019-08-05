@@ -3,22 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Timeout practice</title>
+    <title>setInterval practice</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <span>3초 후에 알람뜬다.</span>
+    <span id="my-text">카운팅 시작</span>
 </body>
 <script>
-    function timeOut() {
-        setTimeout(function () {
-            alert('Hello :)');
-        }, 3000);
+    function count() {
+        var i =0;
+        setInterval(function () {
+            $("#my-text").text(i++)
+        }, 1000);
     }
 
-    timeOut();
+    count();
 </script>
 
 </html>
