@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Print Array</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <span id="voca">준비</span>
+</body>
+<script>
+    const vocaArray = ['apple', 'banana', 'car', 'love', 'cute'];
+
+    function printArray() {
+        let i = 0;
+        setInterval(function () {
+            $("#voca").text(vocaArray[i++]);
+        }, 1000);
+    }
+
+    printArray();
+</script>
+
+</html>
