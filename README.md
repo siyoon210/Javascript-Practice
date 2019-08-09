@@ -8,3 +8,6 @@ For studying javascript
 
 ### canvas 사용하기
 - https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial/Basic_usage
+
+### Vue.js 공식문서
+- https://kr.vuejs.org/v2/guide/index.html
