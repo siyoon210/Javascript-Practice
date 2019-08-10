@@ -13,6 +13,11 @@
     <p>{{ message }}</p>
     <button v-on:click="reverseMessage">메시지 뒤집기</button>
 </div>
+
+<div id="app-6">
+    <p> {{ message }}</p>
+    <input v-model="message"/>
+</div>
 </body>
 <script>
     let app5 = new Vue({
@@ -26,5 +31,12 @@
             }
         }
     });
+
+    let app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message : '방가링 뷰~! 너 어제 재밌구낭 ㅎㅎ'
+        }
+    })
 </script>
 </html>
