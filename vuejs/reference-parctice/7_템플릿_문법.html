@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 상용버전, 속도와 용량이 최적화됨. -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+
+<div id="template">
+    <p>메시지: {{msg}}</p>
+
+    <p v-once>다시는 변경되지 않는 메세지 : {{msg}}</p>
+
+    <p>{{rawHtml}}</p>
+
+    <p v-html="rawHtml"></p>
+
+    <p v-bind:id="dynamicId">아이디는?</p>
+
+    <button v-bind:disabled="isDisabled">button</button>
+</div>
+</body>
+<script>
+    var tmp = new Vue({
+        el: '#template',
+        data: {
+            msg: '안냥~',
+            rawHtml: '<span style="color:red">빨강글씨</span>',
+            dynamicId: 10,
+            isDisabled: true
+        }
+    });
+</script>
+</html>
