@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 상용버전, 속도와 용량이 최적화됨. -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+<p>hello</p>
+</body>
+<script>
+    new Vue({
+        data: {
+            a: 1
+        },
+        created: function () {
+            console.log('요곤 인스턴스가 만들어 질 떄 실행된다.');
+            console.log('a is ', this.a);
+        }
+    })
+</script>
+</html>
