@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 상용버전, 속도와 용량이 최적화됨. -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+<h1>클래스 바인딩 연습2</h1>
+
+<div id="class-bind-exam">
+    <div v-bind:class="[{active: isActive}, errorClass]"><p>Hello~!</p></div>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#class-bind-exam',
+        data: {
+            isActive: true,
+            errorClass: 'danger1 danger2'
+        }
+    })
+</script>
+</html>

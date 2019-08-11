@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 상용버전, 속도와 용량이 최적화됨. -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+<h1>클래스 바인딩 연습</h1>
+<div id="class-bind-exam">
+    <p class="static" v-bind:class="{active: isActive, 'tet-danger': hasError}">Hello Vue.js (직접 명시하기)</p>
+</div>
+
+<div id="class-bind-exam2">
+    <p class="static" v-bind:class="myClassObject">Hello Vue.js (클래스 객체로 바인딩하기)</p>
+</div>
+
+<div id="class-bind-exam3">
+    <p class="static" v-bind:class="myClassObject">Hello Vue.js (Computed에서 계산된 클래스 객체 바인딩하기) </p>
+    <p>(아주 일반적이고 강력한 패턴이라고 소개함)</p>
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#class-bind-exam',
+        data: {
+            isActive: true,
+            hasError: false
+        }
+    });
+
+    var vm2 = new Vue({
+        el: '#class-bind-exam2',
+        data: {
+            myClassObject: {
+                isActive: true,
+                hasError: true
+            }
+        }
+    });
+
+    var vm3 = new Vue({
+        el: '#class-bind-exam3',
+        data:{
+            isActive: true,
+            error: null
+        },
+        computed: {
+            myClassObject: function () {
+                return {
+                    isActive : this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal',
+                    'another-class' : true
+                }
+            }
+        }
+    })
+
+</script>
+</html>
