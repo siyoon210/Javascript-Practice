@@ -11,6 +11,7 @@
 <body>
 <div id="test-range-form">
     <p>범위</p>
+    <!-- todo 밸리데이션 (양의 정수, null 불가능)   -->
     <input type="number" v-model="from"/> 부터 <input type="number" v-model="to"/> 까지<br>
     <input type="checkbox" v-model="includeDerivative"> 파포 여부 <br>
     <button v-on:click="start">시작하기</button>
