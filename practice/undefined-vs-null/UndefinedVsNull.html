@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>undefined vs null test</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<span>hello</span>
+</body>
+<script>
+    var unassignedVar;
+    var assignedWithUndefined = undefined;
+    var assignedWithLiteralUndefined = 'undefined';
+    var assignedWithNull = null;
+    var assignedWithLiteralNull = 'null';
+    var assignedWithNum = 0;
+
+    function test(testVar) {
+        console.log('typeof', typeof testVar);
+
+        if (testVar == null) {
+            console.log(' == null', true);
+        } else {
+            console.log(' == null', false);
+        }
+
+        if (testVar === null) {
+            console.log(' === null', true);
+        } else {
+            console.log(' === null', false);
+        }
+
+        if (testVar == undefined) {
+            console.log(' == undefined', true);
+        } else {
+            console.log(' == undefined', false);
+        }
+
+        if (testVar === undefined) {
+            console.log(' === undefined', true);
+        } else {
+            console.log(' === undefined', false);
+        }
+    }
+
+    test(unassignedVar);
+    test(assignedWithUndefined);
+    test(assignedWithLiteralUndefined);
+    test(assignedWithNull);
+    test(assignedWithLiteralNull);
+    test(assignedWithNum);
+</script>
+
+</html>
