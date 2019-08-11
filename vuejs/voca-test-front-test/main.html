@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Voca Test Main</title>
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 상용버전, 속도와 용량이 최적화됨. -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+<div id="test-range-form">
+    <p>범위</p>
+    <input type="number" v-model="from"/> 부터 <input type="number" v-model="to"/> 까지<br>
+    <input type="checkbox" v-model="includeDerivative"> 파포 여부 <br>
+    <button v-on:click="start">시작하기</button>
+</div>
+</body>
+
+<script>
+    const vm = new Vue({
+        el: '#test-range-form',
+        data: {
+            from: 1,
+            to: 100,
+            includeDerivative: false
+        },
+        methods: {
+            start: function () {
+                alert(this.from + '~' + this.to + this.includeDerivative);
+            }
+        }
+    })
+</script>
+</html>
