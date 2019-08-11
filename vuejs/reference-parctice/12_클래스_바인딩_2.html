@@ -12,14 +12,14 @@
 <h1>클래스 바인딩 연습2</h1>
 
 <div id="class-bind-exam">
-    <div v-bind:class="[activeClass, errorClass]"><p>Hello~!</p></div>
+    <div v-bind:class="[{active: isActive}, errorClass]"><p>Hello~!</p></div>
 </div>
 </body>
 <script>
     var vm = new Vue({
         el: '#class-bind-exam',
         data: {
-            activeClass: 'active1 active2',
+            isActive: true,
             errorClass: 'danger1 danger2'
         }
     })
