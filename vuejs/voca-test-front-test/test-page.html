@@ -10,55 +10,28 @@
 </head>
 <body>
 <div id="testing-display">
-    <button>범위 선택 페이지로 강제이동하기</button>
-    <button>처음부터 다시 시작하기</button>
-    <button v-on:click="startTest">시험 시작하기!</button>
-    <span id="index">{{ progressIndex }}</span><br>
-    <span id="voca">{{ progressEng }}</span>
+    <button v-on:click="startTest">시작하기!</button>
+    <p>{{count}}</p>
 </div>
 </body>
 
 <script>
-    var vocaList = [
-        {index: 0, eng: 'apple', kor: '사과'},
-        {index: 1, eng: 'banana', kor: '바나나'},
-        {index: 2, eng: 'dog', kor: '멍멍이'},
-        {index: 3, eng: 'cat', kor: '야옹이'},
-        {index: 4, eng: 'love', kor: '사랑'}
-    ];
+    // var vocaList = [
+    //     {index: 0, eng: 'apple', kor: '사과'},
+    //     {index: 1, eng: 'banana', kor: '바나나'},
+    //     {index: 2, eng: 'dog', kor: '멍멍이'},
+    //     {index: 3, eng: 'cat', kor: '야옹이'},
+    //     {index: 4, eng: 'love', kor: '사랑'}
+    // ];
 
-    const vm = new Vue({
+    var vm = new Vue({
         el: '#testing-display',
         data: {
-            vocaList: vocaList
-        },
-        computed:{
-            progressIndex : function (val) {
-                return val;
-            },
-            progressEng : function (val) {
-                return val;
-            }
+            count: 0
         },
         methods: {
-            startTest: function () {
-                var i =0;
-
-                function printVocas() {
-                    setInterval(function () {
-                        this.progressIndex(this.vocaList[i].index);
-                        this.progressEng(this.vocaList[i].eng);
-                        i++;
-                        // console.log(this.progressIndex + this.progressEng);
-                    }, 1000);
-                }
-
-                printVocas();
-
-                if (i === vocaList.length) {
-                    clearInterval(printVocas);
-                    alert('시험끝');
-                }
+            startTest: function count() {
+                this.count++;
             }
         }
     });
