@@ -24,6 +24,9 @@
     //     {index: 4, eng: 'love', kor: '사랑'}
     // ];
 
+    // https://forum.vuejs.org/t/updating-text-with-setinterval-not-working/29820/3
+    // bolerodan의 답변 참고
+
     var vm = new Vue({
         el: '#testing-display',
         data: {
@@ -36,6 +39,13 @@
                     self.myNum = self.myNum + 1
                 }, 1000);
             }
+            // startInterval: function () { //모던한 방법으로 arrow function 사용하는 방법!
+            //     console.log('눌림');
+            //     setInterval(() => {
+            //         console.log('돈다돌아', self.myNum);
+            //         self.myNum = self.myNum + 1
+            //     }, 1000);
+            // }
         }
     });
 </script>
