@@ -11,7 +11,7 @@
 <body>
 <div id="testing-display">
     <button v-on:click="startTest">시작하기!</button>
-    <p>{{count}}</p>
+    <p>{{myNum}}</p>
 </div>
 </body>
 
@@ -27,12 +27,17 @@
     var vm = new Vue({
         el: '#testing-display',
         data: {
-            count: 0
+            myNum: 0
         },
         methods: {
             startTest: function count() {
-                this.count++;
-            }
+                console.log('outer', this.myNum); //data에 myNum을 읽을 수 있다.
+                function innerFunc() {
+                    console.log('inner', this.myNum); //data에 myNum을 읽을 수 없다.
+                }
+
+                innerFunc();
+            },
         }
     });
 </script>
