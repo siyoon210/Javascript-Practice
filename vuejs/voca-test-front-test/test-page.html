@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="testing-display">
-    <button v-on:click="startTest">시작하기!</button>
+    <button v-on:click="startInterval">시작하기!</button>
     <p>{{myNum}}</p>
 </div>
 </body>
@@ -30,14 +30,12 @@
             myNum: 0
         },
         methods: {
-            startTest: function count() {
-                console.log('outer', this.myNum); //data에 myNum을 읽을 수 있다.
-                function innerFunc() {
-                    console.log('inner', this.myNum); //data에 myNum을 읽을 수 없다.
-                }
-
-                innerFunc();
-            },
+            startInterval: function () {
+                const self = this; //outer scope를 명시해주는 방법
+                setInterval(function () {
+                    self.myNum = self.myNum + 1
+                }, 1000);
+            }
         }
     });
 </script>
