@@ -11,7 +11,7 @@
 <body>
 <div id="testing-display">
     <button v-on:click="startInterval">시작하기!</button>
-    <p>{{myNum}}</p>
+    <p>{{vocaList[index]}}</p>
 </div>
 </body>
 
@@ -30,22 +30,22 @@
     var vm = new Vue({
         el: '#testing-display',
         data: {
-            myNum: 0
+            index: 0,
+            vocaList: [
+                {index: 0, eng: 'apple', kor: '사과'},
+                {index: 1, eng: 'banana', kor: '바나나'},
+                {index: 2, eng: 'dog', kor: '멍멍이'},
+                {index: 3, eng: 'cat', kor: '야옹이'},
+                {index: 4, eng: 'love', kor: '사랑'}
+            ]
         },
         methods: {
             startInterval: function () {
-                const self = this; //outer scope를 명시해주는 방법
+                const self = this;
                 setInterval(function () {
-                    self.myNum = self.myNum + 1
+                    self.index = self.index + 1
                 }, 1000);
             }
-            // startInterval: function () { //모던한 방법으로 arrow function 사용하는 방법!
-            //     console.log('눌림');
-            //     setInterval(() => {
-            //         console.log('돈다돌아', self.myNum);
-            //         self.myNum = self.myNum + 1
-            //     }, 1000);
-            // }
         }
     });
 </script>
