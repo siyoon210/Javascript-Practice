@@ -14,6 +14,10 @@
 <div id="style-bind-exam">
     <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">hello</div>
 </div>
+
+<div id="style-bind-exam2">
+    <div v-bind:style="myStyleObject">hello</div>
+</div>
 </body>
 <script>
     var vm = new Vue({
@@ -21,6 +25,16 @@
         data: {
             activeColor: 'red',
             fontSize: 40
+        }
+    });
+
+    var vm2 = new Vue({
+        el: '#style-bind-exam2',
+        data: {
+            myStyleObject: {
+                color: 'blue',
+                fontSize: '100px'
+            }
         }
     })
 </script>
