@@ -10,8 +10,16 @@
 </head>
 <body>
 <div id="testing-display">
-    <button v-on:click="startTest">시작하기!</button>
-    <p v-show="progress">{{vocaList[index].eng}}</p>
+    <button v-show="step === 'ready'" v-on:click="startTest">시작하기!</button>
+    <p v-show="step === 'progress'">{{vocaList[index].eng}}</p>
+    <button v-show="step === 'end'" v-on:click="openCorrectAnswer">정답확인</button>
+    <div v-show="step === 'openCorrectAnswer'">
+        <ol>
+            <li v-for="voca in vocaList">
+                {{voca.eng}}  {{voca.kor}}
+            </li>
+        </ol>
+    </div>
 </div>
 </body>
 
@@ -19,10 +27,10 @@
     // https://forum.vuejs.org/t/updating-text-with-setinterval-not-working/29820/3
     // bolerodan의 답변 참고
 
-    var vm = new Vue({
+    let vm = new Vue({
         el: '#testing-display',
         data: {
-            progress: false,
+            step: 'ready',
             index: 0,
             vocaList: [
                 {index: 0, eng: 'apple', kor: '사과'},
@@ -32,23 +40,26 @@
                 {index: 4, eng: 'love', kor: '사랑'}
             ]
         },
-        watch:{
+        watch: {
             index: function (val) {
                 console.log('watched index', val);
             }
         },
         methods: {
             startTest: function () {
-                this.progress = true;
+                this.step = 'progress';
                 const self = this;
                 var start = setInterval(function () {
                     self.index++;
-                    if(self.index === self.vocaList.length - 1){
-                        console.log('꺼야되는데');
+                    if (self.index >= self.vocaList.length - 1) {
                         clearInterval(start);
+                        self.step = 'end';
                     }
                 }, 1000);
                 this.start();
+            },
+            openCorrectAnswer: function () {
+                this.step = 'openCorrectAnswer';
             }
         }
     });
