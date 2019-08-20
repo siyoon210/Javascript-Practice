@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>carousel exam</title>
@@ -14,23 +14,59 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<div class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <h1>item1</h1>
-        </div>
-        <div class="carousel-item">
-            <h1>item2</h1>
-        </div>
-        <div class="carousel-item">
-            <h1>item3</h1>
+<div id="app-7">
+    <button v-on:click="startSlide">슬라이드 시작하기</button>
+    <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <!--각 구성 요소에 '키'를 제공해야한다.-->
+            <todo-item
+                    v-for="item in groceryList"
+                    v-bind:todo="item"
+                    v-bind:key="item.id">
+            </todo-item>
         </div>
     </div>
 </div>
+
+<!--<div class="carousel slide" data-ride="carousel">-->
+<!--    <div class="carousel-inner">-->
+<!--        <div class="carousel-item active">-->
+<!--            <h1>item1</h1>-->
+<!--        </div>-->
+<!--        <div class="carousel-item">-->
+<!--            <h1>item2</h1>-->
+<!--        </div>-->
+<!--        <div class="carousel-item">-->
+<!--            <h1>item3</h1>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 </body>
 <script>
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<div class="carousel-item">{{ todo.text }}</div>'
+    });
+
+    var app7 = new Vue({
+        el: '#app-7',
+        data: {
+            groceryList: [
+                {id: 0, text: 'Vegetables'},
+                {id: 1, text: 'Cheese'},
+                {id: 2, text: 'Whatever else humans are supposed to eat'}
+            ]
+        },
+        methods: {
+            startSlide: function () {
+                $('.carousel .carousel-inner').children('.carousel-item').first().addClass('active');
+            }
+        }
+    });
+
     $('.carousel').carousel({
         interval: 1500,
         keyboard: false,
