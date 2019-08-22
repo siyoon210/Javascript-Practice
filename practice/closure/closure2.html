@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closure</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 아래 코드가 어떤식으로 동작할까
+     */
+    var i;
+    for (i = 0; i < 10; i++) {
+        setTimeout(function() {
+            console.log(i);
+        }, 100);
+    }
+
+
+    /**
+     * "클로저는 만들어진 환경을 기억한다."
+     */
+    var i;
+    for (i = 0; i < 10; i++) {
+        (function(j) {
+            setTimeout(function() {
+                console.log(j);
+            }, 100);
+        })(i);
+    }
+</script>
+</html>
