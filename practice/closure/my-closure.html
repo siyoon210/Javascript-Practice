@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my closure</title>
+</head>
+<body>
+
+</body>
+<script>
+    function student() {
+        var name;
+        var phone;
+        var address;
+
+        return {
+            setName: function (name) {
+                this.name = name;
+            },
+            getName: function () {
+                return this.name;
+            }
+        }
+    }
+
+    var s1 = student();
+    console.log(s1.getName());
+    s1.setName('배코');
+    console.log(s1.getName());
+    // console.log(s1.getPhone());
+</script>
+</html>
