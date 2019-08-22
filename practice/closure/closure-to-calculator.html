@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closure-to-calc</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-5 col-sm-5 col-xs-12">
+        <h3>Sell</h3>
+        <div class="form-group">
+            <label>송금국가</label>
+            <select id="send" class="js-exrate-argument js-country">
+                <option value="KR">KR</option>
+                <option value="AU">AU</option>
+                <option value="NZ">NZ</option>
+            </select>
+            <label>통화</label>
+            <select id="source" class="js-exrate-argument js-currency">
+                <option value="KRW">KRW</option>
+                <option value="AUD">AUD</option>
+                <option value="NZD">NZD</option>
+            </select>
+            <label>금액</label>
+            <input id="source-amount" class="js-exchange-amount" type="text" value="0"/>
+        </div>
+        <p id="send-balance">잔고 : KRW 123,123</p>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-12">
+        ->
+    </div>
+    <div class="col-md-5 col-sm-5 col-xs-12">
+        <h3>Buy</h3>
+        <div class="form-group">
+            <label>수취국가</label>
+            <select id="receive" class="js-exrate-argument js-country">
+                <option value="AU">AU</option>
+                <option value="KR">KR</option>
+                <option value="NZ">NZ</option>
+            </select>
+            <label>통화</label>
+            <select id="dest" class="js-exrate-argument js-currency">
+                <option value="KRW">KRW</option>
+                <option value="AUD">AUD</option>
+                <option value="NZD">NZD</option>
+            </select>
+            <label>금액</label>
+            <input id="dest-amount" class="js-exchange-amount" type="text" value="0"/>
+        </div>
+        <p id="receive-balance">잔고 : KRW 123,123</p>
+    </div>
+</div>
+<div class="row col-sm-12 col-md-12 col-lg-12">
+    <h3>Exchange Rate</h3>
+    <p id="wb-rate"> AUD / USD 0.68945</p>
+    <p id="rate-time">1970.2.10</p>
+</div>
+</body>
+<script>
+    //send 하나만을 나타내자 ex) KR
+    var Country = function (htmlId, value, currencies, receives) {
+        var _htmlId = htmlId;
+        var _value = value;
+        var _currencies = currencies;
+        var _receives = receives;
+
+        return {
+            getHtmlId: function () {
+                return _htmlId;
+            },
+            getValue: function () {
+                return _value;
+            },
+            setValue: function (value) {
+                _value = value;
+            }
+        }
+    };
+
+    var Currency = function () {
+        var htmlId = '';
+        var selectedVal = '';
+        var currencies = [];
+        var amount = {};
+    };
+
+    var ExchangeAmounts = function () {
+        var _sourceHtmlId = '#source-amount';
+        var _sourceValue = 0;
+        var _destHtmlId = '#dest-amount';
+        var _destValue = 0;
+
+        return {
+            evtKeyUp: function (e) {
+                var scale = 2;
+                var inputVal = $(e.currentTarget).val().toNum();
+                var calcAndFormatted = calcAndFormatAmount();
+                _sourceValue = calcAndFormatted.sourceAmount;
+                _destValue = calcAndFormatted.destAmount;
+                this.renderValues();
+                console.log('글로벌하게 하자', exRateData.getWbRate());
+
+                /**
+                 * 금액(source + dest)을 환율을 이용해서 계산하고, 포매팅까지 수행한다.
+                 */
+                function calcAndFormatAmount() {
+                    var calcAndFormatSourceAmount, calcAndFormatDestAmount;
+                    if (e.currentTarget.id === 'source-amount') {
+                        calcAndFormatSourceAmount = inputVal.round(scale).comma();
+                        calcAndFormatDestAmount = (inputVal * exRateData.getWbRate()).round(scale).comma();
+                    } else if (e.currentTarget.id === 'dest-amount') {
+                        calcAndFormatDestAmount = inputVal.round(scale).comma();
+                        calcAndFormatSourceAmount = (inputVal / exRateData.getWbRate()).round(scale).comma();
+                    }
+                    return {sourceAmount: calcAndFormatSourceAmount, destAmount: calcAndFormatDestAmount};
+                }
+            },
+            renderValues: function () {
+                $(_sourceHtmlId).val(_sourceValue);
+                $(_destHtmlId).val(_destValue);
+            }
+        }
+    };
+
+    var Balance = function (htmlId, amount) {
+        var _htmlId = '';
+        var _amount = 0;
+
+        return {
+            getHtmlId: function () {
+                return _htmlId;
+            },
+            getValue: function () {
+                return _amount;
+            },
+            calcValue: function (amount) {
+                _amount += amount;
+            }
+        }
+    };
+
+    var ExRate = function (wbRateHtmlId, rateTimeHtmlId, wbRate, rateTime) {
+        var _wbRateHtmlId = wbRateHtmlId;
+        var _rateTimeHtmlId = rateTimeHtmlId;
+        var _wbRate = wbRate;
+        var _rateTime = rateTime;
+        var sourceCurrency = '';
+        var destCurrency = '';
+
+        return {
+            getWbRate: function () {
+                return _wbRate;
+            }
+        }
+    };
+
+    var exRateData = new ExRate('#wb-rate', '#rate-time', 0.012, 0);
+    var amounts = new ExchangeAmounts();
+
+
+    String.prototype.comma = function () {
+        var arr = this.split(".");
+        return arr[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (typeof arr[1] != "undefined" ? "." + arr[1] : "");
+    };
+
+    Number.prototype.comma = function () {
+        return this.toString().comma();
+    };
+
+    String.prototype.toNum = function () {
+        var number = parseFloat(this.replace(/[^0-9.]/g, ""));
+        return isNaN(number) ? 0 : number;
+    };
+
+    /**
+     * Number의 최대 소수점을 scale만큼 제한한다.
+     * ex) Number가 10.123이고 scale이 2이면 -> return 10.12
+     * ex) Number가 10이고 scale이 2이면 -> return 10
+     */
+    Number.prototype.round = function (scale) {
+        return +(Math.round(this + "e+" + scale) + "e-" + scale);
+    };
+
+    function init() {
+        evtBindings();
+    }
+
+    function evtBindings() {
+        $('.js-exchange-amount').keyup(evtKeyUpExChangeAmount);
+    }
+
+    function evtKeyUpExChangeAmount(e) {
+        // '.' 을 입력한 경우 계산 보류
+        if (e.key === '.') {
+            return;
+        }
+
+        amounts.evtKeyUp(e);
+    }
+
+    init();
+</script>
+</html>
