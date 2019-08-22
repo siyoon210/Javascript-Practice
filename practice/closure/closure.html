@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closure</title>
+</head>
+<body>
+
+</body>
+<script>
+    var base = 'Hello, ';
+    function sayHelloTo(name) {
+        var text = base + name;
+        return function() {
+            console.log(text);
+        };
+    }
+
+    var hello1 = sayHelloTo('승민'); //리턴값을 () 붙여서 함수를 실행해서 받는다. 아직 콘솔 x
+    var hello2 = sayHelloTo('현섭');
+    var hello3 = sayHelloTo('유근');
+
+    console.log('-------');
+
+    hello1(); // 이제 출력 시작 'Hello, 승민'
+    hello2(); // 'Hello, 현섭'
+    hello3(); // 'Hello, 유근'
+</script>
+</html>
