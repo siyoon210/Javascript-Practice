@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>async-test</title>
+</head>
+<body>
+
+</body>
+<script>
+    function a() {
+        for (var i = 0; i < 10000; i++) {
+            console.log('a');
+        }
+    }
+
+    function b() {
+        for (var i = 0; i < 10000; i++) {
+            console.log('b');
+        }
+    }
+
+    console.log(1);
+    a();
+    console.log(2);
+
+    b();
+</script>
+</html>
