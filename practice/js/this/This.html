@@ -54,5 +54,20 @@
 
     myObj2.innerObj.myObjFunc();
     myObj2.myObj2Func();
+
+    var funObj = function (){
+        console.log('funObj', this);
+
+        return {
+            hello: function () {
+                console.log('funHello', this);
+            }
+        }
+    };
+
+    funObj();
+
+    var newFunObj = new funObj();
+    newFunObj.hello();
 </script>
 </html>
