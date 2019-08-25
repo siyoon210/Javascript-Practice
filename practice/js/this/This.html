@@ -8,7 +8,9 @@
 
 </body>
 <script>
-    //this는 "호출한 놈" 이다.
+    //this는 '자신을 호출한 놈'을 말한다.
+    //this는 '자신을 호출한 오브젝트'를 말한다.
+    //this는 '자신을 호출한 가장 가까운 오브젝트'를 말한다.
 
     console.log('global this: ', this);
 
@@ -27,5 +29,30 @@
     }
 
     myFun3();
+
+    var myObj = {
+        name : 'siyoon',
+        myObjFunc: function () {
+            console.log("-- my obj --");
+            console.log('my obj myObjFunc', this);
+        }
+    };
+
+    myObj.myObjFunc();
+
+    var myVar = myObj.myObjFunc;
+
+    console.log("---my var---");
+    myVar();
+
+    var myObj2 = {
+        innerObj: myObj,
+        myObj2Func: function () {
+            console.log("푸루루", this);
+        }
+    };
+
+    myObj2.innerObj.myObjFunc();
+    myObj2.myObj2Func();
 </script>
 </html>
