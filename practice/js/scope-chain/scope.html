@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+</head>
+<body>
+
+</body>
+<script>
+    var myVar = 1;
+
+    console.log('global', myVar);
+
+    function myFunc1() {
+        var myVar = 2;
+
+        function myFunc2() {
+            myVar = 3;
+            console.log('myFunc2', myVar);
+        }
+
+        console.log('myFunc1', myVar);
+        myFunc2();
+    }
+
+    myFunc1();
+</script>
+</html>
