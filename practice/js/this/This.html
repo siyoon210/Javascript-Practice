@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This keyword</title>
+</head>
+<body>
+
+</body>
+<script>
+    //this는 "호출한 놈" 이다.
+
+    console.log('global this: ', this);
+
+    function myFun() {
+        console.log('myFunc this: ', this);
+    }
+
+    function myFun2() {
+        console.log("-- my func2 --");
+        myFun();
+    }
+
+    function myFun3() {
+        console.log("-- my func3 --");
+        myFun2();
+    }
+
+    myFun3();
+</script>
+</html>
