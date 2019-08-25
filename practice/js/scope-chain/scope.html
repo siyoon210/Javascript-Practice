@@ -14,6 +14,7 @@
 
     function myFunc1() {
         var myVar = 2;
+        var innerVar = 'i1';
 
         function myFunc2() {
             var myVar = 3;
@@ -22,8 +23,16 @@
 
         console.log('myFunc1', myVar);
         myFunc2();
+
+        return{
+            innerVar: innerVar
+        }
     }
 
     myFunc1();
+
+    var cVar = myFunc1();
+    console.log('innver?', myFunc1().innerVar);
+    console.log('innver?', cVar.innerVar);
 </script>
 </html>
