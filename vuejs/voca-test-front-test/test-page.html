@@ -50,11 +50,12 @@
                 this.step = 'progress';
                 const self = this;
                 var start = setInterval(function () {
-                    self.index++;
                     if (self.index >= self.vocaList.length - 1) {
                         clearInterval(start);
                         self.step = 'end';
+                        return;
                     }
+                    self.index++;
                 }, 1000);
                 this.start();
             },
