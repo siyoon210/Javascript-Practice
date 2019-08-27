@@ -14,6 +14,8 @@
     //this는 '자신을 호출한 오브젝트'를 말한다.
     //this는 '자신을 호출한 직접적으로 호출한 오브젝트'를 말한다.
     //typeof에 'object'로 나와야지만 오브젝트!
+    //https://www.zerocho.com/category/JavaScript/post/5b0645cc7e3e36001bf676eb
+    //명시적으로 this를 바꾸는 함수 메서드 삼총사 bind, call, apply를 사용하면 this가 객체를 가리킵니다. + =>
 
     console.log('typeof window', typeof window);
     console.log('--1--', this);
@@ -58,7 +60,15 @@
     $myBtn.on('click', function () {
         console.log('--5--', this);
         myObj.innerObj.objFun(); //**
-    })
+    });
+
+    /* -- */
+    function CFun() {
+        console.log('--6--', this);
+    }
+
+    console.log('typeof new CFun()', typeof new CFun());
+    var cFun = new CFun();
 
 </script>
 </html>
