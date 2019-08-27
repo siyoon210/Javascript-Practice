@@ -3,71 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>This keyword</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<button id="myBtn"><p>hello</p></button>
 </body>
 <script>
     //this는 '자신을 호출한 놈'을 말한다.
     //this는 '자신을 호출한 오브젝트'를 말한다.
-    //this는 '자신을 호출한 가장 가까운 오브젝트'를 말한다.
+    //this는 '자신을 호출한 직접적으로 호출한 오브젝트'를 말한다.
+    //typeof에 'object'로 나와야지만 오브젝트!
 
-    console.log('global this: ', this);
+    console.log('typeof window', typeof window);
+    console.log('--1--', this);
 
-    function myFun() {
-        console.log('myFunc this: ', this);
+    /* -- */
+    function myFunc() {
+        console.log('--2--', this);
     }
 
-    function myFun2() {
-        console.log("-- my func2 --");
-        myFun();
-    }
+    console.log('typeof myFunc', typeof myFunc);
+    myFunc();
 
-    function myFun3() {
-        console.log("-- my func3 --");
-        myFun2();
-    }
 
-    myFun3();
-
+    /* -- */
     var myObj = {
-        name : 'siyoon',
-        myObjFunc: function () {
-            console.log("-- my obj --");
-            console.log('my obj myObjFunc', this);
-        }
-    };
-
-    myObj.myObjFunc();
-
-    var myVar = myObj.myObjFunc;
-
-    console.log("---my var---");
-    myVar();
-
-    var myObj2 = {
-        innerObj: myObj,
-        myObj2Func: function () {
-            console.log("푸루루", this);
-        }
-    };
-
-    myObj2.innerObj.myObjFunc();
-    myObj2.myObj2Func();
-
-    var funObj = function (){
-        console.log('funObj', this);
-
-        return {
-            hello: function () {
-                console.log('funHello', this);
+        name: 'myObj1',
+        objFun: function () {
+            console.log('--3--', this);
+        },
+        innerObj: {
+            name: 'innerObj',
+            objFun: function () {
+                console.log('--4--', this);
             }
         }
     };
 
-    funObj();
+    console.log('typeof myObj', typeof myObj);
+    myObj.objFun();
 
-    var newFunObj = new funObj();
-    newFunObj.hello();
+    console.log('typeof myObj.innerObj', typeof myObj.innerObj);
+    console.log(myObj.innerObj.objFun());
+
+    /* -- */
+    var varObj = myObj.objFun;
+    console.log('typeof varObj', typeof varObj);
+    varObj();
+
+    /* -- */
+    let $myBtn = $('#myBtn');
+    console.log('typeof $myBtn', typeof $myBtn);
+    $myBtn.on('click', function () {
+        console.log('--5--', this);
+        myObj.innerObj.objFun(); //**
+    })
+
 </script>
 </html>
