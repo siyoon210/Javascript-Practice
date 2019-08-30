@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IIFE</title>
+</head>
+<body>
+
+</body>
+<script>
+    const mySecret = ['siyoon', 'siyoon addr', '01012345678'];
+    //이런식으로 노출되면 브라우저의 콘솔에서 쉽게 변수에 접근이 가능하다.
+
+    (function () {
+        const mySecretHideByIIFE = ['푸루', '푸루네집', '01055555555'];
+        // 이런식으로 숨겨두면 변수에 노출이 불가능하다. (IIFE를 이용)
+    })();
+</script>
+</html>
