@@ -9,11 +9,14 @@
 </head>
 <body>
 
-<button class="myButton">top level</button>
+<span id="topLinked">
+  <button data-link="{on ~doSomething}">top level</button>
+</span>
+
 <span id="result"></span>
 
 <script id="tmpl" type="text/x-jsrender">
-  <button class="myButton">in template</button>
+  <button data-link="{on ~doSomething}">in template</button>
 </script>
 
 <script>
@@ -27,10 +30,10 @@
         }
     }
 
-    tmpl.link("#result", person); // Render and link the template
+    tmpl.link("#result", person, helpers); // Render and link the template
 
-    // Attach handler to buttons (class 'myButton'), whether in top-level or rendered content.
-    $(".myButton").on("click", helpers.doSomething);
+    $.link(true, "#topLinked", person, helpers); // Data-link top-level content
+
 
 </script>
 

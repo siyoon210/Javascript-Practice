@@ -10,23 +10,24 @@
     });
     ```
 
-### 2. jsView를 사용하기
+### 2. jsViews를 사용하기
 - 이벤트를 담고 있는 helpers를 별도로 선언하여서 바인딩 해주는 방식으로 구현한다.
-- 3가지 방법이 있다. 아래는 jQuery를 사용하여서 바인딩 하는 방법
+- jsViews로 link()를 호출할때 이벤트 function을 같이 바인딩 시킨다,
 ```
-var helpers = {
-  doSomething: function() {
-    alert("do something");
-  }
-}
+    var tmpl = $.templates("#tmpl");
 
-tmpl.link("#result", person); // Render and link the template
+    var person = {};
 
-// Attach handler to buttons (class 'myButton'), whethe법r in top-level or rendered content.
-$(".myButton").on("click", helpers.doSomething);
+    var helpers = {
+        doSomething: function() {
+            alert("do something");
+        }
+    }
+
+    tmpl.link("#result", person, helpers); // Render and link the template
 ```
 - https://www.jsviews.com/#link-events
-- 실습파일 :  jsRender/jsview-event-binding.html
+- 실습파일 :  jsRender/jsviews-dynamic-event-binding.html
 
 ## (19.10.18) 
 ### ~~jQuery Templates plugin~~ 
