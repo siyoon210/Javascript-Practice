@@ -26,6 +26,7 @@ tmpl.link("#result", person); // Render and link the template
 $(".myButton").on("click", helpers.doSomething);
 ```
 - https://www.jsviews.com/#link-events
+- 실습파일 :  jsRender/jsview-event-binding.html
 
 ## (19.10.18) 
 ### ~~jQuery Templates plugin~~ 
