@@ -1,5 +1,10 @@
 # HTML-CSS-JS
 
+## (19.10.20) var, let, const 의 차이
+- var : function-scoped, 가변적 (es5 이전 버전에서 사용)
+- let : block-scoped, 가변적 (es6 이후 버전에서 사용)
+- const : block-scoped, 불변적 (es6 이후 버전에서 사용)
+
 ## (19.10.19) (Ajax로) 동적 렌더링한 html에 이벤트 바인딩하기
 ### 1. jQuery (혹은 vanilla js)
 - 방법1. 이벤트 바인딩 하는 코드를 렌더링 직후에 실행시킨다.
