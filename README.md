@@ -1,5 +1,19 @@
 # HTML-CSS-JS
 
+## (19.11.21) Prototype
+- 자바스크립트는 프로토타입 프로그래밍이다. (일단 자바의 클래스랑 다르다는 것 정도만 기억하자)
+- 프로토타입 그 자체로 객체다.
+- 모든 객체들은 **prototype** 이라고 하는 프로퍼티를 자동으로 가지고 있다.
+```
+    function Super() {}
+    Super.prototype.myProp = 'world';
+
+    function Sub() {}
+    Sub.prototype = new Super(); //이건 프로토타입방식의 상속문법이라고 생각하자. 프로토타입을 바로 넣어주면 안됨
+```
+- 이러한 방식이 상속을 구현하는 방식이다. 하위타입 프로토타입의 상위타입의 생성자를 넣어주자. (프로토타입을 넣으면 안됨)
+- 실습파일 js/prototype/prototype.html
+
 ## (19.10.20) var, let, const 의 차이
 - var : function-scoped, 가변적 (es5 이전 버전에서 사용)
 - let : block-scoped, 가변적 (es6 이후 버전에서 사용)
