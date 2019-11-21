@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closure</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Ultra() {}
+    Ultra.prototype.myProp = 'hell';
+
+    function Super() {}
+    Super.prototype = new Ultra(); //이건 프로토타입방식의 상속문법이라고 생각하자. 프로토타입을 바로 넣어주면 안됨
+    Super.prototype.myProp = 'world';
+
+    function Sub() {}
+    Sub.prototype = new Super();
+
+    let o = new Sub();
+    console.log(o.myProp);
+
+</script>
+</html>
