@@ -1,5 +1,15 @@
 # HTML-CSS-JS
 
+## (20.02.08) Prototype을 활용하여서 String 객체를 숫자로 파싱하는 기능 추가하기
+```
+String.prototype.toNum = function () {
+        var number = parseFloat(this.replace(/[^0-9.]/g, ""));
+        return isNaN(number) ? 0 : number;
+};
+```
+- 코드는 정규표현식을 사용하여서 문자열중 숫자만 발라내고 숫자로 변환하는 로직을 toNum이라는 프로퍼티에 저장한다.
+- string 타입의 객체는 .toNum()을 이용하여서 숫자로 변환한다. 
+ 
 ## (19.11.21) Prototype
 - 자바스크립트는 프로토타입 프로그래밍이다. (일단 자바의 클래스랑 다르다는 것 정도만 기억하자)
 - 프로토타입 그 자체로 객체다.
