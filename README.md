@@ -1,6 +1,6 @@
 # HTML-CSS-JS
 
-## (20.02.09) Prototype을 활용하여서 숫자에 콤마 넣어주기
+## (20.02.09) Prototype을 활용하여서 숫자에 콤마(,) 넣어주기
 ```
 String.prototype.comma = function () {
     var arr = this.split(".");
@@ -11,6 +11,7 @@ Number.prototype.comma = function () {
     return this.toString().comma();
 };
 ```
+- 콤마(,)가 들어가면 String이어야 함으로 String에 .comma 프로퍼티를 만들고, Number에 이를 활용한 .comma 프로퍼티를 만든다.
 
 ## (20.02.08) Prototype을 활용하여서 String 객체를 숫자로 파싱하는 기능 추가하기
 ```
