@@ -3194,10 +3194,17 @@
 <button id="btn"></button>
 </body>
 <script>
+    String.prototype.adjustCodeBlock = function () {
+        return this.replace(/```/g, '\n```\n')
+    };
+
     $('#btn').on('click', function () {
-        const jsonVal = $('#json').val().replace(/\n/g, "");
+        let jsonVal = $('#json').val().replace(/\n/g, "");
+        // jsonVal = jsonVal.replace(/^```/g, '```++');
+        // jsonVal = jsonVal.replace(/```$/g, '++```');
+        console.log(jsonVal);
         const jsonObj = JSON.parse(jsonVal);
-        console.log(jsonObj);
+        // console.log(jsonObj);
 
         let chatMap = new Map();
 
@@ -3218,23 +3225,19 @@
                 jsonObj[i].reply = [];
                 chatMap.set(jsonObj[i]['ts'], jsonObj[i]);
             }
-
-
         }
 
         let text = [];
 
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += value['text'];
-                text += '\n';
+                text += `[${value['user_profile']['real_name']}]\n${value['text'].adjustCodeBlock()}`;
                 value.reply.forEach(value1 => {
-                    text += "  RE : ";
-                    text += value1['text'];
-                    text += '\n';
-                })
+                    text += `(RE)[${value1['user_profile']['real_name']}]\n${value1['text'].adjustCodeBlock()}`
+                });
+                text += '\n';
             }
-        })
+        });
 
         console.log(text);
     });
