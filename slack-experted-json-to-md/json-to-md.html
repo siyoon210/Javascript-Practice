@@ -1,0 +1,3242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<textarea id="json" style="width:100%; height: 400px">
+    [   {
+        "client_msg_id": "4f7f4a0e-5c9b-4d9e-8bac-07b25153c93d",
+        "type": "message",
+        "text": "p98. “상위 클래스의 메서드를 재정의할 때는 그 접근 수준을 상위 클래스에서보다 좁게 설정할 수 없다”\n<https:\/\/docs.oracle.com\/javase\/specs\/jls\/se7\/html\/jls-8.html#jls-8.4.8.3> [JLS, 8.4.8.3]",
+        "user": "UV32QS4Q3",
+        "ts": "1585540459.013500",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "UV32QS4Q3",
+            "ts": "1585540597.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "1zKAU",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p98. “상위 클래스의 메서드를 재정의할 때는 그 접근 수준을 상위 클래스에서보다 좁게 설정할 수 없다”\n"
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/docs.oracle.com\/javase\/specs\/jls\/se7\/html\/jls-8.html#jls-8.4.8.3"
+                            },
+                            {
+                                "type": "text",
+                                "text": " [JLS, 8.4.8.3]"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585540459.013500",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1585540467.013600",
+        "reply_users": [
+            "UV32QS4Q3"
+        ],
+        "replies": [
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585540467.013600"
+            }
+        ],
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "943299f2-7e93-4119-9792-3d63495d0e1a",
+        "type": "message",
+        "text": "*The access modifier (<https:\/\/docs.oracle.com\/javase\/specs\/jls\/se7\/html\/jls-6.html#jls-6.6|§6.6>) of an overriding or hiding method must provide at least as much access as the overridden or hidden method, as follows:*\n• *If the overridden or hidden method is `public`, then the overriding or hiding method must be `public`; otherwise, a compile-time error occurs.*\n• *If the overridden or hidden method is `protected`, then the overriding or hiding method must be `protected` or `public`; otherwise, a compile-time error occurs.*\n• *If the overridden or hidden method has default (package) access, then the overriding or hiding method must _not_ be `private`; otherwise, a compile-time error occurs.*",
+        "user": "UV32QS4Q3",
+        "ts": "1585540467.013600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "=N8n",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "The access modifier (",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/docs.oracle.com\/javase\/specs\/jls\/se7\/html\/jls-6.html#jls-6.6",
+                                "text": "§6.6",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": ") of an overriding or hiding method must provide at least as much access as the overridden or hidden method, as follows:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "If the overridden or hidden method is ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "public",
+                                        "style": {
+                                            "bold": true,
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": ", then the overriding or hiding method must be ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "public",
+                                        "style": {
+                                            "bold": true,
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "; otherwise, a compile-time error occurs.",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "If the overridden or hidden method is ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "protected",
+                                        "style": {
+                                            "bold": true,
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": ", then the overriding or hiding method must be ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "protected",
+                                        "style": {
+                                            "bold": true,
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": " or ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "public",
+                                        "style": {
+                                            "bold": true,
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "; otherwise, a compile-time error occurs.",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "If the overridden or hidden method has default (package) access, then the overriding or hiding method must ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "not",
+                                        "style": {
+                                            "bold": true,
+                                            "italic": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": " be ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "private",
+                                        "style": {
+                                            "bold": true,
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "; otherwise, a compile-time error occurs.",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "bullet",
+                        "indent": 0
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585540459.013500",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "d2b7af22-9b07-42cb-bced-c2a5a64c8715",
+        "type": "message",
+        "text": "p99 세번째 문단. “클래스가 표현하는 *추상 개념을 완성*하는 데 꼭 필요한 구성요소로써의 상수”\n이게 무슨 말일까요..??",
+        "user": "UV32QS4Q3",
+        "ts": "1585540685.014700",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "UV32QS4Q3",
+            "ts": "1585540837.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "dI9df",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p99 세번째 문단. “클래스가 표현하는 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "추상 개념을 완성",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "하는 데 꼭 필요한 구성요소로써의 상수”\n이게 무슨 말일까요..??"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585540685.014700",
+        "reply_count": 2,
+        "reply_users_count": 1,
+        "latest_reply": "1585702234.003400",
+        "reply_users": [
+            "U0102NNNK7G"
+        ],
+        "replies": [
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585702116.003100"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585702234.003400"
+            }
+        ],
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "aa7639f0-d297-49f2-a9af-cfb4f752b8d6",
+        "type": "message",
+        "text": "• p99. “필드가 수정될 때 (락 획득 같은) 다른 작업을 할 수 없게 되므로 public 가변 필드를 갖는 클래스는 일반적으로 스레드 안전하지 않다“.\n• p102. public 필드가 존재하는 클래스 → “외부에서 필드에 접근할 때 부수 작업을 수행할 수도 없다“.\n• p103 마지막 문단. “필드를 읽을 때 부수 작업을 수행할 수 없다는 단점”\n‘부수 작업’이란 예를 들어 어떤 것들이 있으며, public 필드에 접근할 때 왜 부수 작업을 수행할 수 없다는 것인지?",
+        "user": "UV32QS4Q3",
+        "ts": "1585541806.015600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "2AEx",
+                "elements": [
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "p99. “필드가 수정될 때 (락 획득 같은) 다른 작업을 할 수 없게 되므로 public 가변 필드를 갖는 클래스는 일반적으로 스레드 안전하지 않다“."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "p102. public 필드가 존재하는 클래스 → “외부에서 필드에 접근할 때 부수 작업을 수행할 수도 없다“."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "p103 마지막 문단. “필드를 읽을 때 부수 작업을 수행할 수 없다는 단점”"
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "bullet",
+                        "indent": 0
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "\n‘부수 작업’이란 예를 들어 어떤 것들이 있으며, public 필드에 접근할 때 왜 부수 작업을 수행할 수 없다는 것인지?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "reply_count": 8,
+        "reply_users_count": 4,
+        "latest_reply": "1585756624.028100",
+        "reply_users": [
+            "U0102NNNK7G",
+            "U0100GFPL6L",
+            "UV32QSBDH",
+            "UV32QS4Q3"
+        ],
+        "replies": [
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585700824.001000"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585701002.001200"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585701359.001600"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585702690.003600"
+            },
+            {
+                "user": "UV32QSBDH",
+                "ts": "1585749438.010200"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585752233.026800"
+            },
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585755090.027600"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585756624.028100"
+            }
+        ],
+        "subscribed": true,
+        "last_read": "1585756624.028100",
+        "reactions": [
+            {
+                "name": "smile",
+                "users": [
+                    "UV32QSBDH"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "328a424e-e738-419c-86ce-727d9ce576b3",
+        "type": "message",
+        "text": "페이지 97 `자바는 정보 은닉을 위한 다양한 장치를 제공한다.` -&gt; 접근 제어자 말고 또 무슨 장치가 있지?",
+        "user": "U0102NNNK7G",
+        "ts": "1585545245.016700",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "yQhl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "페이지 97 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "자바는 정보 은닉을 위한 다양한 장치를 제공한다.",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " -> 접근 제어자 말고 또 무슨 장치가 있지?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6e387939-fb26-414f-9c19-40d79824be8c",
+        "type": "message",
+        "text": "페이지 97 `톱레벨 클래스와 인터페이스에 부여할 수 있는 접근 수준은 package-private ...` -&gt; 인터페이스에 패키지 접근제어자가 안되지 않습니까?",
+        "user": "U0102NNNK7G",
+        "ts": "1585545313.017900",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "qhr",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "페이지 97 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "톱레벨 클래스와 인터페이스에 부여할 수 있는 접근 수준은 package-private ...",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " -> 인터페이스에 패키지 접근제어자가 안되지 않습니까?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "88524def-06fb-433a-89f2-f572b5696172",
+        "type": "message",
+        "text": "페이지 99~100 소개된 2가지 해결책 모두다. Thing배열은 안전하지만 Thing 값을 수정하게 되는 위험이 있으니 딥카피를 하는게 좋을거 같아요.",
+        "user": "U0102NNNK7G",
+        "ts": "1585546071.020000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "U0102NNNK7G",
+            "ts": "1585546501.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "rSu",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "페이지 99~100 소개된 2가지 해결책 모두다. Thing배열은 안전하지만 Thing 값을 수정하게 되는 위험이 있으니 딥카피를 하는게 좋을거 같아요."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "571bd5cc-8ad4-4cca-bb23-d0c1e76b9ac6",
+        "type": "message",
+        "text": "페이지 100 자바9의 모듈 시스템",
+        "user": "U0102NNNK7G",
+        "ts": "1585546080.020300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Arn",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "페이지 100 자바9의 모듈 시스템"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "92c36a24-1a9f-407c-b6fd-8507775816bc",
+        "type": "message",
+        "text": "페이지 111 중간 `만약 신뢰할 수 없는 클라이언트로부터 BigInteger나 ..` 어떤 시나리오가 있을까 도저히 감이 안잡히네.. 같이 코드를 공유하지만 믿을수 없는 클라이언트라..",
+        "user": "U0102NNNK7G",
+        "ts": "1585546169.021300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "WubWH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "페이지 111 중간 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "만약 신뢰할 수 없는 클라이언트로부터 BigInteger나 ..",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 어떤 시나리오가 있을까 도저히 감이 안잡히네.. 같이 코드를 공유하지만 믿을수 없는 클라이언트라.."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "reply_count": 6,
+        "reply_users_count": 2,
+        "latest_reply": "1585702085.002900",
+        "reply_users": [
+            "UV32QS4Q3",
+            "U0102NNNK7G"
+        ],
+        "replies": [
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585673422.000800"
+            },
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585701370.001900"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585701762.002100"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585701771.002300"
+            },
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585701849.002500"
+            },
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585702085.002900"
+            }
+        ],
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "551043c4-e177-4eb3-be51-b421a680a799",
+        "type": "message",
+        "text": "페이지 112 `다른 합당한 이유가 없다면 모든 필드느 private final이어야 한다.`",
+        "user": "U0102NNNK7G",
+        "ts": "1585546214.022400",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "GTnLX",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "페이지 112 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "다른 합당한 이유가 없다면 모든 필드느 private final이어야 한다.",
+                                "style": {
+                                    "code": true
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+        {
+        "client_msg_id": "e149ef75-be53-438b-8a81-b2ca3160537f",
+        "type": "message",
+        "text": "p110. “원하는 객체를 완성하기까지의 단계가 많고”\n =&gt; “한 객체를 생성할 때 복잡한 과정을 거치는 경우“를 의미하는 듯?",
+        "user": "UV32QS4Q3",
+        "ts": "1585671333.000500",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Jtswu",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p110. “원하는 객체를 완성하기까지의 단계가 많고”\n => “한 객체를 생성할 때 복잡한 과정을 거치는 경우“를 의미하는 듯?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "75b6c9bb-26ad-4fd8-b6fb-166198f3a9ea",
+        "type": "message",
+        "text": "p110. BigInteger에서의 “가변 동반 클래스“란 아마도 `UnsafeHolder`를 의미하는 듯 한데, private class인데 책에서는 package-private이라고 하네요?",
+        "user": "UV32QS4Q3",
+        "ts": "1585671350.000700",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "K\/azT",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p110. BigInteger에서의 “가변 동반 클래스“란 아마도 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "UnsafeHolder",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "를 의미하는 듯 한데, private class인데 책에서는 package-private이라고 하네요?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585671350.000700",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1585702902.003800",
+        "reply_users": [
+            "U0102NNNK7G"
+        ],
+        "replies": [
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585702902.003800"
+            }
+        ],
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "da7ef6a5-03d7-4c41-92db-704db7d1a980",
+        "type": "message",
+        "text": "어떤 객체에서 파라미터로 받은 BigInteger나 BigDecimal 객체의 특정 메서드들이 재정의되어 있어서 예상과는 전혀 다르게 동작한다면 보안상 위험할 수 있다는 말 아닐까요? 가령 원래 BigInteger의 `pow(int exponent)` 메서드는 꽤나 복잡한데 파라미터로 들어온 BigInteger 객체는 사실 pow 메서드가 전혀 엉뚱하게 재정의되어 있을 수 있으니…\n그래서 파라미터를 받아서 방어적 복사를 통해 새 인스턴스를 만드는게 안전하다는 말인듯 합니다.",
+        "user": "UV32QS4Q3",
+        "ts": "1585673422.000800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "82m",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "어떤 객체에서 파라미터로 받은 BigInteger나 BigDecimal 객체의 특정 메서드들이 재정의되어 있어서 예상과는 전혀 다르게 동작한다면 보안상 위험할 수 있다는 말 아닐까요? 가령 원래 BigInteger의 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "pow(int exponent)",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 메서드는 꽤나 복잡한데 파라미터로 들어온 BigInteger 객체는 사실 pow 메서드가 전혀 엉뚱하게 재정의되어 있을 수 있으니…\n그래서 파라미터를 받아서 방어적 복사를 통해 새 인스턴스를 만드는게 안전하다는 말인듯 합니다."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "parent_user_id": "U0102NNNK7G"
+    },
+    {
+        "client_msg_id": "589a780a-63cb-419a-b18a-ef0c9eb0fdd2",
+        "type": "message",
+        "text": "```class Person1 {\n    public String name;\n}\n\nclass Person2 {\n    private String name;\n\n    public String getName() {\n        return this.name;\n    }\n}```",
+        "user": "U0102NNNK7G",
+        "ts": "1585700824.001000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ioNh",
+                "elements": [
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "class Person1 {\n    public String name;\n}\n\nclass Person2 {\n    private String name;\n\n    public String getName() {\n        return this.name;\n    }\n}"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "11b63a00-3658-450d-b2db-e866cf4dd6c1",
+        "type": "message",
+        "text": "이런 예제가 있을 때, 요구사항이 `name은 반드시 소문자로 반환해야 한다.`  라고 변경된다면, Person2에서는 return 시에 name을 소문자로 반환하는 `return this.name.toLowerCase()` 라고 부수작업을 넣을 줄 수 있지만 Person1은 저런 작업을 해줄 수 없음,, 요규사항을 만족시키기 위해서 새로운 메소드 `getLowerCaseName()` 을 만들어 주더라도, 이를 `person.name` 으로 접근하고 있던 모든 클라이언트들이 `person.getLowerCaseName()` 이라는 별도의 API로 접근해야 하는 참사가 발생",
+        "user": "U0102NNNK7G",
+        "ts": "1585701002.001200",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "U0102NNNK7G",
+            "ts": "1585701893.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "GHg",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "이런 예제가 있을 때, 요구사항이 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "name은 반드시 소문자로 반환해야 한다.",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "  라고 변경된다면, Person2에서는 return 시에 name을 소문자로 반환하는 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "return this.name.toLowerCase()",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 라고 부수작업을 넣을 줄 수 있지만 Person1은 저런 작업을 해줄 수 없음,, 요규사항을 만족시키기 위해서 새로운 메소드 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "getLowerCaseName()",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 을 만들어 주더라도, 이를 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "person.name",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 으로 접근하고 있던 모든 클라이언트들이 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "person.getLowerCaseName()",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 이라는 별도의 API로 접근해야 하는 참사가 발생"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "59ec5d90-4f19-4725-9d92-82ac31caef61",
+        "type": "message",
+        "text": "99페이지 경우도 프로퍼티 메서드에 설정하는 `synchronized` 를 말하는 것 같음",
+        "user": "U0102NNNK7G",
+        "ts": "1585701359.001600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "U0102NNNK7G",
+            "ts": "1585701367.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "F+T",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "99페이지 경우도 프로퍼티 메서드에 설정하는 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "synchronized",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 를 말하는 것 같음"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "06868b95-e736-4b39-9556-4dd6a5ac8c51",
+        "type": "message",
+        "text": "지금 다시 보니 요지는 \"같은 애플리케이션에 존재하는 코드끼리의 협력인데 신뢰할 수 없는 경우가 언제 생긴다는 것인가?\"인 것 같네요...\n어쨌든 결론은 애플리케이션의 규모가 커질수록 잘못될 여지가 생길 수 있으니 안전하게 방어적 복사를 하라는 말 아닐까요?",
+        "user": "UV32QS4Q3",
+        "ts": "1585701370.001900",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9Sz6",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "지금 다시 보니 요지는 \"같은 애플리케이션에 존재하는 코드끼리의 협력인데 신뢰할 수 없는 경우가 언제 생긴다는 것인가?\"인 것 같네요...\n어쨌든 결론은 애플리케이션의 규모가 커질수록 잘못될 여지가 생길 수 있으니 안전하게 방어적 복사를 하라는 말 아닐까요?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "parent_user_id": "U0102NNNK7G"
+    },
+    {
+        "client_msg_id": "ff875dc8-34d5-4edd-85c8-6876296a9e8b",
+        "type": "message",
+        "text": "직장동료를 의심하라는 말일까요",
+        "user": "U0102NNNK7G",
+        "ts": "1585701762.002100",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "35Nj",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "직장동료를 의심하라는 말일까요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "parent_user_id": "U0102NNNK7G"
+    },
+    {
+        "client_msg_id": "ed2cf7ca-515b-460a-a943-a095db036f76",
+        "type": "message",
+        "text": ":evildaram:",
+        "user": "U0102NNNK7G",
+        "ts": "1585701771.002300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "dbd1",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "evildaram"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "parent_user_id": "U0102NNNK7G"
+    },
+    {
+        "client_msg_id": "7bd7e48a-9b16-4ac9-87bd-abef442c2439",
+        "type": "message",
+        "text": "그것도 하나의 케이스가 될수 있지 않을까요? 예를 들어 레이어별로 개발 역할을 나눴는데 인자를 넣어주는 쪽에서 이상하게 재정의한 객체를 넣어줄수도 있고...",
+        "user": "UV32QS4Q3",
+        "ts": "1585701849.002500",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "UV32QS4Q3",
+            "ts": "1585701859.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "x=dK",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "그것도 하나의 케이스가 될수 있지 않을까요? 예를 들어 레이어별로 개발 역할을 나눴는데 인자를 넣어주는 쪽에서 이상하게 재정의한 객체를 넣어줄수도 있고..."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "parent_user_id": "U0102NNNK7G"
+    },
+    {
+        "client_msg_id": "e1dc660f-8cb8-404a-b41c-a42b6897d867",
+        "type": "message",
+        "text": "앞에서 봤던 아이템 어딘가에서 클라이언트는 악의적이고 뭔가 이상한 짓을 하려고 안달난 놈이라고 가정하고 API를 만들어야 한다.. 뭐 이런 얘기 했던거 같은데...",
+        "user": "UV32QS4Q3",
+        "ts": "1585702085.002900",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "EDP",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "앞에서 봤던 아이템 어딘가에서 클라이언트는 악의적이고 뭔가 이상한 짓을 하려고 안달난 놈이라고 가정하고 API를 만들어야 한다.. 뭐 이런 얘기 했던거 같은데..."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585546169.021300",
+        "parent_user_id": "U0102NNNK7G"
+    },
+    {
+        "client_msg_id": "92161076-5d15-4188-ab28-377dfeddd20e",
+        "type": "message",
+        "text": "99페이지에서 계속 하고자 하는 말은 필드를 public으로 노출시키지 말라라는 건데, 중간에 이 얘기는 약간의 예외를 둔다면 정말정말로 `public static final` 을 붙일정도로 분명하고 명확하고 꼭! 필요한 구성요소인 경우는 *어느정도 허용*해 줄 수 있다. 라는 의미인거 같아요",
+        "user": "U0102NNNK7G",
+        "ts": "1585702116.003100",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "U0102NNNK7G",
+            "ts": "1585702189.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "tu0",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "99페이지에서 계속 하고자 하는 말은 필드를 public으로 노출시키지 말라라는 건데, 중간에 이 얘기는 약간의 예외를 둔다면 정말정말로 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "public static final",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 을 붙일정도로 분명하고 명확하고 꼭! 필요한 구성요소인 경우는 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "어느정도 허용",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "해 줄 수 있다. 라는 의미인거 같아요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585540685.014700",
+        "parent_user_id": "UV32QS4Q3",
+        "reactions": [
+            {
+                "name": "smile",
+                "users": [
+                    "UV32QSBDH"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "d501d094-9c40-4849-adcf-06debb6e42b3",
+        "type": "message",
+        "text": "추상 개념이라는 키워드가 확 와닿진 않지만 원서를 보면 좀 도움이 될 수도",
+        "user": "U0102NNNK7G",
+        "ts": "1585702234.003400",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "VWN",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "추상 개념이라는 키워드가 확 와닿진 않지만 원서를 보면 좀 도움이 될 수도"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585540685.014700",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "5fb413b6-6c74-44c9-a09b-7b26043ea322",
+        "type": "message",
+        "text": "필드를 읽게 안하고. 게터같은걸로 읽게 하면 로직을 추가할 수 있어서 라고 메모 해놨네",
+        "user": "U0100GFPL6L",
+        "ts": "1585702690.003600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ubl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "필드를 읽게 안하고. 게터같은걸로 읽게 하면 로직을 추가할 수 있어서 라고 메모 해놨네"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "4fa01409-a5c2-44d2-9743-92078bb1566a",
+        "type": "message",
+        "text": "```MutableBigInteger```\n를 말하는거 같아요",
+        "user": "U0102NNNK7G",
+        "ts": "1585702902.003800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "1Ogkp",
+                "elements": [
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "MutableBigInteger"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "를 말하는거 같아요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585671350.000700",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "b23c55f4-5ac9-49e8-89bb-2f43fa276866",
+        "type": "message",
+        "text": "p100. \"클래스에서 public static final 배열 필드를 두거나 이 필드를 반환하는 접근자 메서드를 제공해서는 안된다.\" 이 부분에 배열 뿐만아니라 컬렉션 객체에 대해 setter를 닫아두고 getter를 열어두는 것 또한 불변성을 위반하는 방법인 것 같습니다. 컬렉션 객체 또한 접근자를 통해 의도치 않은 수정이 일어날 여지가 있으니 불변객체로 만들기 위해서는 아얘 접근자 메소드도 제공하지 않고 캡슐화된 메소드를 통해 의도하고자 하는 연산을 진행하는 방향이 바람직할거 같아요",
+        "user": "U010XKK2LMN",
+        "ts": "1585731986.006900",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "g740c8f12b85",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/740c8f12b8529b5906b1a7be082a1afa.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0014-72.png",
+            "first_name": "",
+            "real_name": "김근영",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "emsud1",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "QKLM",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p100. \"클래스에서 public static final 배열 필드를 두거나 이 필드를 반환하는 접근자 메서드를 제공해서는 안된다.\" 이 부분에 배열 뿐만아니라 컬렉션 객체에 대해 setter를 닫아두고 getter를 열어두는 것 또한 불변성을 위반하는 방법인 것 같습니다. 컬렉션 객체 또한 접근자를 통해 의도치 않은 수정이 일어날 여지가 있으니 불변객체로 만들기 위해서는 아얘 접근자 메소드도 제공하지 않고 캡슐화된 메소드를 통해 의도하고자 하는 연산을 진행하는 방향이 바람직할거 같아요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585731986.006900",
+        "reply_count": 3,
+        "reply_users_count": 2,
+        "latest_reply": "1585749845.010600",
+        "reply_users": [
+            "U0100GFPL6L",
+            "UV32QS4Q3"
+        ],
+        "replies": [
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585733060.007000"
+            },
+            {
+                "user": "UV32QS4Q3",
+                "ts": "1585737371.007200"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585749845.010600"
+            }
+        ],
+        "subscribed": true,
+        "last_read": "1585749845.010600"
+    },
+    {
+        "client_msg_id": "e54676b4-5c1e-4279-a3ee-13345c1abec5",
+        "type": "message",
+        "text": "```List&lt;Order&gt; orders = Arrays.asList( ~~~ );\norders.get(1).cancelDelivery();```\n이런식으로 Order 객체를 가져온 후에 Order 객체의 상태를 변화시키는 수정자를  무분별하게 호출할 우려가 있기 때문에 아예 접근자 메서드도 제공을 하지 말자는 건가용?",
+        "user": "U0100GFPL6L",
+        "ts": "1585733060.007000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "h4mN",
+                "elements": [
+                    {
+                        "type": "rich_text_preformatted",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "List<Order> orders = Arrays.asList( ~~~ );\norders.get(1).cancelDelivery();"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "이런식으로 Order 객체를 가져온 후에 Order 객체의 상태를 변화시키는 수정자를  무분별하게 호출할 우려가 있기 때문에 아예 접근자 메서드도 제공을 하지 말자는 건가용?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585731986.006900",
+        "parent_user_id": "U010XKK2LMN"
+    },
+    {
+        "client_msg_id": "e1204af1-78a5-4727-953f-9c97848e6be8",
+        "type": "message",
+        "text": "달리 말하면 컬렉션을 wrapping하는 일급 컬렉션 객체를 만들고 캡슐화된 public 메서드를 제공함으로써 불변을 보장하자 라는 말인거죠?",
+        "user": "UV32QS4Q3",
+        "ts": "1585737371.007200",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "DHg",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "달리 말하면 컬렉션을 wrapping하는 일급 컬렉션 객체를 만들고 캡슐화된 public 메서드를 제공함으로써 불변을 보장하자 라는 말인거죠?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585731986.006900",
+        "parent_user_id": "U010XKK2LMN"
+    },
+    {
+        "client_msg_id": "FFD72A43-C867-4C7A-801C-9566ECC61280",
+        "type": "message",
+        "text": "P99 ‘public static final’ ... ‘다른 객체를 참조하지는 못하지만 침조된 객체 자체는 수정될 수 있으니’",
+        "user": "UV32QSBDH",
+        "ts": "1585748370.008800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "d92b91691400",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/990341146515_d92b916914008ef26f7b_72.png",
+            "first_name": "Jaehee",
+            "real_name": "Jaehee",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "jaeheepark0145",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "aqv=",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "P99 ‘public static final’ ... ‘다른 객체를 참조하지는 못하지만 침조된 객체 자체는 수정될 수 있으니’"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "E29AC134-186E-434F-9A0F-D482F77AD8A7",
+        "type": "message",
+        "text": "P100 추억의 `clone()` 꼭 배열한테만 쓰기",
+        "user": "UV32QSBDH",
+        "ts": "1585748899.009800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "d92b91691400",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/990341146515_d92b916914008ef26f7b_72.png",
+            "first_name": "Jaehee",
+            "real_name": "Jaehee",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "jaeheepark0145",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "+QFUi",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "P100 추억의 "
+                            },
+                            {
+                                "type": "text",
+                                "text": "clone()",
+                                "style": {
+                                    "code": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 꼭 배열한테만 쓰기"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585748899.009800",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1585749763.010400",
+        "reply_users": [
+            "U0100GFPL6L"
+        ],
+        "replies": [
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585749763.010400"
+            }
+        ],
+        "subscribed": true,
+        "last_read": "1585749763.010400"
+    },
+    {
+        "client_msg_id": "199D9DE9-A73B-4C01-9E7B-13AC9947C25F",
+        "type": "message",
+        "text": "메모는 누가한거야?? ",
+        "user": "UV32QSBDH",
+        "ts": "1585749438.010200",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "d92b91691400",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/990341146515_d92b916914008ef26f7b_72.png",
+            "first_name": "Jaehee",
+            "real_name": "Jaehee",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "jaeheepark0145",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "kf2e",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "메모는 누가한거야?? "
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "a8827a42-65d0-4e48-86ea-60fd8ed0e49f",
+        "type": "message",
+        "text": "추억 ㅋㅋ",
+        "user": "U0100GFPL6L",
+        "ts": "1585749763.010400",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9KId",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "추억 ㅋㅋ"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585748899.009800",
+        "parent_user_id": "UV32QSBDH"
+    },
+    {
+        "client_msg_id": "900c5fff-b4b3-44b5-bf2e-2c3e538c2be1",
+        "type": "message",
+        "text": "뢥핑~ 응 맞엉.",
+        "user": "U0100GFPL6L",
+        "ts": "1585749845.010600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "86c+j",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "뢥핑~ 응 맞엉."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585731986.006900",
+        "parent_user_id": "U010XKK2LMN"
+    },
+    {
+        "client_msg_id": "f1a12501-e068-45d1-a75f-a0d256390e6a",
+        "type": "message",
+        "text": "p97 패키지 외부에서 쓸 이유가 없다면 package-private 선언하자  (package-private 이 뭔가요)",
+        "user": "U0100H18GLV",
+        "ts": "1585750527.015300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "c54a3abd6a62",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-27\/1018578473235_c54a3abd6a62b582c41d_72.jpg",
+            "first_name": "",
+            "real_name": "yjs",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "yjs2952",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "S=sX",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p97 패키지 외부에서 쓸 이유가 없다면 package-private 선언하자  (package-private 이 뭔가요)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750527.015300",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1585751076.021300",
+        "reply_users": [
+            "U0102NNNK7G"
+        ],
+        "replies": [
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585751076.021300"
+            }
+        ],
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "a35aa811-0cef-4ace-9924-2015cd1338ca",
+        "type": "message",
+        "text": "p100 모듈은 자신에 속하는 패키지 중 공개 (export)할 것들을 (관례상 module-info.java 파일에) 선언한다 . protected 혹은 public 멤버라도 해당 패키지를 공개하지 않았다면 모률 외부에서는 접근할 수 없다. (자바 9에서 추가된 모듈이란 건 뭐지?)",
+        "user": "U0100H18GLV",
+        "ts": "1585750680.018000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "c54a3abd6a62",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-27\/1018578473235_c54a3abd6a62b582c41d_72.jpg",
+            "first_name": "",
+            "real_name": "yjs",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "yjs2952",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9sMN",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p100 모듈은 자신에 속하는 패키지 중 공개 (export)할 것들을 (관례상 module-info.java 파일에) 선언한다 . protected 혹은 public 멤버라도 해당 패키지를 공개하지 않았다면 모률 외부에서는 접근할 수 없다. (자바 9에서 추가된 모듈이란 건 뭐지?)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "87900395-df10-48a5-8f45-49a6f73be9de",
+        "type": "message",
+        "text": "p107 이처럼 피 연산자에 함수를 적용해 그 결과를 반환하지만, 피연산자 자체는 그대로인 프로그래밍 패턴을 함수형 프로그래밍이라 한다. (예제로 나온 코드가 왜 함수형 프로그래밍인가)",
+        "user": "U0100H18GLV",
+        "ts": "1585750782.019900",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "c54a3abd6a62",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-27\/1018578473235_c54a3abd6a62b582c41d_72.jpg",
+            "first_name": "",
+            "real_name": "yjs",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "yjs2952",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Fv1X4",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p107 이처럼 피 연산자에 함수를 적용해 그 결과를 반환하지만, 피연산자 자체는 그대로인 프로그래밍 패턴을 함수형 프로그래밍이라 한다. (예제로 나온 코드가 왜 함수형 프로그래밍인가)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750782.019900",
+        "reply_count": 2,
+        "reply_users_count": 1,
+        "latest_reply": "1585751227.021800",
+        "reply_users": [
+            "U0102NNNK7G"
+        ],
+        "replies": [
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585751217.021600"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585751227.021800"
+            }
+        ],
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "4096e235-2971-4fd0-bfb4-c1fbe190ee91",
+        "type": "message",
+        "text": "P111 어떤 메서드도 객체의 상태 중 외부에 비치는 값을 변경할 수 없다.\n\n외부에 비치는 값의 대표적인 것이 파라미터인데, 메서드 내부에서는  이 값(파라미터)에 대한 수정을 해서는 안 된다는 말. 파라미터로 넘어간 값을 저장(ex:DB)하거나 또는 그 값을 이용해 다른 값을 도출해 리턴하거나, 또는 DB에 조회를 해서 값을 조회할 수는 있지만 그 파라미터 값 자체를 수정해서는 안된다.\n\n메서드에서 외부에 비치는 값을 변경해버리면 클라이언트는 그 메서드 구현부(HOW)를 필수적으로 까봐야만 한다. 파라미터로 썼던 변수를 다른 곳에서 재사용하려고 하면 변경된 값이 적용되어 버리기 때문에 클라이언트 단을 개발하는 개발자는 그 메서드를 반드시 까봐야 한다. 캡슐화와도 관련이 있고 CQRS와도 관련된 개념인 것 같다.",
+        "user": "U0100GFPL6L",
+        "ts": "1585750823.020300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zliJ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "P111 어떤 메서드도 객체의 상태 중 외부에 비치는 값을 변경할 수 없다.\n\n외부에 비치는 값의 대표적인 것이 파라미터인데, 메서드 내부에서는  이 값(파라미터)에 대한 수정을 해서는 안 된다는 말. 파라미터로 넘어간 값을 저장(ex:DB)하거나 또는 그 값을 이용해 다른 값을 도출해 리턴하거나, 또는 DB에 조회를 해서 값을 조회할 수는 있지만 그 파라미터 값 자체를 수정해서는 안된다.\n\n메서드에서 외부에 비치는 값을 변경해버리면 클라이언트는 그 메서드 구현부(HOW)를 필수적으로 까봐야만 한다. 파라미터로 썼던 변수를 다른 곳에서 재사용하려고 하면 변경된 값이 적용되어 버리기 때문에 클라이언트 단을 개발하는 개발자는 그 메서드를 반드시 까봐야 한다. 캡슐화와도 관련이 있고 CQRS와도 관련된 개념인 것 같다."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "reply_count": 13,
+        "reply_users_count": 2,
+        "latest_reply": "1585790344.031200",
+        "reply_users": [
+            "U0102NNNK7G",
+            "U0100GFPL6L"
+        ],
+        "replies": [
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585751624.023100"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585752708.027000"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585783126.028300"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585788747.029400"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585789773.029600"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585789882.029800"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585789885.030000"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585789894.030200"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585789920.030400"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585789934.030600"
+            },
+            {
+                "user": "U0102NNNK7G",
+                "ts": "1585789936.030800"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585789960.031000"
+            },
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585790344.031200"
+            }
+        ],
+        "subscribed": true,
+        "last_read": "1585790344.031200"
+    },
+    {
+        "client_msg_id": "43fcc1c9-1cce-4f62-850d-a9cd60a153df",
+        "type": "message",
+        "text": "p110 다단계 연산????",
+        "user": "U0100H18GLV",
+        "ts": "1585750898.020500",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "c54a3abd6a62",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-27\/1018578473235_c54a3abd6a62b582c41d_72.jpg",
+            "first_name": "",
+            "real_name": "yjs",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "yjs2952",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "+P4D",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p110 다단계 연산????"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750898.020500",
+        "reply_count": 2,
+        "reply_users_count": 2,
+        "latest_reply": "1585751004.021100",
+        "reply_users": [
+            "U0100GFPL6L",
+            "U0100H18GLV"
+        ],
+        "replies": [
+            {
+                "user": "U0100GFPL6L",
+                "ts": "1585750985.020900"
+            },
+            {
+                "user": "U0100H18GLV",
+                "ts": "1585751004.021100"
+            }
+        ],
+        "subscribed": true,
+        "last_read": "1585751004.021100"
+    },
+    {
+        "client_msg_id": "ffa56342-ffba-4dec-92a7-7532c2013b06",
+        "type": "message",
+        "text": "p114 메서드 호출과 달리 상속은 캡슐화를 깨뜨린다.",
+        "user": "U0100H18GLV",
+        "ts": "1585750938.020800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "c54a3abd6a62",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-27\/1018578473235_c54a3abd6a62b582c41d_72.jpg",
+            "first_name": "",
+            "real_name": "yjs",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "yjs2952",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "=Ic",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p114 메서드 호출과 달리 상속은 캡슐화를 깨뜨린다."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6b7e5f8e-8dc2-4241-bacb-a59554b5d780",
+        "type": "message",
+        "text": "예로 곱하기, 플러스 ,마이너스  연산을 필요로 하는 기능이 있으면. 곱하기 하나 하고 값 객체 하나 생성하고. 마이너스 연산하고 객체 하나 생성하고. 플러스 연산하고 객체 생성하고… 이러지 말고 한번에 연산을 해버리고 객체를 하나만 만들자는 말인듯",
+        "user": "U0100GFPL6L",
+        "ts": "1585750985.020900",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "crV",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "예로 곱하기, 플러스 ,마이너스  연산을 필요로 하는 기능이 있으면. 곱하기 하나 하고 값 객체 하나 생성하고. 마이너스 연산하고 객체 하나 생성하고. 플러스 연산하고 객체 생성하고… 이러지 말고 한번에 연산을 해버리고 객체를 하나만 만들자는 말인듯"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750898.020500",
+        "parent_user_id": "U0100H18GLV"
+    },
+    {
+        "client_msg_id": "d10d62ca-01da-4af7-b450-6bb59405f8e6",
+        "type": "message",
+        "text": "아하~",
+        "user": "U0100H18GLV",
+        "ts": "1585751004.021100",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "c54a3abd6a62",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-27\/1018578473235_c54a3abd6a62b582c41d_72.jpg",
+            "first_name": "",
+            "real_name": "yjs",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "yjs2952",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "x7UH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "아하~"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750898.020500",
+        "parent_user_id": "U0100H18GLV"
+    },
+    {
+        "client_msg_id": "6503a9db-6b08-41bf-a234-d142dff43018",
+        "type": "message",
+        "text": "패키지 접근자요.",
+        "user": "U0102NNNK7G",
+        "ts": "1585751076.021300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "+uiUM",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "패키지 접근자요."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750527.015300",
+        "parent_user_id": "U0100H18GLV"
+    },
+    {
+        "client_msg_id": "7473bde9-194d-40a2-b436-9cd563bad39c",
+        "type": "message",
+        "text": "예제코드에 메서드들은 인풋이 같다면 10억번을 호출해도  같은 아웃풋을 반환하지요,",
+        "user": "U0102NNNK7G",
+        "ts": "1585751217.021600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "vNATt",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "예제코드에 메서드들은 인풋이 같다면 10억번을 호출해도  같은 아웃풋을 반환하지요,"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750782.019900",
+        "parent_user_id": "U0100H18GLV"
+    },
+    {
+        "client_msg_id": "7c6386e2-6d96-4f89-bbeb-fd2bdcc6f66d",
+        "type": "message",
+        "text": "그것은 함수형!",
+        "user": "U0102NNNK7G",
+        "ts": "1585751227.021800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zF=",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "그것은 함수형!"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750782.019900",
+        "parent_user_id": "U0100H18GLV"
+    },
+    {
+        "client_msg_id": "56c1d87c-6ec7-4bac-90dd-9e037c6621cc",
+        "type": "message",
+        "text": "저는 외부의 비치는 값이라는게 객체 값중에서 외부에 노출되는 값으로 이해했는데요. 말씀하시는 파라미터는 외부에서 들어오는 값을 말하는 건가요? 외부에서 들어온 값은 아무리 수정을 해도 메서드가 실행되는 객체 자체의 불변성을 깨트리는게 아니잖아요",
+        "user": "U0102NNNK7G",
+        "ts": "1585751624.023100",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "edited": {
+            "user": "U0102NNNK7G",
+            "ts": "1585751666.000000"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "3xPB",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "저는 외부의 비치는 값이라는게 객체 값중에서 외부에 노출되는 값으로 이해했는데요. 말씀하시는 파라미터는 외부에서 들어오는 값을 말하는 건가요? 외부에서 들어온 값은 아무리 수정을 해도 메서드가 실행되는 객체 자체의 불변성을 깨트리는게 아니잖아요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "7f4b5490-be79-48f8-93ab-966212ee1ff4",
+        "type": "message",
+        "text": "p114. 메서드 호출과 달리 상속은 캡슐화를 깨뜨린다.\n\n상속은 기능 확장의 용도로 사용하면 좋은 방법이 될 수도 있지만 자식 클래스와 부모 클래스의 결합도를 높여버린다. 왜냐하면 상속을 하게 되면 자식클래스는 부모클래스의 구현에 강하게 의존하게 만들기 때문에~? 자식클래스는 부모클래스의 변경에 취약해진다. 부모클래스의 인터페이스(오퍼레이션?)가 아닌 구현을 변경하더라도 자식클래스는 영향을 받기 쉬운 구조로 된다.  이렇게 되면 캡슐화를 약화시킨다.",
+        "user": "U0100GFPL6L",
+        "ts": "1585751878.026600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "d2i",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "p114. 메서드 호출과 달리 상속은 캡슐화를 깨뜨린다.\n\n상속은 기능 확장의 용도로 사용하면 좋은 방법이 될 수도 있지만 자식 클래스와 부모 클래스의 결합도를 높여버린다. 왜냐하면 상속을 하게 되면 자식클래스는 부모클래스의 구현에 강하게 의존하게 만들기 때문에~? 자식클래스는 부모클래스의 변경에 취약해진다. 부모클래스의 인터페이스(오퍼레이션?)가 아닌 구현을 변경하더라도 자식클래스는 영향을 받기 쉬운 구조로 된다.  이렇게 되면 캡슐화를 약화시킨다."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "736c7843-c81a-4008-8c77-bf79d743122c",
+        "type": "message",
+        "text": "내가 나에게",
+        "user": "U0100GFPL6L",
+        "ts": "1585752233.026800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "4RE",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "내가 나에게"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "30e41401-8d4e-4a6e-9972-83fa8675c6de",
+        "type": "message",
+        "text": "외부에서 들어오는 값 맞음. 아 이 경우에는 메서드를 실행하는 객체 자체의 불변성은 안 깨지겠지만 외부에서 들어온 값을 메서드 내부에서 수정해버리면. 클라이언트 입장에서 객체(파라미터로 사용된 객체를 가지고 있는) 불변성이 깨지는 것이라는 의미에서 씀",
+        "user": "U0100GFPL6L",
+        "ts": "1585752708.027000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/\/1m",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "외부에서 들어오는 값 맞음. 아 이 경우에는 메서드를 실행하는 객체 자체의 불변성은 안 깨지겠지만 외부에서 들어온 값을 메서드 내부에서 수정해버리면. 클라이언트 입장에서 객체(파라미터로 사용된 객체를 가지고 있는) 불변성이 깨지는 것이라는 의미에서 씀"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "1c88fa9f-067d-474e-b3e2-38a0aa1b8136",
+        "type": "message",
+        "text": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+        "user": "UV32QS4Q3",
+        "ts": "1585755090.027600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "e3d7d263f3f1",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1000835949088_e3d7d263f3f166d5ec3b_72.png",
+            "first_name": "김규민",
+            "real_name": "김규민",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "starkying",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "peP",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "A75F77C3-873D-4D88-8D53-769D8623FE8B",
+        "type": "message",
+        "text": "부수설명이 부족했군 크흠",
+        "user": "U0100GFPL6L",
+        "ts": "1585756624.028100",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "cfW3",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "부수설명이 부족했군 크흠"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585541806.015600",
+        "parent_user_id": "UV32QS4Q3"
+    },
+    {
+        "client_msg_id": "b67ea3ad-61da-4fde-923e-e87e9b75dfe0",
+        "type": "message",
+        "text": "클라이언트가 보내는 객체의 불변성을 깨뜨리고 싶지 않다면, 불변객체를 만들어서 보내야 하지 않은까요? 사용하는 다른 객체 로직에 따라 불변성이 깨진다면 너무 불안정한거같아요",
+        "user": "U0102NNNK7G",
+        "ts": "1585783126.028300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "JH+",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "클라이언트가 보내는 객체의 불변성을 깨뜨리고 싶지 않다면, 불변객체를 만들어서 보내야 하지 않은까요? 사용하는 다른 객체 로직에 따라 불변성이 깨진다면 너무 불안정한거같아요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "7FA8A94F-8807-4A6A-864C-3FDDDC6D170D",
+        "type": "message",
+        "text": "P106 자신 외에는 내부의 가변컴포넌트에 접근할 수 없도록 한다",
+        "user": "UV32QSBDH",
+        "ts": "1585787304.029300",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "d92b91691400",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/990341146515_d92b916914008ef26f7b_72.png",
+            "first_name": "Jaehee",
+            "real_name": "Jaehee",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "jaeheepark0145",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "iQLdu",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "P106 자신 외에는 내부의 가변컴포넌트에 접근할 수 없도록 한다"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "847db2e8-9994-4a59-a2c7-d51ee22ebeb9",
+        "type": "message",
+        "text": "그치 불변객체를 만들어서 보내야지. 위에 말한건 불변성을 깨는 예를 말한거궁",
+        "user": "U0100GFPL6L",
+        "ts": "1585788747.029400",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "D9Af",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "그치 불변객체를 만들어서 보내야지. 위에 말한건 불변성을 깨는 예를 말한거궁"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "929c533e-c312-4c03-8864-9aefa92947de",
+        "type": "message",
+        "text": "왜 CQRS를 떠올린건지 준비해서 발표해주실수있나요",
+        "user": "U0102NNNK7G",
+        "ts": "1585789773.029600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "JOBE",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "왜 CQRS를 떠올린건지 준비해서 발표해주실수있나요"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "9824601b-86bc-4873-b075-42b212f70b39",
+        "type": "message",
+        "text": "명령과 조회를 분리해야 하는데 위에 설명한 예제는 명확히 구분이 되지 않고 뒤섞여 버렸기 때문에 CQRS 가 생각 난겁니다",
+        "user": "U0100GFPL6L",
+        "ts": "1585789882.029800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "r16",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "명령과 조회를 분리해야 하는데 위에 설명한 예제는 명확히 구분이 되지 않고 뒤섞여 버렸기 때문에 CQRS 가 생각 난겁니다"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "9ffde4ce-b3eb-46c5-887e-9f6ca87f980e",
+        "type": "message",
+        "text": "발표 못 합 니 다",
+        "user": "U0100GFPL6L",
+        "ts": "1585789885.030000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "F0q7v",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "발표 못 합 니 다"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "1c1169f1-9f13-4ecc-8a24-cba9c99092af",
+        "type": "message",
+        "text": "왜죠!",
+        "user": "U0102NNNK7G",
+        "ts": "1585789894.030200",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "glXBR",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "왜죠!"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "2425e02d-cb9f-4455-a9ae-fac73c197f8d",
+        "type": "message",
+        "text": "준비할 시간이 읍슴돠",
+        "user": "U0100GFPL6L",
+        "ts": "1585789920.030400",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "y\/j",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "준비할 시간이 읍슴돠"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "4ff8ab26-d185-4223-9de4-3e2ed58c1691",
+        "type": "message",
+        "text": "아니 뭐 대단하게 하라는게 아니고",
+        "user": "U0102NNNK7G",
+        "ts": "1585789934.030600",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "fZb",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "아니 뭐 대단하게 하라는게 아니고"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "01e19299-ecc6-48e8-88b2-a2462b9a1aba",
+        "type": "message",
+        "text": "한번 소개를",
+        "user": "U0102NNNK7G",
+        "ts": "1585789936.030800",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "3f474e667de9",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-16\/991778703521_3f474e667de9fb01937b_72.gif",
+            "first_name": "",
+            "real_name": "정시윤",
+            "display_name": "",
+            "team": "T01003247A8",
+            "name": "siyoon210",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "cCsZ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "한번 소개를"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "7a115973-5698-47b8-8a46-7e2421d078de",
+        "type": "message",
+        "text": "Let me introuduce",
+        "user": "U0100GFPL6L",
+        "ts": "1585789960.031000",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "NkIw",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Let me introuduce"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L"
+    },
+    {
+        "client_msg_id": "ded663b2-cc1c-429f-945d-f520d76ce21e",
+        "type": "message",
+        "text": "CQRS 가 명령과 조회의 분리를 뜻하는 건 맞는데 뭔가 다른 차원에서 사용하는 용어네. 저 예는 CQRS 와 상관없는듯. 그냥 불변성을 위반하는 예제라고 하고 넘어가면 될듯",
+        "user": "U0100GFPL6L",
+        "ts": "1585790344.031200",
+        "team": "T01003247A8",
+        "user_team": "T01003247A8",
+        "source_team": "T01003247A8",
+        "user_profile": {
+            "avatar_hash": "ca2faf927674",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2020-03-15\/1002431586407_ca2faf9276742c005ef6_72.jpg",
+            "first_name": "JDragon",
+            "real_name": "JDragon",
+            "display_name": "JDragon",
+            "team": "T01003247A8",
+            "name": "koola976",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "wpt",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "CQRS 가 명령과 조회의 분리를 뜻하는 건 맞는데 뭔가 다른 차원에서 사용하는 용어네. 저 예는 CQRS 와 상관없는듯. 그냥 불변성을 위반하는 예제라고 하고 넘어가면 될듯"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "thread_ts": "1585750823.020300",
+        "parent_user_id": "U0100GFPL6L",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0102NNNK7G"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]
+</textarea>
+<button id="btn"></button>
+</body>
+<script>
+    $('#btn').on('click', function () {
+        const jsonVal = $('#json').val().replace(/\n/g, "");
+        const jsonObj = JSON.parse(jsonVal);
+        console.log(jsonObj);
+
+        let chatMap = new Map();
+
+        function isThreadReply(chat) {
+            return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
+        }
+
+        for(let i = 0; i < jsonObj.length; i++){
+            if (isThreadReply(jsonObj[i])) {
+                let origin = chatMap.get(jsonObj[i]['thread_ts']);
+                if (origin === undefined) {
+                    console.log('UNDEFINED', jsonObj[i]['text']);
+                    continue;
+                }
+                origin.reply.push(jsonObj[i]);
+                console.log(origin.reply);
+            } else {
+                jsonObj[i].reply = [];
+                chatMap.set(jsonObj[i]['ts'], jsonObj[i]);
+            }
+
+
+        }
+
+        let text = [];
+
+        chatMap.forEach(function (value) {
+            if (!isThreadReply(value)) {
+                text += value['text'];
+                text += '\n';
+                value.reply.forEach(value1 => {
+                    text += "  RE : ";
+                    text += value1['text'];
+                    text += '\n';
+                })
+            }
+        })
+
+        console.log(text);
+    });
+</script>
+</html>
