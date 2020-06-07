@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="ko">
-
+<meta charset="utf-8">
 <head>
     <title>Lotto</title>
     <script>
-        function LottoMachine(ballCountAll, ballCountChoiced){
+        function LottoMachine(ballCountAll, ballCountChoiced) {
             this.choicedNum = [];
-            
-            this.pickNums = function(){
-                var i = 0;    
-                while(i < ballCountChoiced){
-                var num = parseInt(Math.random()*ballCountAll + 1);
-                    if(!this.choicedNum.includes(num)){
+
+            this.pickNums = function () {
+                var i = 0;
+                while (i < ballCountChoiced) {
+                    var num = parseInt(Math.random() * ballCountAll + 1);
+                    if (!this.choicedNum.includes(num)) {
                         this.choicedNum.push(num);
                         i++;
                     }
                 }
-            }
+            };
 
-            this.getChoicedNum = function(){
+            this.getChoicedNum = function () {
                 return this.choicedNum;
             }
         }
 
-        function printLottoNum(){
+        function printLottoNum() {
             var lottoMachine = new LottoMachine(document.getElementById("ballCountAll").value, document.getElementById("ballCountChoiced").value);
             lottoMachine.pickNums();
             var display = document.getElementById("display");
@@ -33,10 +33,10 @@
 </head>
 
 <body>
-    <input type="number" id="ballCountAll"/><br/>
-    <input type="number" id="ballCountChoiced"/><br/>
-    <input type="button" id="printLottoNum" onclick="printLottoNum()" value="로또 번호 추첨하기"/></br>
-    <span id="display"></span>
+<input type="number" id="ballCountAll"/><br/>
+<input type="number" id="ballCountChoiced"/><br/>
+<input type="button" id="printLottoNum" onclick="printLottoNum()" value="로또 번호 추첨하기"/></br>
+<span id="display"></span>
 </body>
 
 </html>
