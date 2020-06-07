@@ -40,8 +40,12 @@
         });
 
         output.innerText = '[';
-        for (const file of files) {
+        for (const [i, file] of files.entries()) {
             await readFile(file);
+
+            if (i !== files.length - 1) {
+                output.innerText += ",";
+            }
         }
         output.innerText += ']';
     });
