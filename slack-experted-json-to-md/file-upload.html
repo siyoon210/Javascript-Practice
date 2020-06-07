@@ -9,7 +9,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<input type="file" accept="application/json" onchange="load(event)" multiple/>
+<input id="files" type="file" accept="application/json" multiple/>
 <div id="output"></div>
 </body>
 <script>
@@ -25,12 +25,13 @@
         })
     }
 
-    async function load(e) {
+    const files = document.getElementById('files');
+    files.addEventListener('change', async (e) => {
         output.innerText = '[';
         for (const file of Array.from(e.target.files)) {
             await readFile(file);
         }
         output.innerText += ']';
-    }
+    });
 </script>
 </html>
