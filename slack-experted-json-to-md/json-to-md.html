@@ -78,14 +78,20 @@
 
         // 리플이면 기존 글에다가 붙여주기
         for (let i = 0; i < jsonObj.length; i++) {
+            // 채널 조인 메시지면 스킵
+            if (jsonObj[i]['subtype'] === 'channel_join') {
+                continue;
+            }
+
+            // 유저네임이 없는 경우
             if (jsonObj[i]['user_profile'] === undefined) {
-                console.log('REAL NAME NOT FOUND ', jsonObj[i]['ts']);
+                console.error('REAL NAME NOT FOUND ', jsonObj[i]['ts']);
                 continue;
             }
             if (isThreadReply(jsonObj[i])) {
                 let origin = chatMap.get(jsonObj[i]['thread_ts']);
                 if (origin === undefined) {
-                    console.log('UNDEFINED ORIGIN CHAT', jsonObj[i]['text']);
+                    console.error('UNDEFINED ORIGIN CHAT', jsonObj[i]['text']);
                     continue;
                 }
                 origin.reply.push(jsonObj[i]);
