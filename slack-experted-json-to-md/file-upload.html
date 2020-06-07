@@ -19,9 +19,14 @@
         input.type = "file";
         input.accept = "text/json"; // 확장자가 xxx, yyy 일때, ".xxx, .yyy"
         input.onchange = function (event) {
-            Array.from(event.target.files).forEach(file => {
+            output.innerText = "[";
+            $.when(
+                Array.from(event.target.files).forEach(file => {
                 processFile(file);
+            })).then(() => {
+                output.innerText += "]";
             });
+
         };
         input.click();
     }
@@ -29,7 +34,8 @@
     function processFile(file) {
         var reader = new FileReader();
         reader.onload = function () {
-            output.innerText += reader.result;
+            // 각 [ , ] 는 subString으로 제거
+            output.innerText += reader.result.substring(1, reader.result.length - 1);
         };
         reader.readAsText(file, "utf-8");
     }
