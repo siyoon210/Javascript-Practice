@@ -9,35 +9,28 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<button onclick="openTextFile()">Open</button>
-<div id="output">...</div>
+<input type="file" accept="application/json" onchange="load(event)" multiple/>
+<div id="output"></div>
 </body>
 <script>
-    function openTextFile() {
-        var input = document.createElement("input");
-        input.multiple = true;
-        input.type = "file";
-        input.accept = "text/json"; // 확장자가 xxx, yyy 일때, ".xxx, .yyy"
-        input.onchange = function (event) {
-            output.innerText = "[";
-            $.when(
-                Array.from(event.target.files).forEach(file => {
-                processFile(file);
-            })).then(() => {
-                output.innerText += "]";
-            });
-
-        };
-        input.click();
+    function readFile(file) {
+        return new Promise((resolve, reject) => {
+            let fr = new FileReader();
+            fr.error = reject;
+            fr.onload = () => {
+                // 각 [ , ] 는 subString으로 제거
+                resolve(output.innerText += fr.result.substring(1, fr.result.length - 1));
+            };
+            fr.readAsText(file, "utf-8");
+        })
     }
 
-    function processFile(file) {
-        var reader = new FileReader();
-        reader.onload = function () {
-            // 각 [ , ] 는 subString으로 제거
-            output.innerText += reader.result.substring(1, reader.result.length - 1);
-        };
-        reader.readAsText(file, "utf-8");
+    async function load(e) {
+        output.innerText = '[';
+        for (const file of Array.from(e.target.files)) {
+            await readFile(file);
+        }
+        output.innerText += ']';
     }
 </script>
 </html>
