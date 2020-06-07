@@ -68,12 +68,7 @@
     };
 
     $('#btn').on('click', function () {
-        // let jsonVal = $('#json').val().replace(/\n/g, "");
-        // jsonVal = jsonVal.replace(/^```/g, '```++');
-        // jsonVal = jsonVal.replace(/```$/g, '++```');
-        console.log(unionFileString);
         const jsonObj = JSON.parse(unionFileString);
-        // console.log(jsonObj);
 
         let chatMap = new Map();
 
@@ -81,6 +76,7 @@
             return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
         }
 
+        // 리플이면 기존 글에다가 붙여주기
         for (let i = 0; i < jsonObj.length; i++) {
             if (jsonObj[i]['user_profile'] === undefined) {
                 console.log('REAL NAME NOT FOUND ', jsonObj[i]['ts']);
@@ -101,6 +97,7 @@
 
         let text = [];
 
+        // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
                 text += '__**' + value['user_profile']['real_name'] + '**__\n ' + value['text'].adjustCodeBlock() + '\n\n';
@@ -110,8 +107,6 @@
                 text += '---\n';
             }
         });
-
-        // console.log(text);
 
         $('#result').text(text);
     });
