@@ -68,6 +68,7 @@
     };
 
     $('#btn').on('click', function () {
+        console.log(unionFileString);
         const jsonObj = JSON.parse(unionFileString);
 
         let chatMap = new Map();
@@ -84,8 +85,9 @@
             }
 
             // 유저네임이 없는 경우
-            if (jsonObj[i]['user_profile'] === undefined) {
-                console.error('REAL NAME NOT FOUND ', jsonObj[i]['ts']);
+            if (jsonObj[i]['user_profile'] === undefined && jsonObj[i]['files'] === undefined) {
+                console.error('REAL NAME NOT FOUND ', new Date(jsonObj[i]['ts'] * 1000).toLocaleDateString());
+                console.error(jsonObj[i]);
                 continue;
             }
             if (isThreadReply(jsonObj[i])) {
@@ -106,13 +108,36 @@
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += '__**' + value['user_profile']['real_name'] + '**__\n ' + value['text'].adjustCodeBlock() + '\n\n';
-                value.reply.forEach(value1 => {
-                    text += '>__**' + value1['user_profile']['real_name'] + '**__\t' + value1['text'].adjustCodeBlock().reply() + '\n\n';
+                text += '__**' + getUserName(value) + '**__\n ' + getContent(value) + '\n\n';
+
+                //리플 붙이기
+                value.reply.forEach(replyValue => {
+                    text += '>__**' + getUserName(replyValue) + '**__\t' + getContent(replyValue) + '\n\n';
                 });
-                text += '---\n';
+                text += '\n\n---\n\n';
             }
         });
+
+        function getUserName(value) {
+            if (value['user_profile']) {
+                return  value['user_profile']['real_name']
+            }
+
+            return value['user']
+        }
+
+        function getContent(value) {
+            if (value['text']) {
+                return value['text'].adjustCodeBlock()
+            }
+
+            if (value['files']) {
+                return `![${value['files'][0]['name']}](${value['files'][0]['url_private']})`
+            }
+
+            console.error('No Content');
+            return ""
+        }
 
         $('#result').text(text);
     });
