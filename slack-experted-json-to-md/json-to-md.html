@@ -108,19 +108,19 @@
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += '__**' + getUserName(value) + '**__\n ' + getContent(value) + '\n\n';
+                text += `__**${getUserName(value)}**__\n${getContent(value)}\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += '>__**' + getUserName(replyValue) + '**__\t' + getContent(replyValue) + '\n\n';
+                    text += `>__**${getUserName(replyValue)}**__\n${getContent(replyValue)}\n\n`;
                 });
-                text += '---\n';
+                text += '\n---\n';
             }
         });
 
         function getUserName(value) {
             if (value['user_profile']) {
-                return  value['user_profile']['real_name']
+                return value['user_profile']['real_name']
             }
 
             return value['user']
