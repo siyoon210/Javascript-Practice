@@ -20,6 +20,7 @@
 <textarea id="result" style="width:100%; height:800px"></textarea>
 </body>
 <script>
+    //todo users.json이랑 파일들 존재하는지 확인, 이름 확인
     let unionFileString;
 
     function readFile(file) {
@@ -113,11 +114,11 @@
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += `__**${getUserName(value)}**__\n${getContent(value)}\n`;
+                text += `__**${getUserName(value)}**__ ${getDate(value)}\n${getContent(value)}\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += `>__**${getUserName(replyValue)}**__\n${getContent(replyValue)}\n\n`;
+                    text += `>__**${getUserName(replyValue)}**__ ${getDate(value)}\n${getContent(replyValue)}\n\n`;
                 });
                 text += '\n---\n';
             }
@@ -129,6 +130,10 @@
             }
 
             return usersMap[value['user']]['profile']['real_name'];
+        }
+
+        function getDate(value) {
+            return new Date(value['ts'] * 1000).toLocaleString();
         }
 
         function getContent(value) {
