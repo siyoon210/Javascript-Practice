@@ -62,13 +62,22 @@
         unionFileString += ']';
     });
 
+    // 리플에 들여쓰기
+    String.prototype.indent = function () {
+        return this.replace(/\n/g, '\n    ');
+    };
+
     // \n이 한개뿐이면 개행이 되지 않아 하나 더 추가한다.
     String.prototype.addOneMoreLineBreak = function () {
         return this.replace(/\n/g, '\n\n');
     };
 
     String.prototype.adjustCodeBlock = function () {
-        return this.replace(/```/g, '\n```\n');
+        return this.replace(/```/g, '\n```\n')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"');
     };
 
     $('#btn').on('click', async function () {
@@ -117,7 +126,7 @@
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += `- ${getUserName(replyValue)} ${getDate(value)}\n\n${getContent(replyValue)}\n\n`;
+                    text += `- ${getUserName(replyValue)} ${getDate(replyValue)}\n\n${getContent(replyValue)}\n\n`;
                 });
                 text += '\n---\n';
             }
@@ -137,7 +146,7 @@
         function getContent(value) {
             if (value['text']) {
                 if (isThreadReply(value)) {
-                    return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
+                    return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
                 }
                 return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
             }
