@@ -9,7 +9,11 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+
+<input id="usersFile" type="file" accept="application/json"/>
+<br>
 <input id="files" type="file" accept="application/json" multiple/>
+<br>
 
 <button id="btn">변환2</button>
 <br>
@@ -23,8 +27,7 @@
             let fr = new FileReader();
             fr.error = reject;
             fr.onload = () => {
-                // 각 [ , ] 는 subString으로 제거
-                resolve(unionFileString += fr.result.substring(1, fr.result.length - 1));
+                resolve(fr.result);
             };
             fr.readAsText(file, "utf-8");
         })
@@ -46,8 +49,9 @@
 
         unionFileString = '[';
         for (const [i, file] of files.entries()) {
-            await readFile(file);
-
+            let textFile = await readFile(file);
+            // 각 [ , ] 는 subString으로 제거
+            unionFileString += textFile.substring(1, textFile.length - 1);
             if (i !== files.length - 1) {
                 unionFileString += ',';
             }
@@ -67,8 +71,20 @@
         return this.replace(/\n/g, '\n> ');
     };
 
-    $('#btn').on('click', function () {
-        console.log(unionFileString);
+    $('#btn').on('click', async function () {
+        async function getUsersMap() {
+            let usersFile = document.getElementById('usersFile');
+            let usersJson = await readFile(usersFile.files[0]);
+            let userObj = JSON.parse(usersJson);
+
+            return  userObj.reduce(function (map, obj) {
+                map[obj.id] = obj;
+                return map;
+            }, {});
+        }
+
+        const usersMap = await getUsersMap();
+
         const jsonObj = JSON.parse(unionFileString);
 
         let chatMap = new Map();
@@ -77,19 +93,8 @@
             return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
         }
 
-        // 리플이면 기존 글에다가 붙여주기
+        // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
         for (let i = 0; i < jsonObj.length; i++) {
-            // subtype이 존재하면 일반 메시지가 아님. (ex 조인메세지, 채널 정보수정)
-            if (jsonObj[i]['subtype'] !== undefined) {
-                continue;
-            }
-
-            // 유저네임이 없는 경우
-            if (jsonObj[i]['user_profile'] === undefined && jsonObj[i]['files'] === undefined) {
-                console.error('REAL NAME NOT FOUND ', new Date(jsonObj[i]['ts'] * 1000).toLocaleDateString());
-                console.error(jsonObj[i]);
-                continue;
-            }
             if (isThreadReply(jsonObj[i])) {
                 let origin = chatMap.get(jsonObj[i]['thread_ts']);
                 if (origin === undefined) {
@@ -123,7 +128,7 @@
                 return value['user_profile']['real_name']
             }
 
-            return value['user']
+            return usersMap[value['user']]['profile']['real_name'];
         }
 
         function getContent(value) {
