@@ -114,31 +114,30 @@
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += `**${getUserName(value)}** ${getDate(value)}\n${getContent(value)}\n`;
+                text += `${getUserName(value)} ${getDate(value)}\n${getContent(value)}\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += `>**${getUserName(replyValue)}** ${getDate(value)}\n${getContent(replyValue)}\n\n`;
+                    text += `- ${getUserName(replyValue)} ${getDate(value)}\n${getContent(replyValue)}\n\n`;
                 });
                 text += '\n---\n';
             }
         });
 
         function getUserName(value) {
-            if (value['user_profile']) {
-                return value['user_profile']['real_name']
-            }
+            const realName = usersMap[value['user']]['profile']['real_name'];
+            const thumbNailImg = usersMap[value['user']]['profile']['image_48'];
 
-            return usersMap[value['user']]['profile']['real_name'];
+            return `<img src="${thumbNailImg}" width="30px"> **${realName}**`;
         }
 
         function getDate(value) {
-            return new Date(value['ts'] * 1000).toLocaleString();
+            return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
         }
 
         function getContent(value) {
             if (value['text']) {
-                return value['text'].adjustCodeBlock()
+                return `${value['text'].adjustCodeBlock()}`;
             }
 
             if (value['files']) {
