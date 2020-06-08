@@ -20,6 +20,8 @@
 <textarea id="result" style="width:100%; height:800px"></textarea>
 </body>
 <script>
+    //todo 댓글에 코드블록이후 들여쓰기가 안됨
+    //todo [http://bit.ly/2NZ1l7u|Asserts] 링크이상
     //todo users.json이랑 파일들 존재하는지 확인, 이름 확인
     let unionFileString;
 
@@ -60,16 +62,13 @@
         unionFileString += ']';
     });
 
+    // \n이 한개뿐이면 개행이 되지 않아 하나 더 추가한다.
+    String.prototype.addOneMoreLineBreak = function () {
+        return this.replace(/\n/g, '\n\n');
+    };
+
     String.prototype.adjustCodeBlock = function () {
         return this.replace(/```/g, '\n```\n');
-    };
-
-    String.prototype.title = function () {
-        return this.replace(/\n/g, '\n### ');
-    };
-
-    String.prototype.reply = function () {
-        return this.replace(/\n/g, '\n> ');
     };
 
     $('#btn').on('click', async function () {
@@ -114,11 +113,11 @@
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += `${getUserName(value)} ${getDate(value)}\n${getContent(value)}\n`;
+                text += `${getUserName(value)} ${getDate(value)}\n\n${getContent(value)}\n\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += `- ${getUserName(replyValue)} ${getDate(value)}\n${getContent(replyValue)}\n\n`;
+                    text += `- ${getUserName(replyValue)} ${getDate(value)}\n\n${getContent(replyValue)}\n\n`;
                 });
                 text += '\n---\n';
             }
@@ -137,7 +136,10 @@
 
         function getContent(value) {
             if (value['text']) {
-                return `${value['text'].adjustCodeBlock()}`;
+                if (isThreadReply(value)) {
+                    return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
+                }
+                return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
             }
 
             if (value['files']) {
