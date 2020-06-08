@@ -114,11 +114,11 @@
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
             if (!isThreadReply(value)) {
-                text += `__**${getUserName(value)}**__ ${getDate(value)}\n${getContent(value)}\n`;
+                text += `**${getUserName(value)}** ${getDate(value)}\n${getContent(value)}\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += `>__**${getUserName(replyValue)}**__ ${getDate(value)}\n${getContent(replyValue)}\n\n`;
+                    text += `>**${getUserName(replyValue)}** ${getDate(value)}\n${getContent(replyValue)}\n\n`;
                 });
                 text += '\n---\n';
             }
