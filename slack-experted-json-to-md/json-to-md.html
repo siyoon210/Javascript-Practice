@@ -114,7 +114,7 @@
                 value.reply.forEach(replyValue => {
                     text += '>__**' + getUserName(replyValue) + '**__\t' + getContent(replyValue) + '\n\n';
                 });
-                text += '\n\n---\n\n';
+                text += '---\n';
             }
         });
 
@@ -132,7 +132,9 @@
             }
 
             if (value['files']) {
-                return `![${value['files'][0]['name']}](${value['files'][0]['url_private']})`
+                return value['files']
+                    .map(file => `![${file['name']}](${file['url_private']})`)
+                    .join('\n');
             }
 
             console.error('No Content');
