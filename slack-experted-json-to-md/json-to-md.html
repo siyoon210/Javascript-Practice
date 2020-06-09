@@ -82,18 +82,7 @@
     };
 
     async function convertJsonToMd() {
-        async function getUsersMap() {
-            let usersFile = document.getElementById('usersFile');
-            let usersJson = await readFile(usersFile.files[0]);
-            let userObj = JSON.parse(usersJson);
-
-            return userObj.reduce(function (map, obj) {
-                map[obj.id] = obj;
-                return map;
-            }, {});
-        }
-
-        const usersMap = await getUsersMap();
+        const users = await _getUsers();
 
         const jsonObj = JSON.parse(unionFileString);
 
@@ -133,9 +122,25 @@
             }
         });
 
+        /**
+         * users.json으로부터 user 정보를 배열로 받아온다.
+         * 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
+         * @returns {Promise<*>}
+         */
+        async function _getUsers() {
+            let usersFile = document.getElementById('usersFile');
+            let usersJson = await readFile(usersFile.files[0]);
+            let userObj = JSON.parse(usersJson);
+
+            return userObj.reduce(function (map, obj) {
+                map[obj.id] = obj;
+                return map;
+            }, {});
+        }
+
         function getUserName(value) {
-            const realName = usersMap[value['user']]['profile']['real_name'];
-            const thumbNailImg = usersMap[value['user']]['profile']['image_48'];
+            const realName = users[value['user']]['profile']['real_name'];
+            const thumbNailImg = users[value['user']]['profile']['image_48'];
 
             return `<img src="${thumbNailImg}" width="30px"> **${realName}**`;
         }
