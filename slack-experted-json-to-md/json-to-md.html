@@ -13,6 +13,7 @@
 
 <button id="convert-btn">변환</button>
 <br>
+<label for="mdText">MarkDown</label>
 <textarea id="mdText" style="width:100%; height:800px"></textarea>
 </body>
 
@@ -26,33 +27,17 @@
     async function convertJsonToMd() {
         const users = await _getUsers();
 
-        const chatLogJson = JSON.parse(await _getChatLogJson());
+        const chatLog = await _getChatLog();
 
-        const chatLog = _getChatLog(chatLogJson);
+        const mdText = _convertInfoToMdText(users, chatLog);
 
-        document.getElementById("mdText").setRangeText(_getMdText(users, chatLog));
-    }
-
-    /**
-     * 파라미터로 전달된 file을 읽어드려
-     * @returns {Promise<string>}
-     * @private
-     */
-    function _readFile(file) {
-        return new Promise((resolve, reject) => {
-            let fr = new FileReader();
-            fr.error = reject;
-            fr.onload = () => {
-                resolve(fr.result);
-            };
-            fr.readAsText(file, "utf-8");
-        })
+        document.getElementById("mdText").setRangeText(mdText);
     }
 
     /**
      * users.json 파일로부터 user 정보를 배열로 받아온다.
      * 배열은 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
-     * @returns {array<users>}
+     * @returns {array}
      * @private
      */
     async function _getUsers() {
@@ -63,6 +48,53 @@
             map[obj.id] = obj;
             return map;
         }, {});
+    }
+
+    /**
+     * chatLogJson을 chatLog 객체로 변환한다.
+     * @returns {map}
+     */
+    async function _getChatLog() {
+        const chatLogJson = JSON.parse(await _getChatLogJson());
+
+        let chatMap = new Map();
+        // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
+        for (let i = 0; i < chatLogJson.length; i++) {
+            if (_isReply(chatLogJson[i])) {
+                let origin = chatMap.get(chatLogJson[i]['thread_ts']);
+                if (origin === undefined) {
+                    console.error('UNDEFINED ORIGIN CHAT', chatLogJson[i]['text']);
+                    continue;
+                }
+                origin.reply.push(chatLogJson[i]);
+            } else {
+                chatLogJson[i].reply = [];
+                chatMap.set(chatLogJson[i]['ts'], chatLogJson[i]);
+            }
+        }
+
+        return chatMap;
+    }
+
+    /**
+     * Json파일에서 추출한 users와 chatLog를 이용하여서 MarkDown 텍스트파일로 변환한다.
+     * @returns {string}
+     * @private
+     */
+    function _convertInfoToMdText(users, chatLog) {
+        let mdText = "";
+        chatLog.forEach(function (value) {
+            if (!_isReply(value)) {
+                mdText += `${_getUserName(users, value)} ${_getDate(value)}\n\n${_getContent(value)}\n\n`;
+
+                //리플 붙이기
+                value.reply.forEach(replyValue => {
+                    mdText += `- ${_getUserName(users, replyValue)} ${_getDate(replyValue)}\n\n${_getContent(replyValue)}\n\n`;
+                });
+                mdText += '\n---\n';
+            }
+        });
+        return mdText;
     }
 
     /**
@@ -104,50 +136,22 @@
     }
 
     /**
-     * chatLogJson을 chatLog 객체로 변환한다.
-     * @returns {map<>}
+     * 파라미터로 전달된 file을 읽어드려
+     * @returns {Promise<string>}
+     * @private
      */
-    function _getChatLog(chatLogJson) {
-        let chatMap = new Map();
-        // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
-        for (let i = 0; i < chatLogJson.length; i++) {
-            if (_isReply(chatLogJson[i])) {
-                let origin = chatMap.get(chatLogJson[i]['thread_ts']);
-                if (origin === undefined) {
-                    console.error('UNDEFINED ORIGIN CHAT', chatLogJson[i]['text']);
-                    continue;
-                }
-                origin.reply.push(chatLogJson[i]);
-            } else {
-                chatLogJson[i].reply = [];
-                chatMap.set(chatLogJson[i]['ts'], chatLogJson[i]);
-            }
-        }
-
-        return chatMap;
+    function _readFile(file) {
+        return new Promise((resolve) => {
+            let fr = new FileReader();
+            fr.onload = () => {
+                resolve(fr.result);
+            };
+            fr.readAsText(file, "utf-8");
+        })
     }
 
     /**
-     * Json파일에서 추출한 users와 chatLog를 이용하여서 MarkDown 텍스트파일로 변환한다.
-     */
-    function _getMdText(users, chatLog) {
-        let mdText = "";
-        chatLog.forEach(function (value) {
-            if (!_isReply(value)) {
-                mdText += `${getUserName(users, value)} ${getDate(value)}\n\n${getContent(value)}\n\n`;
-
-                //리플 붙이기
-                value.reply.forEach(replyValue => {
-                    mdText += `- ${getUserName(users, replyValue)} ${getDate(replyValue)}\n\n${getContent(replyValue)}\n\n`;
-                });
-                mdText += '\n---\n';
-            }
-        });
-        return mdText;
-    }
-
-    /**
-     *
+     * 리플인지 아닌지 판단한다.
      * @param chat
      * @returns {boolean}
      * @private
@@ -156,18 +160,18 @@
         return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
     }
 
-    function getUserName(users, value) {
+    function _getUserName(users, value) {
         const realName = users[value['user']]['profile']['real_name'];
         const thumbNailImg = users[value['user']]['profile']['image_48'];
 
-        return `<img src="${thumbNailImg}" width="30px"> **${realName}**`;
+        return `<img src="${thumbNailImg}" alt="${realName}" width="30px"> **${realName}**`;
     }
 
-    function getDate(value) {
+    function _getDate(value) {
         return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
     }
 
-    function getContent(value) {
+    function _getContent(value) {
         // 리플에 들여쓰기
         String.prototype.indent = function () {
             return this.replace(/\n/g, '\n    ');
