@@ -26,11 +26,8 @@
 
     async function convertJsonToMd() {
         const users = await _getUsersFromFile();
-
         const chatLog = await _getChatLogFromFile();
-
         const mdText = _convertInfoToMdText(users, chatLog);
-
         document.getElementById("mdText").setRangeText(mdText);
     }
 
@@ -60,19 +57,19 @@
 
         let chatMap = new Map();
         // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
-        for (let i = 0; i < chatLogJson.length; i++) {
-            if (_isReply(chatLogJson[i])) {
-                let origin = chatMap.get(chatLogJson[i]['thread_ts']);
+        chatLogJson.forEach(function (value) {
+            if (_isReply(value)) {
+                let origin = chatMap.get(value['thread_ts']);
                 if (origin === undefined) {
-                    console.error('UNDEFINED ORIGIN CHAT', chatLogJson[i]['text']);
-                    continue;
+                    console.error('UNDEFINED ORIGIN CHAT', value['text']);
+                    return;
                 }
-                origin.reply.push(chatLogJson[i]);
+                origin.reply.push(value);
             } else {
-                chatLogJson[i].reply = [];
-                chatMap.set(chatLogJson[i]['ts'], chatLogJson[i]);
+                value.reply = [];
+                chatMap.set(value['ts'], value);
             }
-        }
+        });
 
         return chatMap;
     }
@@ -92,7 +89,7 @@
                 value.reply.forEach(replyValue => {
                     mdText += `- ${_getUserName(users, replyValue)} ${_getDate(replyValue)}\n\n${_getContent(replyValue)}\n\n`;
                 });
-                mdText += '\n---\n';
+                mdText += '---\n';
             }
         });
         return mdText;
@@ -221,7 +218,7 @@
                 .join('\n');
         }
 
-        console.error('No Content');
+        console.error('No Content', value);
         return "";
     }
 
