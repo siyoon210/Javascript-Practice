@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<input id="usersFile" type="file" accept="application/json"/>
+<input id="users" type="file" accept="application/json"/>
 <br>
-<input id="files" type="file" accept="application/json" multiple/>
+<input id="chatLog" type="file" accept="application/json" multiple/>
 <br>
 
 <button id="convert-btn">변환</button>
@@ -24,7 +24,6 @@
 
     //todo [http://bit.ly/2NZ1l7u|Asserts] 링크이상
     //todo users.json이랑 파일들 존재하는지 확인, 이름 확인
-    let unionFileString;
 
     function readFile(file) {
         return new Promise((resolve, reject) => {
@@ -36,32 +35,6 @@
             fr.readAsText(file, "utf-8");
         })
     }
-
-    const files = document.getElementById('files');
-    files.addEventListener('change', async (e) => {
-        // 날짜순으로 정렬
-        let files = Array.from(e.target.files).sort((a, b) => {
-            if (a.name < b.name) {
-                return -1;
-            }
-            if (a.name > b.name) {
-                return 1;
-            }
-
-            return 0;
-        });
-
-        unionFileString = '[';
-        for (const [i, file] of files.entries()) {
-            let textFile = await readFile(file);
-            // 각 [ , ] 는 subString으로 제거
-            unionFileString += textFile.substring(1, textFile.length - 1);
-            if (i !== files.length - 1) {
-                unionFileString += ',';
-            }
-        }
-        unionFileString += ']';
-    });
 
     // 리플에 들여쓰기
     String.prototype.indent = function () {
@@ -84,26 +57,22 @@
     async function convertJsonToMd() {
         const users = await _getUsers();
 
-        const jsonObj = JSON.parse(unionFileString);
+        const chatLogJson = JSON.parse(await _getChatLogJson());
 
         let chatMap = new Map();
 
-        function isThreadReply(chat) {
-            return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
-        }
-
         // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
-        for (let i = 0; i < jsonObj.length; i++) {
-            if (isThreadReply(jsonObj[i])) {
-                let origin = chatMap.get(jsonObj[i]['thread_ts']);
+        for (let i = 0; i < chatLogJson.length; i++) {
+            if (_isThreadReply(chatLogJson[i])) {
+                let origin = chatMap.get(chatLogJson[i]['thread_ts']);
                 if (origin === undefined) {
-                    console.error('UNDEFINED ORIGIN CHAT', jsonObj[i]['text']);
+                    console.error('UNDEFINED ORIGIN CHAT', chatLogJson[i]['text']);
                     continue;
                 }
-                origin.reply.push(jsonObj[i]);
+                origin.reply.push(chatLogJson[i]);
             } else {
-                jsonObj[i].reply = [];
-                chatMap.set(jsonObj[i]['ts'], jsonObj[i]);
+                chatLogJson[i].reply = [];
+                chatMap.set(chatLogJson[i]['ts'], chatLogJson[i]);
             }
         }
 
@@ -111,7 +80,7 @@
 
         // md 파일로 텍스트 쓰기
         chatMap.forEach(function (value) {
-            if (!isThreadReply(value)) {
+            if (!_isThreadReply(value)) {
                 text += `${getUserName(value)} ${getDate(value)}\n\n${getContent(value)}\n\n`;
 
                 //리플 붙이기
@@ -122,20 +91,57 @@
             }
         });
 
+        document.getElementById("mdText").setRangeText(text);
+
         /**
          * users.json으로부터 user 정보를 배열로 받아온다.
-         * 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
+         * 배열은 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
          * @returns {Promise<*>}
          */
         async function _getUsers() {
-            let usersFile = document.getElementById('usersFile');
-            let usersJson = await readFile(usersFile.files[0]);
+            let usersJson = await readFile(document.getElementById('users').files[0]);
             let userObj = JSON.parse(usersJson);
 
             return userObj.reduce(function (map, obj) {
                 map[obj.id] = obj;
                 return map;
             }, {});
+        }
+
+        async function _getChatLogJson() {
+            let chatLog = document.getElementById('chatLog');
+
+            // 날짜순으로 정렬
+            chatLog = Array.from(chatLog.files).sort((a, b) => {
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+
+                return 0;
+            });
+
+
+            //json 파일 하나로 통합
+            let chatLogJson;
+            chatLogJson = '[';
+            for (const [i, file] of chatLog.entries()) {
+                let textFile = await readFile(file);
+                // 각 파일들의 대괄호 [ , ] 는 제거
+                chatLogJson += textFile.substring(1, textFile.length - 1);
+                if (i !== chatLog.length - 1) {
+                    chatLogJson += ',';
+                }
+            }
+            chatLogJson += ']';
+
+            return chatLogJson;
+        }
+
+        function _isThreadReply(chat) {
+            return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
         }
 
         function getUserName(value) {
@@ -151,7 +157,7 @@
 
         function getContent(value) {
             if (value['text']) {
-                if (isThreadReply(value)) {
+                if (_isThreadReply(value)) {
                     return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
                 }
                 return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
@@ -166,8 +172,6 @@
             console.error('No Content');
             return ""
         }
-
-        document.getElementById("mdText").setRangeText(text);
     }
 </script>
 </html>
