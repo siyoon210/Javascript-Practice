@@ -195,8 +195,10 @@
             return this.replace(/\n/g, '\n\n');
         };
 
+        //코드 블럭으로 조정하기
         String.prototype.adjustCodeBlock = function () {
-            return this.replace(/```/g, '\n```\n')
+            return this.replace(/\n\n/g, '\n')
+                .replace(/```/g, '\n```\n')
                 .replace(/&lt;/g, '<')
                 .replace(/&gt;/g, '>')
                 .replace(/&amp;/g, '&')
