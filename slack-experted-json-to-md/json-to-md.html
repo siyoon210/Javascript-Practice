@@ -15,6 +15,7 @@
 <br>
 <textarea id="mdText" style="width:100%; height:800px"></textarea>
 </body>
+
 <script>
     window.addEventListener("load", eventBinding);
 
@@ -22,10 +23,22 @@
         document.getElementById('convert-btn').addEventListener('click', convertJsonToMd);
     }
 
-    //todo [http://bit.ly/2NZ1l7u|Asserts] 링크이상
-    //todo users.json이랑 파일들 존재하는지 확인, 이름 확인
+    async function convertJsonToMd() {
+        const users = await _getUsers();
 
-    function readFile(file) {
+        const chatLogJson = JSON.parse(await _getChatLogJson());
+
+        const chatLog = _getChatLog(chatLogJson);
+
+        document.getElementById("mdText").setRangeText(_getMdText(users, chatLog));
+    }
+
+    /**
+     * 파라미터로 전달된 file을 읽어드려
+     * @returns {Promise<string>}
+     * @private
+     */
+    function _readFile(file) {
         return new Promise((resolve, reject) => {
             let fr = new FileReader();
             fr.error = reject;
@@ -36,34 +49,69 @@
         })
     }
 
-    // 리플에 들여쓰기
-    String.prototype.indent = function () {
-        return this.replace(/\n/g, '\n    ');
-    };
+    /**
+     * users.json 파일로부터 user 정보를 배열로 받아온다.
+     * 배열은 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
+     * @returns {array<users>}
+     * @private
+     */
+    async function _getUsers() {
+        let usersJson = await _readFile(document.getElementById('users').files[0]);
+        let userObj = JSON.parse(usersJson);
 
-    // \n이 한개뿐이면 개행이 되지 않아 하나 더 추가한다.
-    String.prototype.addOneMoreLineBreak = function () {
-        return this.replace(/\n/g, '\n\n');
-    };
+        return userObj.reduce(function (map, obj) {
+            map[obj.id] = obj;
+            return map;
+        }, {});
+    }
 
-    String.prototype.adjustCodeBlock = function () {
-        return this.replace(/```/g, '\n```\n')
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .replace(/&amp;/g, '&')
-            .replace(/&quot;/g, '"');
-    };
+    /**
+     * chatLog.json 파일들을 하나의 Json파일로 통합한다.
+     * - 파일들은 날짜순으로 오름차순 정렬된다.
+     * @returns {string}
+     * @private
+     */
+    async function _getChatLogJson() {
+        let chatLog = document.getElementById('chatLog');
 
-    async function convertJsonToMd() {
-        const users = await _getUsers();
+        // 날짜순으로 정렬
+        chatLog = Array.from(chatLog.files).sort((a, b) => {
+            if (a.name < b.name) {
+                return -1;
+            }
+            if (a.name > b.name) {
+                return 1;
+            }
 
-        const chatLogJson = JSON.parse(await _getChatLogJson());
+            return 0;
+        });
 
+
+        //json 파일 하나로 통합
+        let chatLogJson;
+        chatLogJson = '[';
+        for (const [i, file] of chatLog.entries()) {
+            let textFile = await _readFile(file);
+            // 각 파일들의 대괄호 [ , ] 는 제거
+            chatLogJson += textFile.substring(1, textFile.length - 1);
+            if (i !== chatLog.length - 1) {
+                chatLogJson += ',';
+            }
+        }
+        chatLogJson += ']';
+
+        return chatLogJson;
+    }
+
+    /**
+     * chatLogJson을 chatLog 객체로 변환한다.
+     * @returns {map<>}
+     */
+    function _getChatLog(chatLogJson) {
         let chatMap = new Map();
-
         // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
         for (let i = 0; i < chatLogJson.length; i++) {
-            if (_isThreadReply(chatLogJson[i])) {
+            if (_isReply(chatLogJson[i])) {
                 let origin = chatMap.get(chatLogJson[i]['thread_ts']);
                 if (origin === undefined) {
                     console.error('UNDEFINED ORIGIN CHAT', chatLogJson[i]['text']);
@@ -76,102 +124,86 @@
             }
         }
 
-        let text = [];
+        return chatMap;
+    }
 
-        // md 파일로 텍스트 쓰기
-        chatMap.forEach(function (value) {
-            if (!_isThreadReply(value)) {
-                text += `${getUserName(value)} ${getDate(value)}\n\n${getContent(value)}\n\n`;
+    /**
+     * Json파일에서 추출한 users와 chatLog를 이용하여서 MarkDown 텍스트파일로 변환한다.
+     */
+    function _getMdText(users, chatLog) {
+        let mdText = "";
+        chatLog.forEach(function (value) {
+            if (!_isReply(value)) {
+                mdText += `${getUserName(users, value)} ${getDate(value)}\n\n${getContent(value)}\n\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    text += `- ${getUserName(replyValue)} ${getDate(replyValue)}\n\n${getContent(replyValue)}\n\n`;
+                    mdText += `- ${getUserName(users, replyValue)} ${getDate(replyValue)}\n\n${getContent(replyValue)}\n\n`;
                 });
-                text += '\n---\n';
+                mdText += '\n---\n';
             }
         });
-
-        document.getElementById("mdText").setRangeText(text);
-
-        /**
-         * users.json으로부터 user 정보를 배열로 받아온다.
-         * 배열은 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
-         * @returns {Promise<*>}
-         */
-        async function _getUsers() {
-            let usersJson = await readFile(document.getElementById('users').files[0]);
-            let userObj = JSON.parse(usersJson);
-
-            return userObj.reduce(function (map, obj) {
-                map[obj.id] = obj;
-                return map;
-            }, {});
-        }
-
-        async function _getChatLogJson() {
-            let chatLog = document.getElementById('chatLog');
-
-            // 날짜순으로 정렬
-            chatLog = Array.from(chatLog.files).sort((a, b) => {
-                if (a.name < b.name) {
-                    return -1;
-                }
-                if (a.name > b.name) {
-                    return 1;
-                }
-
-                return 0;
-            });
-
-
-            //json 파일 하나로 통합
-            let chatLogJson;
-            chatLogJson = '[';
-            for (const [i, file] of chatLog.entries()) {
-                let textFile = await readFile(file);
-                // 각 파일들의 대괄호 [ , ] 는 제거
-                chatLogJson += textFile.substring(1, textFile.length - 1);
-                if (i !== chatLog.length - 1) {
-                    chatLogJson += ',';
-                }
-            }
-            chatLogJson += ']';
-
-            return chatLogJson;
-        }
-
-        function _isThreadReply(chat) {
-            return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
-        }
-
-        function getUserName(value) {
-            const realName = users[value['user']]['profile']['real_name'];
-            const thumbNailImg = users[value['user']]['profile']['image_48'];
-
-            return `<img src="${thumbNailImg}" width="30px"> **${realName}**`;
-        }
-
-        function getDate(value) {
-            return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
-        }
-
-        function getContent(value) {
-            if (value['text']) {
-                if (_isThreadReply(value)) {
-                    return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
-                }
-                return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
-            }
-
-            if (value['files']) {
-                return value['files']
-                    .map(file => `![${file['name']}](${file['url_private']})`)
-                    .join('\n');
-            }
-
-            console.error('No Content');
-            return ""
-        }
+        return mdText;
     }
+
+    /**
+     *
+     * @param chat
+     * @returns {boolean}
+     * @private
+     */
+    function _isReply(chat) {
+        return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
+    }
+
+    function getUserName(users, value) {
+        const realName = users[value['user']]['profile']['real_name'];
+        const thumbNailImg = users[value['user']]['profile']['image_48'];
+
+        return `<img src="${thumbNailImg}" width="30px"> **${realName}**`;
+    }
+
+    function getDate(value) {
+        return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
+    }
+
+    function getContent(value) {
+        // 리플에 들여쓰기
+        String.prototype.indent = function () {
+            return this.replace(/\n/g, '\n    ');
+        };
+
+        // \n이 한개뿐이면 개행이 되지 않아 하나 더 추가한다.
+        String.prototype.addOneMoreLineBreak = function () {
+            return this.replace(/\n/g, '\n\n');
+        };
+
+        String.prototype.adjustCodeBlock = function () {
+            return this.replace(/```/g, '\n```\n')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&')
+                .replace(/&quot;/g, '"');
+        };
+
+        if (value['text']) {
+            if (_isReply(value)) {
+                return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
+            }
+            return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
+        }
+
+        if (value['files']) {
+            return value['files']
+                .map(file => `![${file['name']}](${file['url_private']})`)
+                .join('\n');
+        }
+
+        console.error('No Content');
+        return "";
+    }
+
+    //todo [http://bit.ly/2NZ1l7u|Asserts] 링크이상
+    //todo users.json이랑 파일들 존재하는지 확인, 이름 확인
 </script>
 </html>
