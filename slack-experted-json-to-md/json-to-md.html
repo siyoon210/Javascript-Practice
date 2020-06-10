@@ -25,9 +25,9 @@
     }
 
     async function convertJsonToMd() {
-        const users = await _getUsers();
+        const users = await _getUsersFromFile();
 
-        const chatLog = await _getChatLog();
+        const chatLog = await _getChatLogFromFile();
 
         const mdText = _convertInfoToMdText(users, chatLog);
 
@@ -36,11 +36,11 @@
 
     /**
      * users.json 파일로부터 user 정보를 배열로 받아온다.
-     * 배열은 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
+     * 배열은 json의 'id'값을 key로 사용한다. ex) users['UV32QS4Q3']
      * @returns {array}
      * @private
      */
-    async function _getUsers() {
+    async function _getUsersFromFile() {
         let usersJson = await _readFile(document.getElementById('users').files[0]);
         let userObj = JSON.parse(usersJson);
 
@@ -51,11 +51,12 @@
     }
 
     /**
-     * chatLogJson을 chatLog 객체로 변환한다.
+     * chatLogJson 파일들로부터 chatLog 맵 객체로 변환한다.
+     * 키값으로 json의 'ts'를 사용한다.
      * @returns {map}
      */
-    async function _getChatLog() {
-        const chatLogJson = JSON.parse(await _getChatLogJson());
+    async function _getChatLogFromFile() {
+        const chatLogJson = JSON.parse(await _combineChatLogFiles());
 
         let chatMap = new Map();
         // 리플인지 아닌지 확인하고, 리플이면 본문에 넣어줌
@@ -103,7 +104,7 @@
      * @returns {string}
      * @private
      */
-    async function _getChatLogJson() {
+    async function _combineChatLogFiles() {
         let chatLog = document.getElementById('chatLog');
 
         // 날짜순으로 정렬
@@ -160,6 +161,11 @@
         return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
     }
 
+    /**
+     * MarkDown으로 출력할 유저 이름을 반환한다.
+     * @returns {string}
+     * @private
+     */
     function _getUserName(users, value) {
         const realName = users[value['user']]['profile']['real_name'];
         const thumbNailImg = users[value['user']]['profile']['image_48'];
@@ -167,10 +173,20 @@
         return `<img src="${thumbNailImg}" alt="${realName}" width="30px"> **${realName}**`;
     }
 
+    /**
+     * MarkDown으로 출력할 날짜를 반환한다.
+     * @returns {string}
+     * @private
+     */
     function _getDate(value) {
         return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
     }
 
+    /**
+     * MarkDown으로 출력할 채팅 내용을 반환한다.
+     * @returns {string}
+     * @private
+     */
     function _getContent(value) {
         // 리플에 들여쓰기
         String.prototype.indent = function () {
@@ -190,6 +206,7 @@
                 .replace(/&quot;/g, '"');
         };
 
+        // 일반 텍스트 메시지인 경우
         if (value['text']) {
             if (_isReply(value)) {
                 return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
@@ -197,6 +214,7 @@
             return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
         }
 
+        // (이미지) 파일인 경우 파일내용을 출력한다.
         if (value['files']) {
             return value['files']
                 .map(file => `![${file['name']}](${file['url_private']})`)
