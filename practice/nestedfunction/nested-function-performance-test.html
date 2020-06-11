@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<head>
+    <script>
+        console.time("#1");
+        function foo1(a, b) {
+            function bar1() {
+                return a + b;
+            }
+
+            return bar1();
+        }
+
+        for (let i = 0; i < 1_000_000_000; i++) {
+            foo1(1 + 2);
+        }
+        console.timeEnd("#1");
+
+        console.time("#2");
+        function foo2(a, b) {
+            return bar2(a, b);
+        }
+
+        function bar2(a, b) {
+            return a + b;
+        }
+
+        for (let i = 0; i < 1_000_000_000; i++) {
+            foo2(1 + 2);
+        }
+        console.timeEnd("#2");
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
