@@ -25,9 +25,8 @@
     }
 
     async function convertJsonToMd() {
-        const users = await _getUsersFromFile();
         const chatLog = await _getChatLogFromFile();
-        const mdText = _convertInfoToMdText(users, chatLog);
+        const mdText = _convertInfoToMdText(await usersInfo.get(), chatLog);
         document.getElementById("mdText").setRangeText(mdText);
     }
 
@@ -37,15 +36,19 @@
      * @returns {array}
      * @private
      */
-    async function _getUsersFromFile() {
-        let usersJson = await _readFile(document.getElementById('users').files[0]);
-        let userObj = JSON.parse(usersJson);
+    const usersInfo = (function () {
+        return {
+            get: async function () {
+                const usersJson = await fileReader(document.getElementById('users').files[0]);
+                const userObj = JSON.parse(usersJson);
 
-        return userObj.reduce(function (map, obj) {
-            map[obj.id] = obj;
-            return map;
-        }, {});
-    }
+                return userObj.reduce(function (map, obj) {
+                    map[obj.id] = obj;
+                    return map;
+                }, {});
+            }
+        }
+    }());
 
     /**
      * chatLogJson 파일들로부터 chatLog 맵 객체로 변환한다.
@@ -121,7 +124,7 @@
         let chatLogJson;
         chatLogJson = '[';
         for (const [i, file] of chatLog.entries()) {
-            let textFile = await _readFile(file);
+            let textFile = await fileReader(file);
             // 각 파일들의 대괄호 [ , ] 는 제거
             chatLogJson += textFile.substring(1, textFile.length - 1);
             if (i !== chatLog.length - 1) {
@@ -138,7 +141,7 @@
      * @returns {Promise<string>}
      * @private
      */
-    function _readFile(file) {
+    const fileReader = (function (file) {
         return new Promise((resolve) => {
             let fr = new FileReader();
             fr.onload = () => {
@@ -146,7 +149,7 @@
             };
             fr.readAsText(file, "utf-8");
         })
-    }
+    });
 
     /**
      * 리플인지 아닌지 판단한다.
