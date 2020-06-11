@@ -25,8 +25,9 @@
     }
 
     async function convertJsonToMd() {
+        const userInfo = await users.getInfo();
         const chatLog = await _getChatLogFromFile();
-        const mdText = _convertInfoToMdText(await usersInfo.get(), chatLog);
+        const mdText = _convertInfoToMdText(userInfo, chatLog);
         document.getElementById("mdText").setRangeText(mdText);
     }
 
@@ -36,9 +37,9 @@
      * @returns {array}
      * @private
      */
-    const usersInfo = (function () {
+    const users = (function () {
         return {
-            get: async function () {
+            getInfo: async function () {
                 const usersJson = await fileReader(document.getElementById('users').files[0]);
                 const userObj = JSON.parse(usersJson);
 
