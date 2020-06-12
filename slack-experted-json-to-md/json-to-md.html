@@ -27,7 +27,7 @@
     async function convertJsonToMd() {
         const userInfo = await users.getInfo();
         const chatLog = await chat.getLog();
-        const mdText = _convertInfoToMdText(userInfo, chatLog);
+        const mdText = converter(userInfo, chatLog);
         document.getElementById("mdText").setRangeText(mdText);
     }
 
@@ -126,21 +126,21 @@
      * @returns {string}
      * @private
      */
-    function _convertInfoToMdText(users, chatLog) {
+    const converter = (function (userInfo, chatLog) {
         let mdText = "";
         chatLog.forEach(function (value) {
             if (!_isReply(value)) {
-                mdText += `${_getUserName(users, value)} ${_getDate(value)}\n\n${_getContent(value)}\n\n`;
+                mdText += `${_getUserName(userInfo, value)} ${_getDate(value)}\n\n${_getContent(value)}\n\n`;
 
                 //리플 붙이기
                 value.reply.forEach(replyValue => {
-                    mdText += `- ${_getUserName(users, replyValue)} ${_getDate(replyValue)}\n\n${_getContent(replyValue)}\n\n`;
+                    mdText += `- ${_getUserName(userInfo, replyValue)} ${_getDate(replyValue)}\n\n${_getContent(replyValue)}\n\n`;
                 });
                 mdText += '---\n';
             }
         });
         return mdText;
-    }
+    });
 
 
     /**
