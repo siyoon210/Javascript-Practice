@@ -127,6 +127,72 @@
      * @private
      */
     const converter = (function (userInfo, chatLog) {
+        /**
+         * MarkDown으로 출력할 유저 이름을 반환한다.
+         * @returns {string}
+         * @private
+         */
+        function _getUserName(users, value) {
+            const realName = users[value['user']]['profile']['real_name'];
+            const thumbNailImg = users[value['user']]['profile']['image_48'];
+
+            return `<img src="${thumbNailImg}" alt="${realName}" width="30px"> **${realName}**`;
+        }
+
+        /**
+         * MarkDown으로 출력할 날짜를 반환한다.
+         * @returns {string}
+         * @private
+         */
+        function _getDate(value) {
+            return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
+        }
+
+        /**
+         * MarkDown으로 출력할 채팅 내용을 반환한다.
+         * @returns {string}
+         * @private
+         */
+        function _getContent(value) {
+            // 리플에 들여쓰기
+            String.prototype.indent = function () {
+                return this.replace(/\n/g, '\n    ');
+            };
+
+            // \n이 한개뿐이면 개행이 되지 않아 하나 더 추가한다.
+            String.prototype.addOneMoreLineBreak = function () {
+                return this.replace(/\n/g, '\n\n');
+            };
+
+            //코드 블럭으로 조정하기
+            String.prototype.adjustCodeBlock = function () {
+                return this.replace(/\n\n/g, '\n')
+                    .replace(/```/g, '\n```\n')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+                    .replace(/&amp;/g, '&')
+                    .replace(/&quot;/g, '"');
+            };
+
+            // 일반 텍스트 메시지인 경우
+            if (value['text']) {
+                if (_isReply(value)) {
+                    return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
+                }
+                return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
+            }
+
+            // (이미지) 파일인 경우 파일내용을 출력한다.
+            if (value['files']) {
+                return value['files']
+                    .map(file => `![${file['name']}](${file['url_private']})`)
+                    .join('\n');
+            }
+
+            console.error('No Content', value);
+            return "";
+        }
+
         let mdText = "";
         chatLog.forEach(function (value) {
             if (!_isReply(value)) {
@@ -166,72 +232,6 @@
      */
     function _isReply(chat) {
         return chat['thread_ts'] !== undefined && chat['thread_ts'] !== chat['ts'];
-    }
-
-    /**
-     * MarkDown으로 출력할 유저 이름을 반환한다.
-     * @returns {string}
-     * @private
-     */
-    function _getUserName(users, value) {
-        const realName = users[value['user']]['profile']['real_name'];
-        const thumbNailImg = users[value['user']]['profile']['image_48'];
-
-        return `<img src="${thumbNailImg}" alt="${realName}" width="30px"> **${realName}**`;
-    }
-
-    /**
-     * MarkDown으로 출력할 날짜를 반환한다.
-     * @returns {string}
-     * @private
-     */
-    function _getDate(value) {
-        return `(${new Date(value['ts'] * 1000).toLocaleString()})`;
-    }
-
-    /**
-     * MarkDown으로 출력할 채팅 내용을 반환한다.
-     * @returns {string}
-     * @private
-     */
-    function _getContent(value) {
-        // 리플에 들여쓰기
-        String.prototype.indent = function () {
-            return this.replace(/\n/g, '\n    ');
-        };
-
-        // \n이 한개뿐이면 개행이 되지 않아 하나 더 추가한다.
-        String.prototype.addOneMoreLineBreak = function () {
-            return this.replace(/\n/g, '\n\n');
-        };
-
-        //코드 블럭으로 조정하기
-        String.prototype.adjustCodeBlock = function () {
-            return this.replace(/\n\n/g, '\n')
-                .replace(/```/g, '\n```\n')
-                .replace(/&lt;/g, '<')
-                .replace(/&gt;/g, '>')
-                .replace(/&amp;/g, '&')
-                .replace(/&quot;/g, '"');
-        };
-
-        // 일반 텍스트 메시지인 경우
-        if (value['text']) {
-            if (_isReply(value)) {
-                return `    ${value['text'].addOneMoreLineBreak().adjustCodeBlock().indent()}`;
-            }
-            return `${value['text'].addOneMoreLineBreak().adjustCodeBlock()}`;
-        }
-
-        // (이미지) 파일인 경우 파일내용을 출력한다.
-        if (value['files']) {
-            return value['files']
-                .map(file => `![${file['name']}](${file['url_private']})`)
-                .join('\n');
-        }
-
-        console.error('No Content', value);
-        return "";
     }
 
     //todo [http://bit.ly/2NZ1l7u|Asserts] 링크이상
