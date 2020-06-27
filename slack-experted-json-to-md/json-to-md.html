@@ -27,7 +27,7 @@
     async function convertJsonToMd() {
         const userInfo = await users.getInfo();
         const chatLog = await chat.getLog();
-        const mdText = converter(userInfo, chatLog);
+        const mdText = converter.jsonToMd(userInfo, chatLog);
         document.getElementById("mdText").setRangeText(mdText);
     }
 
@@ -126,7 +126,7 @@
      * @returns {string}
      * @private
      */
-    const converter = (function (userInfo, chatLog) {
+    const converter = (function () {
         /**
          * MarkDown으로 출력할 유저 이름을 반환한다.
          * @returns {string}
@@ -193,20 +193,25 @@
             return "";
         }
 
-        let mdText = "";
-        chatLog.forEach(function (value) {
-            if (!_isReply(value)) {
-                mdText += `${_getUserName(userInfo, value)} ${_getDate(value)}\n\n${_getContent(value)}\n\n`;
+        return {
+            jsonToMd: function (userInfo, chatLog) {
+                let mdText = "";
+                chatLog.forEach(value => {
+                    if (!_isReply(value)) {
+                        mdText += `${_getUserName(userInfo, value)} ${_getDate(value)}\n\n${_getContent(value)}\n\n`;
 
-                //리플 붙이기
-                value.reply.forEach(replyValue => {
-                    mdText += `- ${_getUserName(userInfo, replyValue)} ${_getDate(replyValue)}\n\n${_getContent(replyValue)}\n\n`;
+                        //리플 붙이기
+                        value.reply.forEach(replyValue => {
+                            mdText += `- ${_getUserName(userInfo, replyValue)} ${_getDate(replyValue)}\n\n${_getContent(replyValue)}\n\n`;
+                        });
+                        mdText += '---\n';
+                    }
                 });
-                mdText += '---\n';
+
+                return mdText;
             }
-        });
-        return mdText;
-    });
+        };
+    }());
 
 
     /**
