@@ -14,21 +14,36 @@
 <button id="convert-btn">변환</button>
 <br>
 <label for="mdText">MarkDown</label>
+<button id="download">다운로드</button>
 <textarea id="mdText" style="width:100%; height:800px"></textarea>
 </body>
 
 <script>
     window.addEventListener("load", eventBinding);
+    let mdText = "";
 
     function eventBinding() {
         document.getElementById('convert-btn').addEventListener('click', convertJsonToMd);
+        document.getElementById('download').addEventListener('click', download);
     }
 
     async function convertJsonToMd() {
         const userInfo = await users.getInfo();
         const chatLog = await chat.getLog();
-        const mdText = converter.jsonToMd(userInfo, chatLog);
+        mdText = converter.jsonToMd(userInfo, chatLog);
         document.getElementById("mdText").setRangeText(mdText);
+    }
+
+    function download() {
+        const element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(mdText));
+        element.setAttribute('download', "slack-markdown.md");
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+        document.body.removeChild(element);
     }
 
     /**
