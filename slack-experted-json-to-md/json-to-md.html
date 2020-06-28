@@ -2,22 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Slack to Markdown</title>
 </head>
 <body>
+<div class="jumbotron text-center p-3 my-3 bg-dark text-white">
+    <h1>Slack Json To Markdown</h1>
+</div>
 
-<input id="users" type="file" accept="application/json"/>
-<br>
-<input id="chatLog" type="file" accept="application/json" multiple/>
-<br>
+<div class="container">
+    <div>
+        <div class="row p-3 my-3 bg-dark text-white">
+            <h2>1. Upload 'users.json' file</h2>
+        </div>
+        <div class="row">
+            <input id="users" type="file" accept="application/json"/>
+        </div>
+    </div>
+    <div>
+        <div class="row p-3 my-3 bg-dark text-white">
+            <h2>2. Upload Slack Chat Logs Files</h2>
+        </div>
+        <div class="row">
+            <input id="chatLog" type="file" accept="application/json" multiple/>
+        </div>
+    </div>
+    <div>
+        <div class="row p-3 my-3 bg-dark text-white">
+            <h2>3. Click the convert Button</h2>
+        </div>
+        <div class="row">
+            <button id="convert-btn">Convert</button>
+        </div>
+    </div>
 
-<button id="convert-btn">변환</button>
-<br>
-<label for="mdText">MarkDown</label>
-<button id="download">다운로드</button>
-<div id="mdText" markdown="1"></div>
+    <div id="output" class="d-none">
+        <div class="row">
+            <button id="download">Download</button>
+        </div>
+        <div id="mdText" markdown="1"></div>
+    </div>
+</div>
 </body>
 
 <script>
@@ -31,6 +57,7 @@
 
     async function convertJsonToMd() {
         mdText = "";
+        document.getElementById('output').classList.remove('d-none');
         const userInfo = await users.getInfo();
         const chatLog = await chat.getLog();
         mdText = converter.jsonToMd(userInfo, chatLog);
