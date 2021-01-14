@@ -19,5 +19,8 @@
 	- 지금은 scripts의 start, build에만 집중하자.
 - yarn.lock은 삭제
 
+## 1.2 How does React work? 
+- index.html에는 껍대기만 존재하고, src/App.js src/index.js를 통해서 HTML을 리액트가 생성하도록 했다.
+
 
 
