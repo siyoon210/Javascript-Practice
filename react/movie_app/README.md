@@ -211,3 +211,30 @@ export default App
 ![component-lifecycle](./docs/component-lifecycle.png)
 - https://ko.reactjs.org/docs/react-component.html#mounting
 - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+## 3.3 Planning the Movie Component 
+- 라이브싸이클 훅을 사용하여서 컴포넌트 값 변경시키기
+```js
+import React from "react";
+
+class App extends React.Component {
+    state = {
+        isLoading: true
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState(() => ({isLoading: false}))
+        }, 5000);
+    }
+
+    render() {
+        const {isLoading} = this.state
+        return (
+            <div>{isLoading ? "Loading..." : "We are ready!"}</div>
+        )
+    }
+}
+
+export default App
+```
