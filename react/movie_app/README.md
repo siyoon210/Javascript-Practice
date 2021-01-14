@@ -26,7 +26,7 @@
 ## 2.0 Creating your first React Component
 - `Component`는 HTML 반환하는 함수다!
 - 리액트의 모든 것은 Component로 이뤄져 있다.
-- `JSX`는 Javascript로 만드는 HTML이다.
+- `JSX`는 Javascript + HTML이다. HTML 처럼 작성하고 중간에 JS코드를 넣고 싶다면 {...}를 쓴다.
 
 ```
 import React from "react"
@@ -103,6 +103,27 @@ function App() {
 export default App
 ```
 
+## 2.3 map recap
+- `Warning: Each child in a list should have a unique "key" prop.`
+- array component는 식별을 하기위한 'key'라는 값이 필요하다. 유니크값으로 'key'를 지정해준다면 에러가 발생하지 않는다.
+```
+import React from "react";
+import Food from "./Food"
+
+const foodILike = [{id: 1, name: "kimchi"}, {id: 2, name: "ramen"}, {id: 3, name: "fried chicken"}]
+
+function App() {
+    return (
+        <div>
+            {foodILike.map((food) => {
+                return <Food key={food.id} fav={food.name}/>
+            })}
+        </div>
+    )
+}
+
+export default App
+```
 
 
 
