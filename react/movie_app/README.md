@@ -55,7 +55,7 @@ export default App
 ```
 
 ## 2.1 Reusable Components with JSX + Props
-- Component는 재사용이 가능하면 props 정보로 argument를 넣을 수 있다
+- Component는 재사용이 가능하다. props 정보로 argument를 넣을 수 있다
 ```js
 import React from "react"
 
@@ -150,8 +150,10 @@ export default Food
 # 3 STATE
 ## 3.0 Class Components and State
 - Function Components vs Class Components
-	> 함수형 컴포넌트는 클래스형 컴포넌트보다 선언하기가 좀 더 편하고, 메모리 자원을 덜 사용한다는 장점
+	> 함수형 컴포넌트는 클래스형 컴포넌트보다 선언하기가 좀 더 편하고, 메모리 자원을 덜 사용한다는 장점.
+  
 	> 클래스형 컴포넌트의 경우 state 기능 및 라이프 사이클 기능을 사용할 수 있으며 임의 메서드를 정의할 수 있다는 점이다.
+  
 	> 과거에는 클래스형 컴포넌트를 주로 사용했지만, 2019년 v16.8 부터 함수형 컴포넌트에 리액트 훅(hook)을 지원해 주어서 현재는 공식 문서에서 함수형 컴포넌트와 훅을 함께 사용할 것을 권장하고 있다.
   
 - Props vs State
@@ -191,7 +193,7 @@ export default App
 ```
 
 ## 3.1 All you need to know about State
-- State를 직접 수정하면 동작하지 않는 이유 : Componenet가 State가 변하여도 render()를 다시 호하지 않기 때문이다.
+- State를 직접 수정하면 동작하지 않는 이유 : Componenet가 State가 변하여도 render()를 다시 호출하지 않기 때문이다.
 - **setState()를 호출할때마다 리액트는 주어진 새로운 state로 render() 함수를 호출하여 HTML을 그린다.**
 ```js
     plus = () => {
