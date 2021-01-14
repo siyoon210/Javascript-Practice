@@ -125,5 +125,29 @@ function App() {
 export default App
 ```
 
+## 2.4 Protection with PropTypes
+- prop-types 설치
+	- `npm i prop-types`
+- 자식 component에서 전달받은 props가 원하는 props가 맞는지 확인해준다.
+- TypeScript를 사용할 수 있다면 TS가 더 나은 선택지
+```
+import React from "react"
+import PropTypes from "prop-types"
+
+function Food({ fav }) {
+    return <h3>I love {fav}.</h3>
+}
+
+Food.propTypes = {
+    fav: PropTypes.string.isRequired
+}
+
+export default Food
+```
+
+- 공식문서 https://ko.reactjs.org/docs/typechecking-with-proptypes.html
+
+
+
 
 
