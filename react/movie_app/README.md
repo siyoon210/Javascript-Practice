@@ -28,7 +28,7 @@
 - 리액트의 모든 것은 Component로 이뤄져 있다.
 - `JSX`는 Javascript + HTML이다. HTML 처럼 작성하고 중간에 JS코드를 넣고 싶다면 {...}를 쓴다.
 
-```
+```js
 import React from "react"
 
 function Potato() {
@@ -37,7 +37,7 @@ function Potato() {
 
 export default Potato;
 ```
-```
+```js
 import React from "react";
 import Potato from "./Potato"
 
@@ -56,7 +56,7 @@ export default App
 
 ## 2.1 Reusable Components with JSX + Props
 - Component는 재사용이 가능하면 props 정보로 argument를 넣을 수 있다
-```
+```js
 import React from "react"
 
 function Food({ fav }) {
@@ -65,7 +65,7 @@ function Food({ fav }) {
 
 export default Food
 ```
-```
+```js
 import React from "react";
 import Food from "./Food"
 
@@ -84,7 +84,7 @@ export default App
 
 ## 2.2 Dynamic Component Generation
 - JS array의 map() 메서드를 활용한 컴포넌트 동적 생성
-```
+```js
 import React from "react";
 import Food from "./Food"
 
@@ -106,7 +106,7 @@ export default App
 ## 2.3 map recap
 - `Warning: Each child in a list should have a unique "key" prop.`
 - array component는 식별을 하기위한 'key'라는 값이 필요하다. 유니크값으로 'key'를 지정해준다면 에러가 발생하지 않는다.
-```
+```js
 import React from "react";
 import Food from "./Food"
 
@@ -130,7 +130,7 @@ export default App
 	- `npm i prop-types`
 - 자식 component에서 전달받은 props가 원하는 props가 맞는지 확인해준다.
 - TypeScript를 사용할 수 있다면 TS가 더 나은 선택지
-```
+```js
 import React from "react"
 import PropTypes from "prop-types"
 
@@ -159,7 +159,7 @@ export default Food
 
 - https://devowen.com/298
 
-```
+```js
 import React from "react";
 
 class App extends React.Component {
@@ -188,6 +188,23 @@ class App extends React.Component {
 
 export default App
 
+```
+
+## 3.1 All you need to know about State
+- State를 직접 수정하면 동작하지 않는 이유 : Componenet가 State가 변하여도 render()를 다시 호하지 않기 때문이다.
+- **setState()를 호출할때마다 리액트는 주어진 새로운 state로 render() 함수를 호출하여 HTML을 그린다.**
+```js
+    plus = () => {
+        this.setState(current => ({
+            count: current.count + 1
+        }));
+    }
+
+    minus = () =>{
+        this.setState(current => ({
+            count: current.count - 1
+        }));
+    }
 ```
 
 
