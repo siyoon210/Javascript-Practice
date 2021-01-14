@@ -1,16 +1,27 @@
 import React from "react";
-import Food from "./Food"
 
-const foodILike = [{id: 1, name: "kimchi"}, {id: 2, name: "ramen"}, {id: 3, name: "fried chicken"}]
+class App extends React.Component {
+    state = {
+        count: 0
+    }
 
-function App() {
-    return (
-        <div>
-            {foodILike.map((food) => {
-                return <Food key={food.id} fav={food.name}/>
-            })}
-        </div>
-    )
+    plus = () => {
+        console.log('plus')
+    }
+
+    minus = () =>{
+        console.log('minus')
+    }
+
+    render() {
+        return (
+            <div>
+                <h1> The number is {this.state.count} </h1>
+                <button onClick={this.plus}>plus</button>
+                <button onClick={this.minus}>minus</button>
+            </div>
+        )
+    }
 }
 
 export default App

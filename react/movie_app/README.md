@@ -147,7 +147,47 @@ export default Food
 
 - 공식문서 https://ko.reactjs.org/docs/typechecking-with-proptypes.html
 
+# 3 STATE
+## 3.0 Class Components and State
+- Function Components vs Class Components
+	> 함수형 컴포넌트는 클래스형 컴포넌트보다 선언하기가 좀 더 편하고, 메모리 자원을 덜 사용한다는 장점
+	> 클래스형 컴포넌트의 경우 state 기능 및 라이프 사이클 기능을 사용할 수 있으며 임의 메서드를 정의할 수 있다는 점이다.
+	> 과거에는 클래스형 컴포넌트를 주로 사용했지만, 2019년 v16.8 부터 함수형 컴포넌트에 리액트 훅(hook)을 지원해 주어서 현재는 공식 문서에서 함수형 컴포넌트와 훅을 함께 사용할 것을 권장하고 있다.
+  
+- Props vs State
+	> state는 컴포넌트 내부에서 바뀔 수 있는 값을 의미한다. props의 경우 부모 컴포넌트가 설정해서 자식 컴포넌트는 읽기만 할 수 있는 값이며 바꾸기 위해서는 부모 컴포넌트에서 직접 변경을 해야 한다. 자식 컴포넌트 내에서 값을 변화하여야 하는 경우 state를 사용한다.
 
+- https://devowen.com/298
 
+```
+import React from "react";
+
+class App extends React.Component {
+    state = {
+        count: 0
+    }
+
+    plus = () => {
+        console.log('plus')
+    }
+
+    minus = () =>{
+        console.log('minus')
+    }
+
+    render() {
+        return (
+            <div>
+                <h1> The number is {this.state.count} </h1>
+                <button onClick={this.plus}>plus</button>
+                <button onClick={this.minus}>minus</button>
+            </div>
+        )
+    }
+}
+
+export default App
+
+```
 
 
