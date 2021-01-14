@@ -82,6 +82,26 @@ function App() {
 export default App
 ```
 
+## 2.2 Dynamic Component Generation
+- JS array의 map() 메서드를 활용한 컴포넌트 동적 생성
+```
+import React from "react";
+import Food from "./Food"
+
+const foodILike = [{name: "kimchi"}, {name: "ramen"}, {name: "fried chicken"}]
+
+function App() {
+    return (
+        <div>
+            {foodILike.map((food) => {
+                return <Food fav={food.name}/>
+            })}
+        </div>
+    )
+}
+
+export default App
+```
 
 
 
