@@ -207,4 +207,7 @@ export default App
     }
 ```
 
-
+## 3.2 Component Life Cycle
+![component-lifecycle](./docs/component-lifecycle.png)
+- https://ko.reactjs.org/docs/react-component.html#mounting
+- https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
