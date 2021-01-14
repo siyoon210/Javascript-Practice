@@ -28,6 +28,61 @@
 - 리액트의 모든 것은 Component로 이뤄져 있다.
 - `JSX`는 Javascript로 만드는 HTML이다.
 
+```
+import React from "react"
+
+function Potato() {
+    return <h3>I love potato.</h3>;
+}
+
+export default Potato;
+```
+```
+import React from "react";
+import Potato from "./Potato"
+
+function App() {
+  return (
+    <div>
+      Hello!
+      <Potato />
+    </div>
+  )
+}
+
+export default App
+
+```
+
+## 2.1 Reusable Components with JSX + Props
+- Component는 재사용이 가능하면 props 정보로 argument를 넣을 수 있다
+```
+import React from "react"
+
+function Food({ fav }) {
+    return <h3>I love {fav}.</h3>
+}
+
+export default Food
+```
+```
+import React from "react";
+import Food from "./Food"
+
+function App() {
+  return (
+    <div>
+      Hello!
+      <Food fav="kimchi" />
+      <Food fav="ramen" />
+    </div>
+  )
+}
+
+export default App
+```
+
+
 
 
 

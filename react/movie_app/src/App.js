@@ -1,13 +1,14 @@
 import React from "react";
-import Potato from "./Potato"
+import Food from "./Food"
 
 function App() {
   return (
     <div>
       Hello!
-      <Potato />
+      <Food fav="kimchi" />
+      <Food fav="ramen" />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
