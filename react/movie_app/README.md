@@ -22,5 +22,12 @@
 ## 1.2 How does React work? 
 - index.html에는 껍대기만 존재하고, src/App.js src/index.js를 통해서 HTML을 리액트가 생성하도록 했다.
 
+# 2 JSX & PROPS
+## 2.0 Creating your first React Component
+- `Component`는 HTML 반환하는 함수다!
+- 리액트의 모든 것은 Component로 이뤄져 있다.
+- `JSX`는 Javascript로 만드는 HTML이다.
+
+
 
 
