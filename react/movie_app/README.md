@@ -240,3 +240,9 @@ class App extends React.Component {
 
 export default App
 ```
+
+# 4 MAKING THE MOVIE APP
+## 4.0 Fetching Movies from API
+- axios 설치하기 `npm i axios`
+	- 이런식으로 설치되면 `package.json`에 의존성이 추가된다!
+
