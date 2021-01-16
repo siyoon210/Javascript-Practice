@@ -348,3 +348,11 @@ export default App
 - 나만의 프로젝트 구상해보기
 - 사실 state를 사용하기 위해서 class component가 강제되지 않습니다. react hook을 사용하면 된다.
 - react native를 사용하면 모바일 네이티브 앱을 리액트로 제작 가능
+
+# 6 ROUTING BONUS
+## 6.0 Getting Ready for the Router
+- react-router-dom 설치 `npm i react-router-dom`
+	- 네비게이션을 만들어주는 패키지
+- `src` 디렉토리 하위에 `components`와 `routes`를 생성해주자.
+- `routes` 디렉토리의 JS 하나당 하나의 페이지다.
+	- `App.js`에 있던 내용을 `Home.js`로 이동시킨다.
