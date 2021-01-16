@@ -1,12 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./App.css";
 
-function Movie({id, year, title, summary, posterSrc}) {
-    return <h1>{title}</h1>
+function Movie({year, title, summary, posterSrc}) {
+    return (
+        <div class="movie">
+            <img src={posterSrc} alt={title} title={title}/>
+            <div class="movie__data">
+                <h1 class="movie__title">{title}</h1>
+                <h2 class="movie__year">{year}</h2>
+                <p class="movie__summary">{summary}</p>
+            </div>
+        </div>
+    );
 }
 
 Movie.propTypes = {
-    id: PropTypes.number.isRequired,
     year: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,

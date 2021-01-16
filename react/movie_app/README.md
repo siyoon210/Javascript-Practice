@@ -310,3 +310,6 @@ class App extends React.Component {
 
 export default App
 ```
+
+## 4.2 Styling the Movies
+[Css 적용 소스코드 (노마드코더)](https://github.com/nomadcoders/movie_app_2019/commit/1777ae1284fdfd0b60e18e84f46d952a0a7548c3)
