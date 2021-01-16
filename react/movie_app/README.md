@@ -356,3 +356,25 @@ export default App
 - `src` 디렉토리 하위에 `components`와 `routes`를 생성해주자.
 - `routes` 디렉토리의 JS 하나당 하나의 페이지다.
 	- `App.js`에 있던 내용을 `Home.js`로 이동시킨다.
+	
+## 6.1 Building the Router
+- router(라우터)는 url을 읽고 해당되는 컴포넌트를 불러온다. (매퍼 같은거군?!)
+- Route의 `exact={true}`를 명시하지 않으면 현재 url을 만족하는 모든 컴포넌트를 불러온다.
+	- 예를들어 `path="/"`에 `exact={true}`가 없다면 `/about` path는 두 개의 path와 매칭이 되어 두개의 컴포넌트를 모두 불러오게 된다.	
+```js
+import React from "react";
+import {HashRouter, Route} from "react-router-dom";
+import Home from "./routes/Home"
+import About from "./routes/About"
+
+function App() {
+    return (
+        <HashRouter>
+            <Route path="/" exact={true} component={Home}/>
+            <Route path="/about" component={About}/>
+        </HashRouter>
+    )
+}
+
+export default App
+```
