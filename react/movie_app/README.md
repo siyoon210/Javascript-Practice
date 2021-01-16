@@ -312,4 +312,5 @@ export default App
 ```
 
 ## 4.2 Styling the Movies
+[Css 적용 소스코드](https://github.com/siyoon210/HTML-CSS-JS/commit/090ae523993ae194d515acd020e46ca83ff349d8)
 [Css 적용 소스코드 (노마드코더)](https://github.com/nomadcoders/movie_app_2019/commit/1777ae1284fdfd0b60e18e84f46d952a0a7548c3)
