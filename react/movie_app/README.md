@@ -246,3 +246,67 @@ export default App
 - axios 설치하기 `npm i axios`
 	- 이런식으로 설치되면 `package.json`에 의존성이 추가된다!
 
+## 4.1 Rendering the Movies
+- state 설정시에 이름이 같은건 하나로 표현 가능하다!
+- `this.setState({movies: movies, isLoading: false})` == `this.setState({movies, isLoading: false})`
+
+```js
+import React from "react";
+import PropTypes from "prop-types";
+
+function Movie({id, year, title, summary, posterSrc}) {
+    return <h1>{title}</h1>
+}
+
+Movie.propTypes = {
+    id: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    posterSrc: PropTypes.string.isRequired
+}
+
+export default Movie;
+```
+
+```js
+import React from "react";
+import axios from "axios";
+import Movie from "./Movie"
+
+class App extends React.Component {
+    state = {
+        isLoading: true,
+        movies: []
+    }
+
+    getMovies = async () => {
+        const {data: {data: {movies}}} = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+        this.setState({movies, isLoading: false})
+    }
+
+    componentDidMount() {
+        this.getMovies()
+    }
+
+    render() {
+        const {isLoading, movies} = this.state
+        return (
+            <div>
+                {isLoading ? "Loading..." : movies.map(movie =>
+                    <Movie
+                        key={movie.id}
+                        id={movie.id}
+                        year={movie.year}
+                        summary={movie.summary}
+                        title={movie.title}
+                        posterSrc={movie.medium_cover_image}
+                    />
+                )}
+            </div>
+        )
+    }
+}
+
+export default App
+```
