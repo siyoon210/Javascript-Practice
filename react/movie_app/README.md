@@ -325,3 +325,26 @@ export default App
 
 ## 4.5 Cutting the summary
 - JS의 string의 slice 메서드를 사용하여서 summary 길이 통일 시키기
+
+# 5 CONCLUSIONS
+## 5.0 Deploying to Github Pages
+1. gh-pages 설치 `npm i gh-pages`
+2. `package.json`에 `homepage` 설정 추가
+	```json
+	{
+		"homepage": "https://{github-user-name}.github.io/{repository-name}/"
+	}
+	```
+3. `script`에 `deploy` 명령어 추가
+	- `"deploy": "gh-pages -d build"` : `gb-pages`를 이용해서 업로드할 디렉토리(`-d`) 명은 `build`
+	- `"predeploy": "npm run build"` : `deploy` 라는 키워드 앞에 `pre` 가 붙으면 npm은 `deploy` 실행시에 `predeploy`를 실행함
+	- 즉, 업로드 하기 전에 build하여 build된 디렉토리가 만들어지고 이걸 gh-pages가 주소에 업로드 해줌!
+4. `npm run deploy` 디플로이 실행!
+   - (start만 run이라는 키워드가 없이 되나봐?!)
+	
+- [소스코드 (노마드코더)](https://github.com/nomadcoders/movie_app_2019/commit/566d23d09db9b96a022562d2a2f47f2c64727e9b)
+
+## 5.1 Are we done?
+- 나만의 프로젝트 구상해보기
+- 사실 state를 사용하기 위해서 class component가 강제되지 않습니다. react hook을 사용하면 된다.
+- react native를 사용하면 모바일 네이티브 앱을 리액트로 제작 가능
