@@ -318,3 +318,10 @@ export default App
 ## 4.3 Adding Genres
 - JSX안에서 `class` 키워드와 `for` 키워드는 중복된다. (HTML에서 사용하던 키워드, JS에서 사용하는 키워드)
 - 그래서 HTML의 `class` -> `className`, HTML `label`의 `for`는 `htmlFor`로 바꿔서 사용한다.
+
+## 4.4 Styles Timelapse
+[유튜브 영상](https://www.youtube.com/watch?v=-P7gUAgBI2Y)
+[git](https://github.com/nomadcoders/movie_app_2019/commit/c0a3270f5824c2555e2621190c6307cbaefe0704)
+
+## 4.5 Cutting the summary
+- JS의 string의 slice 메서드를 사용하여서 summary 길이 통일 시키기
