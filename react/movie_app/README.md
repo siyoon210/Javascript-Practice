@@ -314,3 +314,7 @@ export default App
 ## 4.2 Styling the Movies
 [Css 적용 소스코드](https://github.com/siyoon210/HTML-CSS-JS/commit/090ae523993ae194d515acd020e46ca83ff349d8)
 [Css 적용 소스코드 (노마드코더)](https://github.com/nomadcoders/movie_app_2019/commit/1777ae1284fdfd0b60e18e84f46d952a0a7548c3)
+
+## 4.3 Adding Genres
+- JSX안에서 `class` 키워드와 `for` 키워드는 중복된다. (HTML에서 사용하던 키워드, JS에서 사용하는 키워드)
+- 그래서 HTML의 `class` -> `className`, HTML `label`의 `for`는 `htmlFor`로 바꿔서 사용한다.
