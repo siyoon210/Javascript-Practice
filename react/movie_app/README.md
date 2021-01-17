@@ -400,7 +400,7 @@ export default Navigation
 ```
 
 - cf) `Link`를 사용하는 경우 `Navigation` 컴포넌트는 반드시 `<*Router>`태그 안에 있어야 한다.
-	- `BroweserRouter`를 사용하는 경우 URL의 `/#/` 없어지지만 github page에서 설정하기 번거로워서 `HashRouter`를 사용함 	
+- cf) `BroweserRouter`를 사용하는 경우 URL의 `/#/` 없어지지만 github page에서 설정하기 번거로워서 `HashRouter`를 사용함 	
 ```js
 function App() {
     return (
@@ -410,5 +410,62 @@ function App() {
             <Route path="/about" component={About}/>
         </HashRouter>
     )
-}이
+}
 ```
+
+## 6.3 Sharing Props Between Routes
+- `<Route>`태그 안에 있는 Route는 `react-route`가 기본으로 넣어주는 props가 있다.
+	- `hisotry`, `location`, `match`, `staticContext`
+- `<Link>`를 이용하여서 Routes에게 props를 전달 할 수 있다.
+
+```js
+import React from "react";
+import PropTypes from "prop-types";
+import "./Movie.css"
+import {Link} from "react-router-dom";
+
+function Movie({year, title, summary, posterSrc, genres}) {
+    return (
+        <Link
+            to={{
+                pathname: "/movie-detail",
+                state: {
+                    year,
+                    title,
+                    summary,
+                    posterSrc,
+                    genres
+                }
+            }}
+        >
+            <div className="movie">
+                <img src={posterSrc} alt={title} title={title}/>
+                <div className="movie__data">
+                    <h1 className="movie__title">{title}</h1>
+                    <h2 className="movie__year">{year}</h2>
+                    <ul className="movie__genres">
+                        {genres.map((genre, index) =>
+                            <li key={index} className="genres__genre">
+                                {genre}
+                            </li>
+                        )}
+                    </ul>
+                    <p className="movie__summary">{summary.slice(0, 180)}...</p>
+                </div>
+            </div>
+        </Link>
+    );
+}
+
+Movie.propTypes = {
+    year: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    posterSrc: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired
+}
+
+export default Movie;
+```  
+
+- [react router 공식문서](https://reactrouter.com/web/guides/quick-start)
