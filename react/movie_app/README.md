@@ -378,3 +378,37 @@ function App() {
 
 export default App
 ```
+
+## 6.2 Building the Navigation
+- 네비게이션의 `a` 태그를 사용하게 되면 페이지 이동시에 새로고침이 되어버린다. (깜빡..깜빡..) 
+- `react-router-dom`의 `Link`를 사용되면 이러한 문제가 해결된다.
+
+```js
+import React from "react";
+import {Link} from "react-router-dom";
+
+function Navigation() {
+    return (
+        <div className="nav">
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+        </div>
+    );
+}
+
+export default Navigation
+```
+
+- cf) `Link`를 사용하는 경우 `Navigation` 컴포넌트는 반드시 `<*Router>`태그 안에 있어야 한다.
+	- `BroweserRouter`를 사용하는 경우 URL의 `/#/` 없어지지만 github page에서 설정하기 번거로워서 `HashRouter`를 사용함 	
+```js
+function App() {
+    return (
+        <HashRouter>
+            <Navigation />
+            <Route path="/" exact={true} component={Home}/>
+            <Route path="/about" component={About}/>
+        </HashRouter>
+    )
+}이
+```
