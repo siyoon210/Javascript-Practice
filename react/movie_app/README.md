@@ -417,6 +417,7 @@ function App() {
 - `<Route>`태그 안에 있는 Route는 `react-route`가 기본으로 넣어주는 props가 있다.
 	- `hisotry`, `location`, `match`, `staticContext`
 - `<Link>`를 이용하여서 Routes에게 props를 전달 할 수 있다.
+	- `loation.state`
 
 ```js
 import React from "react";
@@ -469,3 +470,30 @@ export default Movie;
 ```  
 
 - [react router 공식문서](https://reactrouter.com/web/guides/quick-start)
+
+## 6.4 Redirecting
+- route에서 전달받은 props를 사용하여 전달받은 state를 확인하고 리다이렉트 하기
+```js
+import React from "react";
+
+class Detail extends React.Component {
+	render() {
+		const {location} = this.props;
+		if (location.state) {
+			return <span>{location.state.title}</span>;
+		} else {
+			return null;
+		}
+	}
+
+	componentDidMount() {
+		const {location, history} = this.props;
+		if (location.state === undefined) {
+			history.push("/");
+		}
+	}
+}
+
+export default Detail;
+```
+

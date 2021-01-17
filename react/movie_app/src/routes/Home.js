@@ -31,10 +31,11 @@ class Home extends React.Component {
                         {movies.map(movie => (
                             <Movie
                                 key={movie.id}
+                                id={movie.id}
                                 year={movie.year}
                                 summary={movie.summary}
                                 title={movie.title}
-                                posterSrc={movie.medium_cover_image}
+                                poster={movie.medium_cover_image}
                                 genres={movie.genres}
                             />
                         ))}
