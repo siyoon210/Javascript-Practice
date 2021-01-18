@@ -22,11 +22,12 @@
 	- `<main>`은 `<div id="main">`보다 의미론적이다.
 	- `<footer>`, `<aside>`, `<address>`...
 
+
 # 3 LEARNING CSS
 ## CSS 형식
 ```css
 selector {
-	property: property-value;
+    property: property-value;
 }
 ```
 - [https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector](https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector)
@@ -58,7 +59,7 @@ selector {
 - 한줄에 여러 element들을 두고 싶은 경우 여기를 잘 봐야한다.
 - inline-block은 Responsive Design(반응형 디자인)을 지원하지 않는다.
 - inline block의 문제점을 flexblock가 해결한다.
-- flex설정은 이제 머리아프게 한다. 만약 다루고자하는 요소나 부모요소에 flex가 있다면 주의해야한다. 만약 머리 아프고 싶지 않다면 가능한 빨리 주변의 프론트엔드 개발자나 퍼블리셔한테 도움을 청하는게 좋을수 있다. 그게 힘들다면 반드시 알고 넘어가자.
+- flex설정은 머리아프게 한다. 만약 다루고자하는 요소나 부모요소에 flex가 있다면 주의해야한다. 가능한 빨리 주변의 프론트엔드 개발자나 퍼블리셔한테 도움을 청하는게 좋을수 있다. 그게 힘들다면 반드시 알고 넘어가자.
 
 ### flexblock 사용 규칙
 - 자식 엘리먼트에는 어떤 것도 적지 말아야 한다. 자식 엘리먼트를 움직이게 하려면 부모 엘리먼트를 flex container로 만들어야 한다.
