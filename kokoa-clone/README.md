@@ -67,3 +67,53 @@ selector {
     - `align-items` : cross axis에서 작용 (세로)
     - `justify-content` : main axis에서 작용 (가로)
     - `flex-direction` : 기본값은 row (column으로 변경가능)
+
+## Position
+
+- 요소를 어떤 방식으로 배치할 것인가?!
+- positon: static (default)
+    - 요소를 일반적인 문서 흐름에 따라 배치합니다. top, right, bottom, left, z-index 속성이 아무런 영향도 주지 않습니다. 기본값입니다
+- position: relative;
+    - 요소를 일반적인 문서 흐름에 따라 배치하고, 자기 자신을 기준으로 top, right, bottom, left의 값에 따라 오프셋을 적용합니다. 오프셋은 다른 요소에는 영향을 주지 않습니다. 따라서 페이지 레이아웃에서 요소가 차지하는 공간은 static일 때와 같습니다.
+- position: absolute;
+    - 요소를 일반적인 문서 흐름에서 제거하고, 페이지 레이아웃에 공간도 배정하지 않습니다. 대신 가장 가까운 위치 지정 조상 요소에 대해 상대적으로 배치합니다. 단, 조상 중 위치 지정 요소가 없다면 초기 컨테이닝 블록을 기준으로 삼습니다. 최종 위치는 top, right, bottom, left 값이 지정합니다.
+- position: fixed
+    - 요소를 일반적인 문서 흐름에서 제거하고, 페이지 레이아웃에 공간도 배정하지 않습니다. 대신 뷰포트의 초기 컨테이닝 블록을 기준으로 삼아 배치합니다.
+- [https://developer.mozilla.org/ko/docs/Web/CSS/position](https://developer.mozilla.org/ko/docs/Web/CSS/position)
+
+## Pseudo Selectors
+
+- selector의 property
+
+```
+selector:pseudo-class {
+  property: value;
+}
+```
+
+- ex) `:first-child`, `nth-child(3, even, odd, 2n +1)` ...
+- [https://developer.mozilla.org/ko/docs/Web/CSS/Pseudo-classes](https://developer.mozilla.org/ko/docs/Web/CSS/Pseudo-classes)
+
+## Combinators
+
+- 결국 가장 마지막에 명시된 요소에게 적용하겠다는 것! (`,` 로 구분하는건 여러개를 설정하겠다는 것이니 혼동 ㄴㄴ)
+- `body article p` : p태그 조상중에 article이 있고, 그 조상중에 body가 있는 경우
+- `article > p` : p태그 '부모'에 article이 있는 경우
+- `h1 + p` : p태그 **바로 이전** 형제에 h1이 있는 경우
+- `h1 ~ p` : p태그 이전 형제에 h1이 있는 경우
+- [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators)
+
+## Attribute Selector
+
+- **내가 생각하는것보다 selector의 기능이 많구나! → 보편적인 셀렉팅이라고 생각된다면 반드시 문서를 확인해보고 무의미한 class, id를 최대한 줄여보자**
+- Example
+    - `a[title]` : Matches elements with an attr attribute.
+    - `a[href="[https://example.com](https://example.com/)"]` : Matches elements with an attr attribute whose value is exactly value
+    - `p[class~="special"]` : Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values.
+- [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors)
+
+## State (Psuedo-class)
+
+- `:hover` `:focus` 처럼 유저에 액션에 따른 셀렉터 지정
+- [https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+- 브라우저 개발자도구에서 State를 찾아 볼 수 있다.
