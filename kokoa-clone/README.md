@@ -81,18 +81,31 @@ selector {
     - 요소를 일반적인 문서 흐름에서 제거하고, 페이지 레이아웃에 공간도 배정하지 않습니다. 대신 뷰포트의 초기 컨테이닝 블록을 기준으로 삼아 배치합니다.
 - [https://developer.mozilla.org/ko/docs/Web/CSS/position](https://developer.mozilla.org/ko/docs/Web/CSS/position)
 
-## Pseudo Selectors
-
+## Pseudo 시리즈
+### Pseudo Selectors
 - selector의 property
-
-```
-selector:pseudo-class {
-  property: value;
-}
-```
+    ```css
+    selector:pseudo-class {
+      property: value;
+    }
+    ```
 
 - ex) `:first-child`, `nth-child(3, even, odd, 2n +1)` ...
 - [https://developer.mozilla.org/ko/docs/Web/CSS/Pseudo-classes](https://developer.mozilla.org/ko/docs/Web/CSS/Pseudo-classes)
+
+### Pseudo Classes (State)
+- `:hover` `:focus` 처럼 유저에 액션에 따른 셀렉터 지정
+- 브라우저 개발자도구에서 State를 찾아 볼 수 있다.
+- [https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
+### Pseudo Elements
+- 콜론(:)을 2개쓰는 Pseudo element도 있다.
+    ```css
+    selector::pseudo-element {
+      property: value;
+    }
+    ```
+- [https://developer.mozilla.org/ko/docs/Web/CSS/Pseudo-elements](https://developer.mozilla.org/ko/docs/Web/CSS/Pseudo-elements)
 
 ## Combinators
 
@@ -111,9 +124,3 @@ selector:pseudo-class {
     - `a[href="[https://example.com](https://example.com/)"]` : Matches elements with an attr attribute whose value is exactly value
     - `p[class~="special"]` : Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values.
 - [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors)
-
-## State (Psuedo-class)
-
-- `:hover` `:focus` 처럼 유저에 액션에 따른 셀렉터 지정
-- [https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
-- 브라우저 개발자도구에서 State를 찾아 볼 수 있다.
