@@ -117,10 +117,41 @@ selector {
 - [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators)
 
 ## Attribute Selector
-
 - **내가 생각하는것보다 selector의 기능이 많구나! → 보편적인 셀렉팅이라고 생각된다면 반드시 문서를 확인해보고 무의미한 class, id를 최대한 줄여보자**
 - Example
     - `a[title]` : Matches elements with an attr attribute.
     - `a[href="[https://example.com](https://example.com/)"]` : Matches elements with an attr attribute whose value is exactly value
     - `p[class~="special"]` : Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values.
 - [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors)
+
+## Variable (Custom Property)
+- css내의 변수사용. (IE 지원을 하지 않는다.)
+    ```css
+    :root {
+      --main-bg-color: brown;
+    }
+    
+    element {
+      background-color: var(--main-bg-color);
+    }
+    ```
+- [https://developer.mozilla.org/ko/docs/Web/CSS/Using_CSS_custom_properties](https://developer.mozilla.org/ko/docs/Web/CSS/Using_CSS_custom_properties)
+
+## Transition
+- Transitions enable you to define the transition between two states of an element
+    - 다른 상태의 '변화'를 나타내는 속성 (마치 애니메이션 효과 같은 느낌을 준다.)
+    ```css
+    .target {
+      font-size: 14px;
+      /* property name | duration | easing function */
+      transition: font-size 4s ease-in-out;
+    }
+    
+    .target:hover {
+      font-size: 36px;
+    }
+    ```
+- easing function 속성으로 ease-in, ease-out, ease-in-out을 주로 사용하게 될 거다. 
+    - https://matthewlein.com/tools/ceaser
+- https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+
