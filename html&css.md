@@ -187,6 +187,7 @@ selector {
 ```
 - https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries
 
+# Effective CSS & styling
 ## BEM (Blcok, Element, Modifier)
 - css class를 작성하는 하나의 방법론 (정답은 아니고 하나의 스타일 컨벤션이다.)
   ```css
@@ -196,3 +197,12 @@ selector {
   ```
 - id보다는 class로만 작성한다. (id인지 아닌지 확인할 일이 없어)
 - https://nykim.work/15
+
+## Font Awesome
+- 아이콘
+- https://fontawesome.com/
+1. Kit's Code js 스크립트를 head에 삽입
+   ```html
+    <script src="https://kit.fontawesome.com/mykitcode.js" crossorigin="anonymous"></script>
+   ```
+2. icon 삽입 `<i class="fas fa-bath"></i>` 
