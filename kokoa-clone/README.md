@@ -37,6 +37,7 @@ selector {
 - 위에서부터 아래로 읽어드린다는 뜻. 같은 element(tag)에게 css property가 중복된다면 가장 마지막(아래)에 위치한 property가 적용된다.
 - (브라우저에서) 기본적으로 설정되는 style이 있다.  (user agent stylesheet) 이 설정은 가장 첫번째(위)에 위치하게 될 것이다.
     - 가장 마지막은 element에 직접 명시한 style이 된다.
+- **이러한 특성은 media query에서도 나타난다. min-width를 똑같이 만족한다면, 아래에 선언된 style이 적용된다.**
 
 ## Block vs Inline
 - Block은 box다. Inline은 box가 아니다.
@@ -181,5 +182,10 @@ selector {
 - https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
 - https://developer.mozilla.org/en-US/docs/Web/CSS/animation
 
+## Media Query
+```css
+@media (max-width: 12450px) { ... }
+```
+- https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries
 
 
