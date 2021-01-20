@@ -207,6 +207,10 @@ selector {
    ```
 2. icon 삽입 `<i class="fas fa-bath"></i>`
 
+## Reset.css
+- 브라우저에 기본적으로 적용된 스타일을 초기화시키는 css 모음
+- https://meyerweb.com/eric/tools/css/reset/
+
 # CSS Hack
 ## flex item들중 가운데 item을 정가운데에 두기
 - 코코아클론 (6.5 Status Bar CSS)
