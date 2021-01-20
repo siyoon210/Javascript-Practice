@@ -137,6 +137,7 @@ selector {
     ```
 - [https://developer.mozilla.org/ko/docs/Web/CSS/Using_CSS_custom_properties](https://developer.mozilla.org/ko/docs/Web/CSS/Using_CSS_custom_properties)
 
+# 4 ADVANCED CSS
 ## Transition
 - Transitions enable you to define the transition between two states of an element
     - 다른 상태의 '변화'를 나타내는 속성 (마치 애니메이션 효과 같은 느낌을 준다.)
@@ -154,4 +155,31 @@ selector {
 - easing function 속성으로 ease-in, ease-out, ease-in-out을 주로 사용하게 될 거다. 
     - https://matthewlein.com/tools/ceaser
 - https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+
+## Transform
+- 요소를 말 그대로 변형(Transformation) 시킬 수 있다. 예를들어 왼쪽으로 움직이게 한다던가, 회전을 시킨다던가...
+- 다른 css property(속성)을 사용하는 점과 다른 것은 box element를 변형시키지 않는다. 이동하였지만 브라우저는 여전히 변형되기 전에 상태로 인식하여 다른 요소들에게 영향을 주지 않는다.
+    ```css
+    /* Function values */
+    transform: perspective(17px);
+    ```
+- **transition없이 transform을 사용한다면 바로 변형된 모습이 나와 딱딱하게 보여진다. transition과 같이 사용하도록 하자!** 
+- https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+
+## animation
+- `:hover` 같은 state 없이 자동으로 구동되는 애니메이션 효과
+    ```css
+    @keyframes slidein {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+    }
+  
+    /* @keyframes name | duration | easing-function | delay */
+    animation: slidein 3s linear 1s;
+    ```
+- https://animista.net/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
+- https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+
+
 
