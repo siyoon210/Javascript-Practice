@@ -205,4 +205,28 @@ selector {
    ```html
     <script src="https://kit.fontawesome.com/mykitcode.js" crossorigin="anonymous"></script>
    ```
-2. icon 삽입 `<i class="fas fa-bath"></i>` 
+2. icon 삽입 `<i class="fas fa-bath"></i>`
+
+# CSS Hack
+## flex item들중 가운데 item을 정가운데에 두기
+- 코코아클론 (6.5 Status Bar CSS)
+```css
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.container__item {
+  width: 33.3%;
+}
+
+.container__item:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+
+.container__item:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+```
