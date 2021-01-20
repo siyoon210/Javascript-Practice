@@ -187,4 +187,12 @@ selector {
 ```
 - https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries
 
-
+## BEM (Blcok, Element, Modifier)
+- css class를 작성하는 하나의 방법론 (정답은 아니고 하나의 스타일 컨벤션이다.)
+  ```css
+  .header__navigation--navi-text {
+    color: red;
+  }
+  ```
+- id보다는 class로만 작성한다. (id인지 아닌지 확인할 일이 없어)
+- https://nykim.work/15
