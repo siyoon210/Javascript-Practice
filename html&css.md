@@ -211,6 +211,10 @@ selector {
 - 브라우저에 기본적으로 적용된 스타일을 초기화시키는 css 모음
 - https://meyerweb.com/eric/tools/css/reset/
 
+## Page Ruler Redux
+- 브라우저 내의 크기를 측정하는 크롬 익스텐션
+- https://chrome.google.com/webstore/detail/page-ruler-redux/giejhjebcalaheckengmchjekofhhmal?hl=ko
+
 # CSS Hack
 ## flex item들중 가운데 item을 정가운데에 두기
 - 코코아클론 (6.5 Status Bar CSS)
