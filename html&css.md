@@ -215,6 +215,14 @@ selector {
 - 브라우저 내의 크기를 측정하는 크롬 익스텐션
 - https://chrome.google.com/webstore/detail/page-ruler-redux/giejhjebcalaheckengmchjekofhhmal?hl=ko
 
+## ColorZilla
+- 색깔을 추출하는 크롬 익스텐션
+- 
+
+## Margin vs Padding
+- Q) 어떤상황에서 padding을 쓰고 어떤 상황에서 margin을 써야할까?
+  - 디자인적인 측면 : background-color가 달라야 하는 경우, 같아야 하는 경우
+
 # CSS Hack
 ## flex item들중 가운데 item을 정가운데에 두기
 - 코코아클론 (6.5 Status Bar CSS)
@@ -238,3 +246,6 @@ selector {
   justify-content: flex-end;
 }
 ```
+
+## item들을 세로로 정렬해야 할때도 flex를 사용하자
+- Container의 display를 flex, direction을 column으로!
