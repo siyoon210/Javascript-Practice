@@ -1,0 +1,11 @@
+.nav {
+    padding: 20px 40px;
+    background-color: #F9F9FA;
+}
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+}
+.nav__link {
+    color: inherit;
+}
