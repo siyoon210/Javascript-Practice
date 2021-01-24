@@ -48,6 +48,12 @@ selector {
 - Margin은 Border(경계)를 기준으로 바깥 여백이다.
 - Padding은 Border(경계)를 기준으로 안쪽 여백이다.
 
+### box-sizing
+- `box-sizing`의 기본값은 `content-box`로 기본적으로 설정된 항상 `width`값을 유지한다.
+- `border-box`로 설정할시에 설정된 `width`값을 `padding`과 `border`값 만큼 뺀다.
+- 에를들어 `width`값을 100px로 지정한 경우 `padding`값과 관계 없이 `content-box`는 항상 100px을 유지하며, `border-box`는 `padding`값 만큼 `width`를 줄인다.
+- https://developer.mozilla.org/ko/docs/Web/CSS/box-sizing
+
 ## Collapsing margin 현상
 - 여러 box들이 중첩되어 있는 경우, 큰 사이즈의 margin으로 통합되는 현상. 상하 마진에서만 나타난다.
 - The top and bottom margins of blocks are sometimes combined (collapsed) into a single margin whose size is the largest of the individual margins (or just one of them, if they are equal), a behavior known as margin collapsing. Note that the margins of floating and absolutely positioned elements never collapse.
@@ -217,7 +223,6 @@ selector {
 
 ## ColorZilla
 - 색깔을 추출하는 크롬 익스텐션
-- 
 
 ## Margin vs Padding
 - Q) 어떤상황에서 padding을 쓰고 어떤 상황에서 margin을 써야할까?
@@ -244,6 +249,19 @@ selector {
 .container__item:last-child {
   display: flex;
   justify-content: flex-end;
+}
+```
+
+## nav 메뉴 고장시키기
+- 코코아 클론 6.11
+```css
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* 패딩이나 border 사이즈를 지정한 경우 box-sizing을 border-box로 하여서 width 짤리지 않도록 설정*/
+  /*padding: 20px 40px;*/
+  /*box-sizing: border-box;*/
 }
 ```
 
