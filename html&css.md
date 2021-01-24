@@ -269,3 +269,4 @@ selector {
 - item들을 세로로 정렬해야 할때도 flex를 사용하자 Container의 display를 flex, direction을 column으로!
 - State로 스타일이 바뀌는 경우 transition을 짧게주면 부드럽게 바뀌는 효과가 나온다.
 - 점이나 선이 3개있는 더보기 메뉴를 'ellipsis'라고 한다.
+- 완전한 원을 만들고 싶다면 `border-radius`를 `width`의 반만큼 설정한다. (50%, 혹은 width의 1/2값)
