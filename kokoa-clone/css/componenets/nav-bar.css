@@ -1,11 +1,18 @@
 .nav {
+    position: fixed;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
     padding: 20px 40px;
     background-color: #F9F9FA;
+    border-top: 1px solid rgba(164, 161, 161, 0.3);
 }
+
 .nav__list {
     display: flex;
     justify-content: space-between;
 }
+
 .nav__link {
-    color: inherit;
+    color: #2F363E;
 }
