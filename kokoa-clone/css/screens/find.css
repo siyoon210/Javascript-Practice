@@ -18,3 +18,23 @@
 .find-icons__icon span {
     text-align: center;
 }
+
+.recommended-friends {
+    margin-top: 25px;
+    padding: 20px 0;
+    border-top: var(--contour);
+    border-bottom: var(--contour);
+}
+
+.recommended-friends__title {
+    color: var(--gray);
+}
+
+.recommended-friends span {
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: 115px 0;
+    color: var(--gray);
+    font-size: 20px;
+}
