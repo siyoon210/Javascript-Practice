@@ -1,13 +1,13 @@
-.user-component {
-    display: flex;
-}
-
+.user-component,
 .user-component__column {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .user-component__avatar {
     width: 70px;
+    height: 70px;
     border-radius: 35%;
 }
 
@@ -32,3 +32,22 @@
     width: 80px;
     height: 80px;
 }
+
+.user-component__avatar--sm {
+    width: 60px;
+    height: 60px;
+}
+
+.user-component__column:last-child {
+    color: rgba(139, 136, 136, 0.9);
+}
+
+.user-component__column:last-child span {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.user-component__title--sm {
+    font-weight: 200;
+}
+
