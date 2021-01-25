@@ -42,12 +42,27 @@
     color: rgba(139, 136, 136, 0.9);
 }
 
-.user-component__column:last-child span {
+.user-component__chevron span {
     margin-right: 5px;
     font-size: 20px;
 }
 
 .user-component__title--sm {
     font-weight: 200;
+}
+
+.user-component__time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.user-component__time span {
+    font-size: 15px;
+}
+
+.user-component__time span:first-child {
+    color: rgba(139, 136, 136, 0.7);
+    margin-bottom: 10px;
 }
 

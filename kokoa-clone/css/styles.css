@@ -6,6 +6,7 @@
 @import "componenets/nav-bar.css";
 @import "componenets/screen-header.css";
 @import "componenets/user-componenet.css";
+@import "componenets/badge.css";
 /* screens */
 @import "screens/login.css";
 @import "screens/friends.css";
