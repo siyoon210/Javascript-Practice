@@ -14,3 +14,8 @@ body {
     color: #2F363E;
     font-family: "Open Sans", sans-serif;
 }
+
+.main-screen {
+    padding: 0 var(--horizontal-space);
+    margin-top: 10px;
+}
