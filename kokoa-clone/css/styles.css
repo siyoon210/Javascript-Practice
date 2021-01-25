@@ -5,6 +5,7 @@
 @import "componenets/status-bar.css";
 @import "componenets/nav-bar.css";
 @import "componenets/screen-header.css";
+@import "componenets/user-componenet.css";
 /* screens */
 @import "screens/login.css";
 @import "screens/friends.css";
