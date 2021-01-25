@@ -24,11 +24,6 @@
 }
 
 .nav_dot_notification{
-    display: flex;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: tomato;
     position: absolute;
     bottom: 30px;
     right: -5px;
