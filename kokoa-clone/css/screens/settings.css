@@ -1,11 +1,13 @@
 .settings__setting {
     padding: 25px 0;
-    font-size: 25px;
+    font-size: 22px;
     border-bottom: 1px solid rgba(165, 165, 165, 0.1);
+    display: flex;
+    justify-content: space-between;
 }
 
-.settings-list {
-    margin-top: 15px;
+.settings__setting-column:nth-child(2) {
+    opacity: 0.5;
 }
 
 .settings__setting i {

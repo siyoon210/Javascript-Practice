@@ -1,11 +1,19 @@
-.alt-screen-header {
-    margin-top: 30px;
+.alt-header {
+    margin-top: 15px;
+    padding: 20px 20px 15px 20px;
     display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-.alt-screen-header__title {
+.alt-header__title {
     font-size: 28px;
     font-weight: 600;
+}
+
+.alt-header__column:first-child {
+    margin-right: auto;
+}
+.alt-header__column:last-child {
+    margin-left: auto;
 }
