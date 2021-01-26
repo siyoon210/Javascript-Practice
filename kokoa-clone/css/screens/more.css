@@ -29,6 +29,7 @@
     height: 60px;
     border-radius: 10px;
     margin-bottom: 12px;
+    object-fit: cover;
 }
 
 .more-suggestions__icon span {
