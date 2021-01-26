@@ -71,7 +71,8 @@ selector {
     - `align-items` : cross axis에서 작용 (세로)
     - `justify-content` : main axis에서 작용 (가로)
     - `flex-direction` : 기본값은 row (column으로 변경가능)
-
+- [flexbox - 연습용 사이트](https://flexboxfroggy.com/#ko)
+      
 ## Position
 
 - 요소를 어떤 방식으로 배치할 것인가?!
@@ -128,7 +129,7 @@ selector {
     - `p[class~="special"]` : Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values.
 - [https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector](https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector)
 - [https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors)
-
+- [selector 연습사이트](https://flukeout.github.io/)
 
 ## Variable (Custom Property)
 - css내의 변수사용. (IE 지원을 하지 않는다.)
@@ -217,13 +218,6 @@ selector {
 - 브라우저에 기본적으로 적용된 스타일을 초기화시키는 css 모음
 - https://meyerweb.com/eric/tools/css/reset/
 
-## Page Ruler Redux
-- 브라우저 내의 크기를 측정하는 크롬 익스텐션
-- https://chrome.google.com/webstore/detail/page-ruler-redux/giejhjebcalaheckengmchjekofhhmal?hl=ko
-
-## ColorZilla
-- 색깔을 추출하는 크롬 익스텐션
-
 ## Margin vs Padding
 - Q) 어떤상황에서 padding을 쓰고 어떤 상황에서 margin을 써야할까?
   - 디자인적인 측면 : background-color가 달라야 하는 경우, 같아야 하는 경우
@@ -271,3 +265,6 @@ selector {
 - 점이 3개있는 더보기 메뉴를 'ellipsis'라고 한다. (cf: 생략 부호(…)라는 뜻이다.)
 - <, > 와 같은 방향키를 'chevron'이라고 한다. (cf: V형 무늬라는 뜻이다.)
 - 완전한 원을 만들고 싶다면 `border-radius`를 `width`의 반만큼 설정한다. (50%, 혹은 width의 1/2값)
+- 색깔 조합 추천 https://flukeout.github.io/
+- Page Ruler Redux (브라우저 내의 크기를 측정하는 크롬 익스텐션)
+- ColorZilla (색깔을 추출하는 크롬 익스텐션)
