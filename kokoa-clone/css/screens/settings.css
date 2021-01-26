@@ -1,0 +1,18 @@
+.settings__setting {
+    padding: 25px 0;
+    font-size: 25px;
+    border-bottom: 1px solid rgba(165, 165, 165, 0.1);
+}
+
+.settings-list {
+    margin-top: 15px;
+}
+
+.settings__setting i {
+    width: 25px;
+    opacity: 0.9;
+}
+
+.settings__setting span {
+    margin-left: 20px;
+}

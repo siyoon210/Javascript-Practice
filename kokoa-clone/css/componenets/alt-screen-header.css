@@ -1,0 +1,11 @@
+.alt-screen-header {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.alt-screen-header__title {
+    font-size: 28px;
+    font-weight: 600;
+}
