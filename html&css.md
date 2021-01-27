@@ -268,3 +268,4 @@ selector {
 - 색깔 조합 추천 https://flukeout.github.io/
 - Page Ruler Redux (브라우저 내의 크기를 측정하는 크롬 익스텐션)
 - ColorZilla (색깔을 추출하는 크롬 익스텐션)
+- `position: fixed` 가 되면 다른 layer가 되는 것이다. (-> `z-index`로 우선순위를 결정하거나, 보이도록 요소를 이동시켜야 한다.)
