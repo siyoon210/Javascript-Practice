@@ -26,6 +26,16 @@
     align-items: center;
 }
 
+@keyframes hideSplashScreen {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 #splash-screen {
     position: fixed;
     top: 0;
@@ -37,4 +47,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: hideSplashScreen 0.3s ease-in-out forwards;
+    animation-delay: 1.2s;
 }

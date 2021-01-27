@@ -259,6 +259,31 @@ selector {
 }
 ```
 
+## Splash Screen (로딩 화면)
+- `forwards` 옵션을 사용하면 `to`에 명시한 값이 유지된다.
+- `visibility: hidden`를 설정하여서 사라지게 하는 것이 포인트
+```css
+@keyframes hideSplashScreen {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    animation: hideSplashScreen 0.3s ease-in-out forwards;
+    animation-delay: 1.2s;
+}
+```
+
 ## 한줄 팁
 - item들을 세로로 정렬해야 할때도 flex를 사용하자 Container의 display를 flex, direction을 column으로!
 - State로 스타일이 바뀌는 경우 transition을 짧게주면 부드럽게 바뀌는 효과가 나온다.
