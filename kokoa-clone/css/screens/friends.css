@@ -25,3 +25,16 @@
     justify-content: space-between;
     align-items: center;
 }
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 130px;
+    color: #3C1D1E;
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
