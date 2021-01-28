@@ -126,3 +126,24 @@
 .open-post__heart span {
     font-size: 14px;
 }
+
+@keyframes heartBeat {
+    0% {
+        color: white;
+    }
+    50% {
+        color: tomato;
+        transform: scale(1.5);
+    }
+    100% {
+        color: white;
+    }
+}
+.open-post__heart:hover {
+    cursor: pointer;
+}
+
+.open-post__heart:hover i {
+    will-change: transform;
+    animation: heartBeat 1s ease-in-out infinite;
+}

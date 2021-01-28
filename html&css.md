@@ -293,4 +293,5 @@ selector {
 - 색깔 조합 추천 https://flukeout.github.io/
 - Page Ruler Redux (브라우저 내의 크기를 측정하는 크롬 익스텐션)
 - ColorZilla (색깔을 추출하는 크롬 익스텐션)
-- `position: fixed` 가 되면 다른 layer가 되는 것이다. (-> `z-index`로 우선순위를 결정하거나, 보이도록 요소를 이동시켜야 한다.)
+- `position: fixed`, `position: absolute` 가 되면 다른 layer가 되는 것이다. (-> `z-index`로 우선순위를 결정하거나, 보이도록 요소를 이동시켜야 한다.)
+- `will-change` : 브라우저에게 무언가 변할 것이라고 미리 알려주는 것. animation을 좀 더 부드럽게 도와준다.
