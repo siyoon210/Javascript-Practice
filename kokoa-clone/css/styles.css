@@ -9,6 +9,7 @@
 @import "componenets/badge.css";
 @import "componenets/icon-row.css";
 @import "componenets/alt-screen-header.css";
+@import "componenets/no-mobile.css";
 /* screens */
 @import "screens/login.css";
 @import "screens/friends.css";
