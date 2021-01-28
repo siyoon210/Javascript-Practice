@@ -1,0 +1,8 @@
+{
+  "name": "typescript-blockchain-nomadcoder",
+  "version": "1.0.0",
+  "description": "typescript-blockchain-nomadcoder practice ",
+  "main": "index.js",
+  "author": "siyoon",
+  "license": "MIT"
+}
