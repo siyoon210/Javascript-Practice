@@ -41,4 +41,4 @@
     ```
    - `tsc`가 ts를 js로 컴파일 하는 명령어 
     
-- `npm start` 명령어를 사용하면 컴파일 이후에 node로 컴파일된 파일(index.js)을 실행한다.
+- `npm run start` 혹은 `yarn start` 명령어를 사용하면 컴파일 이후에 node로 컴파일된 파일(index.js)을 실행한다.
