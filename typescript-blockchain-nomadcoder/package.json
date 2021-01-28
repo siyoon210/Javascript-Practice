@@ -1,8 +1,7 @@
 {
   "name": "typescript-blockchain-nomadcoder",
   "version": "1.0.0",
-  "description": "typescript-blockchain-nomadcoder practice ",
+  "description": "Learning Typescript by making a blockchain",
   "main": "index.js",
-  "author": "siyoon",
   "license": "MIT"
 }
