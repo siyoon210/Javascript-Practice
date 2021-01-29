@@ -99,3 +99,9 @@
 ```
 - `src/` 하위파일들로 컴파일하여 컴파일된 파일들은 `dist` 디렉토리에 드렁감
 - `index.ts`도 `src`로 이동
+
+# 0.9 Creating a Block part Two
+- crypto-js 설치
+   ```shell
+   yarn add crypto-js
+   ```
