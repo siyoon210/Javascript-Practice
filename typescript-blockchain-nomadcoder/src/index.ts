@@ -70,8 +70,8 @@ const addBlock = (candidateBlock: Block): void => {
     }
 };
 
-blockchain.push(createNewBlock('hello'))
-blockchain.push(createNewBlock('world'))
-
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
 
 console.log(blockchain);
