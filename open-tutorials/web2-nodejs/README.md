@@ -27,3 +27,19 @@
     app.listen(3000);
     ```
 - `node main.js`와 같이 실행시키면 `app.listen()`에 명시된 3000번 포트로 접속할 수있다.
+
+# JavaScript의 기본문법 & Node.js의 주요 기능 & 웹앱
+## Template Literal
+- 문자열 합성방식 `Hello ${name}` 백틱안에서 ${}를 사용하면 JS코드를 사용가능하다. 즉 `${1+1}`과 같은 것도  가능!
+
+## node.js의 url 모듈을 사용하여 query string 파싱하기
+1. url 모듈 주입받기
+  ```js
+  var url = require('url');
+  ```
+
+2. url 모듈로 쿼리스트링 파싱하기
+  ```js
+  var queryData = url.parse("/?id=html", true).query;
+  queryData.id; // 쿼리스트링에서 id라는 값 사용
+  ```
