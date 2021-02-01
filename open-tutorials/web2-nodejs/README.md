@@ -46,11 +46,20 @@
 
 ## node.js에서 파일읽기 (file system read)
 - 공식문서 https://nodejs.org/dist/latest-v14.x/docs/api/
+- 파일읽기
   ```js
   var fs = require('fs');
   fs.readFile('sample.txt', 'utf8', function(err, data){
     console.log(data);
   });
+  ```
+- 디렉토리 리스트 읽어오기
+  ```js
+  var fs = require('fs');
+   
+  fs.readdir('./data', function(error, filelist){
+    console.log(filelist);
+  })
   ```
   
 ## Node.js - 콘솔에서의 입력값
