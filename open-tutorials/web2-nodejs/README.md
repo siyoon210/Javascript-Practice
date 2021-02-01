@@ -43,3 +43,12 @@
   var queryData = url.parse("/?id=html", true).query;
   queryData.id; // 쿼리스트링에서 id라는 값 사용
   ```
+
+## node.js에서 파일읽기 (file system read)
+- 공식문서 https://nodejs.org/dist/latest-v14.x/docs/api/
+  ```js
+  var fs = require('fs');
+  fs.readFile('sample.txt', 'utf8', function(err, data){
+    console.log(data);
+  });
+  ```
