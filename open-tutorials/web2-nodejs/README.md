@@ -52,3 +52,17 @@
     console.log(data);
   });
   ```
+  
+## Node.js - 콘솔에서의 입력값
+- 콘솔로 node 실행시에 `node 실행파일.js arg1 arg2 ...` 실행파일 뒤에 공백으로 구분된 입력값을 넣을 수 있다.
+  ```js
+  var args = process.argv;
+  ```
+- args는 배열인데, 0번째 인덱스에는 node runtime 경로, 1번째 인덱스에는 실행파일 경로, 2번째 인덱스는 입력한 인자(arg1)이 나온다.
+  - ex) `node fileread.js siyoon jung`
+    ```text
+    [ '/usr/local/bin/node',
+    '/Users/jeongsiyun/workspace/siyoon210/HTML-CSS-JS/open-tutorials/web2-nodejs/fs-sample/fileread.js',
+    'siyoon',
+    'jung' ]
+    ```
