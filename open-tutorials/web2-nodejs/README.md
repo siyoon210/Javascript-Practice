@@ -68,6 +68,7 @@
       response.end();
   })
   ```
+- 파일 이름바꾸기, 파일 삭제하기 ... 공식문서 참고
   
 ## Node.js - 콘솔에서의 입력값
 - 콘솔로 node 실행시에 `node 실행파일.js arg1 arg2 ...` 실행파일 뒤에 공백으로 구분된 입력값을 넣을 수 있다.
@@ -89,6 +90,7 @@
 - PM2는 코드의 변경을 감지하고 리로딩 해주거나, 프로그램 실행에 전반적인 도움을 주는 프로그램
   - 설치 `sudo npm install pm2 -g` -g는 해당 프로그램은 독립적으로 시스템 어디에서나 사용하겠다는 뜻
   - 프로그램 실행 `pm2 start 실행파일.js --watch`
+  - data 하위 폴더가 바뀌더라도 리로드 하지 않기 `pm2 start main.js --watch --ignore-watch="data/*"` 
   - 프로그램 종료 `pm2 stop 'name'`
   - 로그 출력 `pm2 log`
   
