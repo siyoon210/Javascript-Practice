@@ -1,0 +1,17 @@
+{
+  "name": "web2-nodejs",
+  "version": "1.0.0",
+  "description": "[WEB2 Node.JS - 생활코딩](https://opentutorials.org/module/3549)",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sanitize-html": "^2.3.2"
+  }
+}

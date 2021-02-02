@@ -29,6 +29,34 @@
 - `node main.js`와 같이 실행시키면 `app.listen()`에 명시된 3000번 포트로 접속할 수있다.
 
 # JavaScript의 기본문법 & Node.js의 주요 기능 & 웹앱
+
+## Node.js의 모듈 형식
+1. `module.exports` 에 외부에서 사용되기 원하는 객체를 할당한다.
+  ```js
+  module.exports = { ... }
+  ```
+2. `require`로 불러온다.
+  ```js
+  var myModule = require('./lib/my-module.js');
+  ```
+    
+## NPM으로 해당 패키지 관리하기
+- 패키지 매니저는 의존성을 관리해준다.
+- NPM은 node.js의 대표적인 패키지 매니저 (비슷한 yarn도 있지~)
+
+1. npm 초기화하기 `npm init`
+- package.json 파일이 생성되며, 의존정보들이 들어간다. (아! package.json이 있는건 npm이 관리하는 패키지(프로젝트) 였구나!)
+2. npm으로 의존성 추가하기 `npm install -S sanitize-html` (`sanitize-html`이라는 모듈을 npm으로 설치 `-S`는 이 프로젝트에서만 사용하겠다는 것 `-g`는 전역적으로 사용)
+- node_modules라는 디렉토리가 생성되고, 모듈들이 담기게 된다.
+
+## PM2
+- PM2는 코드의 변경을 감지하고 리로딩 해주거나, 프로그램 실행에 전반적인 도움을 주는 프로그램
+  - 설치 `sudo npm install pm2 -g` -g는 해당 프로그램은 독립적으로 시스템 어디에서나 사용하겠다는 뜻
+  - 프로그램 실행 `pm2 start 실행파일.js --watch`
+  - data 하위 폴더가 바뀌더라도 리로드 하지 않기 `pm2 start main.js --watch --ignore-watch="data/*"`
+  - 프로그램 종료 `pm2 stop 'name'`
+  - 로그 출력 `pm2 log`
+
 ## Template Literal
 - 문자열 합성방식 `Hello ${name}` 백틱안에서 ${}를 사용하면 JS코드를 사용가능하다. 즉 `${1+1}`과 같은 것도  가능!
 
@@ -83,16 +111,6 @@
     'siyoon',
     'jung' ]
     ```
-
-## 패키지 매니저와 PM2
-- 패키지 매니저는 의존성을 관리해준다.
-- NPM은 node.js의 대표적인 패키지 매니저 (비슷한 yarn도 있지~)
-- PM2는 코드의 변경을 감지하고 리로딩 해주거나, 프로그램 실행에 전반적인 도움을 주는 프로그램
-  - 설치 `sudo npm install pm2 -g` -g는 해당 프로그램은 독립적으로 시스템 어디에서나 사용하겠다는 뜻
-  - 프로그램 실행 `pm2 start 실행파일.js --watch`
-  - data 하위 폴더가 바뀌더라도 리로드 하지 않기 `pm2 start main.js --watch --ignore-watch="data/*"` 
-  - 프로그램 종료 `pm2 stop 'name'`
-  - 로그 출력 `pm2 log`
   
 ## Node.js에서 post 데이터 다루기
 
@@ -116,13 +134,3 @@ request.on('end', function () {
 
 ## Node.js 리다이렉트
 `response.writeHead(302, {Location: `/...`});`
-
-## Node.js의 모듈 형식
-1. `module.exports` 에 외부에서 사용되기 원하는 객체를 할당한다.
-  ```js
-  module.exports = { ... }
-  ```
-2. `require`로 불러온다.
-  ```js
-  var myModule = require('./lib/my-module.js');
-  ```
