@@ -44,7 +44,7 @@
   queryData.id; // 쿼리스트링에서 id라는 값 사용
   ```
 
-## node.js에서 파일읽기 (file system read)
+## node.js에서 파일다루기 (fs: file system)
 - 공식문서 https://nodejs.org/dist/latest-v14.x/docs/api/
 - 파일읽기
   ```js
@@ -59,6 +59,13 @@
    
   fs.readdir('./data', function(error, filelist){
     console.log(filelist);
+  })
+  ```
+- 파일 쓰기
+  ```js
+  fs.writeFile(`data/${title}`, description, 'utf8', function(err){
+      response.writeHead(302, {Location: `/?id=${title}`});
+      response.end();
   })
   ```
   
@@ -104,4 +111,7 @@ request.on('end', function () {
   var description = post.description
 });
 ```
+
+## Node.js 리다이렉트
+`response.writeHead(302, {Location: `/...`});`
   
