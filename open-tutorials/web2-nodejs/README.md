@@ -45,9 +45,10 @@
 - NPM은 node.js의 대표적인 패키지 매니저 (비슷한 yarn도 있지~)
 
 1. npm 초기화하기 `npm init`
-- package.json 파일이 생성되며, 의존정보들이 들어간다. (아! package.json이 있는건 npm이 관리하는 패키지(프로젝트) 였구나!)
+  - package.json 파일이 생성되며, 의존정보들이 들어간다. (아! package.json이 있는건 npm이 관리하는 패키지(프로젝트) 였구나!)
 2. npm으로 의존성 추가하기 `npm install -S sanitize-html` (`sanitize-html`이라는 모듈을 npm으로 설치 `-S`는 이 프로젝트에서만 사용하겠다는 것 `-g`는 전역적으로 사용)
-- node_modules라는 디렉토리가 생성되고, 모듈들이 담기게 된다.
+  - node_modules라는 디렉토리가 생성되고, 모듈들이 담기게 된다.
+3. (`npm install` 만 입력하면 `package.json` `dependency`에 있는 것들을 모두 설치)
 
 ## PM2
 - PM2는 코드의 변경을 감지하고 리로딩 해주거나, 프로그램 실행에 전반적인 도움을 주는 프로그램
