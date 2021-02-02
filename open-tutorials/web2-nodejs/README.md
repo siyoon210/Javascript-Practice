@@ -75,3 +75,33 @@
     'siyoon',
     'jung' ]
     ```
+
+## 패키지 매니저와 PM2
+- 패키지 매니저는 의존성을 관리해준다.
+- NPM은 node.js의 대표적인 패키지 매니저 (비슷한 yarn도 있지~)
+- PM2는 코드의 변경을 감지하고 리로딩 해주거나, 프로그램 실행에 전반적인 도움을 주는 프로그램
+  - 설치 `sudo npm install pm2 -g` -g는 해당 프로그램은 독립적으로 시스템 어디에서나 사용하겠다는 뜻
+  - 프로그램 실행 `pm2 start 실행파일.js --watch`
+  - 프로그램 종료 `pm2 stop 'name'`
+  - 로그 출력 `pm2 log`
+  
+## Node.js에서 post 데이터 다루기
+
+```js
+var qs = require('querystring');
+
+var body = '';
+
+//data를 읽어드려야 하는 경우
+request.on('data', function (data) {
+  body = body + data;
+});
+
+//data를 모두 읽어드린 경우 실행
+request.on('end', function () {
+  var post = qs.parse(body);
+  var title = post.title;
+  var description = post.description
+});
+```
+  
