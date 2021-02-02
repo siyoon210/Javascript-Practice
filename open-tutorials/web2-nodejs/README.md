@@ -116,4 +116,13 @@ request.on('end', function () {
 
 ## Node.js 리다이렉트
 `response.writeHead(302, {Location: `/...`});`
-  
+
+## Node.js의 모듈 형식
+1. `module.exports` 에 외부에서 사용되기 원하는 객체를 할당한다.
+  ```js
+  module.exports = { ... }
+  ```
+2. `require`로 불러온다.
+  ```js
+  var myModule = require('./lib/my-module.js');
+  ```
