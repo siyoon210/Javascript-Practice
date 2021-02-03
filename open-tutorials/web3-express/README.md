@@ -9,10 +9,83 @@
     const port = 3000
     
     app.get('/', (req, res) => {
-    res.send('Hello World!')
+        res.send('Hello World!')
     })
     
     app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+        console.log(`Example app listening at http://localhost:${port}`)
     })
     ```
+  
+# 기본 라우팅
+```js
+app.METHOD(PATH, HANDLER)
+```
+
+- GET 방식으로 온 '/' 요청 다루기
+  ```js
+  app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+  ```
+
+- :id로 들어온 path parameter 사용하기
+  ```js
+  app.get('/user/:id', function (req, res) {
+    res.send('user ' + req.params.id)
+  })
+  ```
+
+# 미들웨어
+- 미들웨어가 뭐야?
+> 미들웨어 함수는 요청 오브젝트(req), 응답 오브젝트 (res), 그리고 애플리케이션의 요청-응답 주기 중 그 다음의 미들웨어 함수 대한 액세스 권한을 갖는 함수입니다.
+
+- http://expressjs.com/ko/guide/writing-middleware.html
+
+- 미들웨어가 동작하는 원리
+```js
+var express = require('express');
+var app = express();
+
+var requestTime = function (req, res, next) {
+  req.requestTime = Date.now();
+  next();
+};
+
+app.use(requestTime);
+
+app.get('/', function (req, res) {
+  var responseText = 'Hello World!';
+  responseText += 'Requested at: ' + req.requestTime + '';
+  res.send(responseText);
+});
+
+app.listen(3000);
+```
+- `app.use`를 통해서 미들웨어를 사용하도록 하고 중간에 삽입된 미들웨어의 기능이 라우팅에 영향을 미치게 되었다. (위에 예제에서는 requestTime이 삽입됨)
+- `app.use`는 모든 라우터에게 영향을 주기 때문에, `app.get('*', handler)`와 같은 형태를 사용하면 get요청의 모든 path로 지정할 수 있다.
+- 미들웨어의 인자로 받은 next는 다음 미들웨어 함수를 말한다.
+
+## 미들웨어가 실행되는 순서
+- 미들웨어가 실행되는 순서를 잘 파악하고 알고있어야 애플리케이션의 흐름을 알수 있다.
+- 공식문서가 짱좋네
+- http://expressjs.com/ko/guide/using-middleware.html
+
+## 미들웨어 body-parser 사용하기 (미들웨어 예제)
+1. body-parser 설치
+  ```shell
+  npm install body-parser --save
+  ```
+2. body-parser 사용하기
+```js 
+var bodyParser = require('body-parser')
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// POST /login gets urlencoded bodies
+app.post('/login', function (req, res) {
+  res.send('welcome, ' + req.body.username) //req.body를 바로 사용가능!
+})
+```
+
