@@ -28,9 +28,7 @@
     ```
 - `node main.js`와 같이 실행시키면 `app.listen()`에 명시된 3000번 포트로 접속할 수있다.
 
-# JavaScript의 기본문법 & Node.js의 주요 기능 & 웹앱
-
-## Node.js의 모듈 형식
+# Node.js의 모듈 형식
 1. `module.exports` 에 외부에서 사용되기 원하는 객체를 할당한다.
   ```js
   module.exports = { ... }
@@ -40,7 +38,7 @@
   var myModule = require('./lib/my-module.js');
   ```
     
-## NPM으로 해당 패키지 관리하기
+# NPM으로 해당 패키지 관리하기
 - 패키지 매니저는 의존성을 관리해준다.
 - NPM은 node.js의 대표적인 패키지 매니저 (비슷한 yarn도 있지~)
 
@@ -50,7 +48,7 @@
   - node_modules라는 디렉토리가 생성되고, 모듈들이 담기게 된다.
 3. (`npm install` 만 입력하면 `package.json` `dependency`에 있는 것들을 모두 설치)
 
-## PM2
+# PM2
 - PM2는 코드의 변경을 감지하고 리로딩 해주거나, 프로그램 실행에 전반적인 도움을 주는 프로그램
   - 설치 `sudo npm install pm2 -g` -g는 해당 프로그램은 독립적으로 시스템 어디에서나 사용하겠다는 뜻
   - 프로그램 실행 `pm2 start 실행파일.js --watch`
@@ -58,10 +56,10 @@
   - 프로그램 종료 `pm2 stop 'name'`
   - 로그 출력 `pm2 log`
 
-## Template Literal
+# Template Literal
 - 문자열 합성방식 `Hello ${name}` 백틱안에서 ${}를 사용하면 JS코드를 사용가능하다. 즉 `${1+1}`과 같은 것도  가능!
 
-## node.js의 url 모듈을 사용하여 query string 파싱하기
+# node.js의 url 모듈을 사용하여 query string 파싱하기
 1. url 모듈 주입받기
   ```js
   var url = require('url');
@@ -73,7 +71,7 @@
   queryData.id; // 쿼리스트링에서 id라는 값 사용
   ```
 
-## node.js에서 파일다루기 (fs: file system)
+# node.js에서 파일다루기 (fs: file system)
 - 공식문서 https://nodejs.org/dist/latest-v14.x/docs/api/
 - 파일읽기
   ```js
@@ -99,7 +97,7 @@
   ```
 - 파일 이름바꾸기, 파일 삭제하기 ... 공식문서 참고
   
-## Node.js - 콘솔에서의 입력값
+# Node.js - 콘솔에서의 입력값
 - 콘솔로 node 실행시에 `node 실행파일.js arg1 arg2 ...` 실행파일 뒤에 공백으로 구분된 입력값을 넣을 수 있다.
   ```js
   var args = process.argv;
@@ -113,7 +111,7 @@
     'jung' ]
     ```
   
-## Node.js에서 post 데이터 다루기
+# Node.js에서 post 데이터 다루기
 
 ```js
 var qs = require('querystring');
@@ -133,5 +131,5 @@ request.on('end', function () {
 });
 ```
 
-## Node.js 리다이렉트
+# Node.js 리다이렉트
 `response.writeHead(302, {Location: `/...`});`
