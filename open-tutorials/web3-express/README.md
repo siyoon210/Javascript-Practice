@@ -67,6 +67,7 @@ app.listen(3000);
 - 미들웨어의 인자로 받은 next는 다음 미들웨어 함수를 말한다.
 
 ## 미들웨어가 실행되는 순서
+- 미들웨어와 라우터들은 기본적으로 위에서 아래로 순차적으로 실행된다. next()라는 콜백을 호출하여서 다음 미들웨어의 실행을 할 수도 있고 안 할 수 도 있다.
 - 미들웨어가 실행되는 순서를 잘 파악하고 알고있어야 애플리케이션의 흐름을 알수 있다.
 - 공식문서가 짱좋네
 - http://expressjs.com/ko/guide/using-middleware.html
@@ -88,4 +89,14 @@ app.post('/login', function (req, res) {
   res.send('welcome, ' + req.body.username) //req.body를 바로 사용가능!
 })
 ```
+
+# 정적파일 제공하기
+- 내장 미들웨어를 사용하여 'pulbic' 하위 디렉토리를 정적파일 루트로 설정하기
+  ```js
+  app.use(express.static('public'));
+  ```
+- http://expressjs.com/ko/starter/static-files.html
+
+# 오류처리
+- http://expressjs.com/ko/guide/error-handling.html
 
