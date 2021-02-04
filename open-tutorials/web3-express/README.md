@@ -21,6 +21,7 @@
 ```js
 app.METHOD(PATH, HANDLER)
 ```
+- 위에서부터 아래로 읽어드리면서 만족되는 path가 만족되면 실행된다. (JS는 흐름을 잘 봐야하는구나!)
 
 - GET 방식으로 온 '/' 요청 다루기
   ```js
@@ -36,6 +37,40 @@ app.METHOD(PATH, HANDLER)
   })
   ```
 
+# express.Router
+- express.Router 클래스를 사용하면 모듈식 마운팅 가능한 핸들러를 작성할 수 있다.
+
+1. 별도의 파일의 연관된 라우터 선언
+  ```js
+  var express = require('express');
+  var router = express.Router();
+  
+  // middleware that is specific to this router
+  router.use(function timeLog(req, res, next) {
+    console.log('Time: ', Date.now());
+    next();
+  });
+  // define the home page route
+  router.get('/', function(req, res) {
+    res.send('Birds home page');
+  });
+  // define the about route
+  router.get('/about', function(req, res) {
+    res.send('About birds');
+  });
+  
+  module.exports = router;
+  ```
+  - 상단에 express객체와 router객체 선언,
+  - module.exports로 설정한 router 반환
+
+2. 앱에서 라우터 사용하기
+  ```js
+  var birds = require('./birds');
+  ...
+  app.use('/birds', birds);
+  ```
+  
 # 미들웨어
 - 미들웨어가 뭐야?
 > 미들웨어 함수는 요청 오브젝트(req), 응답 오브젝트 (res), 그리고 애플리케이션의 요청-응답 주기 중 그 다음의 미들웨어 함수 대한 액세스 권한을 갖는 함수입니다.
@@ -99,4 +134,6 @@ app.post('/login', function (req, res) {
 
 # 오류처리
 - http://expressjs.com/ko/guide/error-handling.html
+
+
 
