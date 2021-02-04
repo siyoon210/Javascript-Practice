@@ -135,5 +135,15 @@ app.post('/login', function (req, res) {
 # 오류처리
 - http://expressjs.com/ko/guide/error-handling.html
 
+# 보안
+- http://expressjs.com/ko/advanced/best-practice-security.html
+
+# Express generator
+- 기본적인 설정을 기반으로 하여 express 프로젝트 만들기
+- http://expressjs.com/ko/starter/generator.html
+
+0. express generator 설치 `npm install express-generator -g` -g 옵션을 사용하여서 컴퓨터 전역적으로 사용가능하도록 설정
+1. express project(package) 생성 `express myapp`
+2. `cd myapp` `npm install` 초기 설정 npm install로 pacakage.json의 dependency에 있는 모듈들 다운로드
 
 
