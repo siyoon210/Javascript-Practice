@@ -146,4 +146,6 @@ app.post('/login', function (req, res) {
 1. express project(package) 생성 `express myapp`
 2. `cd myapp` `npm install` 초기 설정 npm install로 pacakage.json의 dependency에 있는 모듈들 다운로드
 
-
+# 수업을 마치며
+- 템플릿 엔진과 db
+- 쿠키, 세션, 회원, 인증, oAuth.. 이런 토픽은 필요할 때 보자! (인프런에 다 모여있음, 생활코딩은 다른 토픽으로 분리되어 있음)
