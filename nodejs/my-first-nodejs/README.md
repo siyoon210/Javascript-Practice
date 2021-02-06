@@ -18,3 +18,13 @@
     console.log('my-first-nodejs app listening at http://localhost:3000')
     })
     ```
+4. PUG 설치
+   1. npm install pug --save
+   2. 렌더링 엔진으로 pug 설정
+      ```js
+      app.set("view engine", "pug");
+      
+      app.get("/", ((req, res) => {
+        res.render("index.pug");
+      }))
+      ```
