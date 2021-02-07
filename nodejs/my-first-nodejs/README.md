@@ -40,7 +40,7 @@
    const mariadb = require('mariadb');
    const pool = mariadb.createPool({
       host: 'localhost',
-      user: 'root',
+      user: 'user',
       password: 'password',
       database: 'my_database_name',
       connectionLimit: 5
@@ -50,7 +50,7 @@
       let conn;
       try {
          conn = await pool.getConnection();
-         const rows = await conn.query("SELECT * FROM topic");
+         const rows = await conn.query("SHOW TABLES");
          console.log(rows);
       } catch (err) {
          throw err;

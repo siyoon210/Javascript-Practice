@@ -1,17 +1,18 @@
 const mariadb = require('mariadb');
+const dbConfig = require('./config/db-config.json')
 const pool = mariadb.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'my_first_nodejs',
-    connectionLimit: 5
+    host: dbConfig.host,
+    user: dbConfig.user,
+    password: dbConfig.password,
+    database: dbConfig.database,
+    connectionLimit: dbConfig.connectionLimit
 });
 
 async function asyncFunction() {
     let conn;
     try {
         conn = await pool.getConnection();
-        const rows = await conn.query("SELECT * FROM topic");
+        const rows = await conn.query("SHOW TABLES");
         console.log(rows);
     } catch (err) {
         throw err;
