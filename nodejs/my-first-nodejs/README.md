@@ -32,14 +32,84 @@
    }))
    ```
 
-## 3. MongoDB 적용하기
-1. MongoDB 설치
-   1. brew tap mongodb/brew
-   2. brew install mongodb-community@4.4
-      - 바로 실행이 안되어서 아래 명령어 실행 후에 하니까 됨
-      1. sudo chown -R $(whoami) /usr/local/share/man/man5 /usr/local/share/man/man7
-      2. chmod u+w /usr/local/share/man/man5 /usr/local/share/man/man7
-   - `mongo`로 설치확인
-   - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+## 3. MariaDB 적용
+- https://www.npmjs.com/package/mariadb
+1. npm install --save mariadb (--save, -S는 package.json의 dependencies에 명시됨)
+2. mariadb sample
+   ```js
+   const mariadb = require('mariadb');
+   const pool = mariadb.createPool({
+      host: 'localhost',
+      user: 'root',
+      password: 'password',
+      database: 'my_database_name',
+      connectionLimit: 5
+   });
    
-2. Mongoose 설치
+   async function asyncFunction() {
+      let conn;
+      try {
+         conn = await pool.getConnection();
+         const rows = await conn.query("SELECT * FROM topic");
+         console.log(rows);
+      } catch (err) {
+         throw err;
+      } finally {
+         if (conn) conn.release(); //release to pool
+      }
+   }
+   
+   asyncFunction();
+   ```
+
+### MariaDB 테이블 생성
+- https://opentutorials.org/course/3347
+1. mysql -uroot -p 로 접속
+2. CREATE DATABASE my_first_nodejs; (-는 못들어가는구나..)
+3. SHOW DATABASES; 로 생성확인
+4. USE my_first_nodejs;
+5. Table & 샘플 데이터 생성
+   ```shell 
+   --
+   -- Table structure for table `author`
+   --
+     
+     
+   CREATE TABLE `author` (
+     `id` int(11) NOT NULL AUTO_INCREMENT,
+     `name` varchar(20) NOT NULL,
+     `profile` varchar(200) DEFAULT NULL,
+     PRIMARY KEY (`id`)
+   );
+     
+   --
+   -- Dumping data for table `author`
+   --
+     
+   INSERT INTO `author` VALUES (1,'egoing','developer');
+   INSERT INTO `author` VALUES (2,'duru','database administrator');
+   INSERT INTO `author` VALUES (3,'taeho','data scientist, developer');
+     
+   --
+   -- Table structure for table `topic`
+   --
+     
+   CREATE TABLE `topic` (
+     `id` int(11) NOT NULL AUTO_INCREMENT,
+     `title` varchar(30) NOT NULL,
+     `description` text,
+     `created` datetime NOT NULL,
+     `author_id` int(11) DEFAULT NULL,
+     PRIMARY KEY (`id`)
+   );
+     
+   --
+   -- Dumping data for table `topic`
+   --
+     
+   INSERT INTO `topic` VALUES (1,'MySQL','MySQL is...','2018-01-01 12:10:11',1);
+   INSERT INTO `topic` VALUES (2,'Oracle','Oracle is ...','2018-01-03 13:01:10',1);
+   INSERT INTO `topic` VALUES (3,'SQL Server','SQL Server is ...','2018-01-20 11:01:10',2);
+   INSERT INTO `topic` VALUES (4,'PostgreSQL','PostgreSQL is ...','2018-01-23 01:03:03',3);
+   INSERT INTO `topic` VALUES (5,'MongoDB','MongoDB is ...','2018-01-30 12:31:03',1)
+   ```
