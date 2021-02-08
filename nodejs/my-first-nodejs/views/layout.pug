@@ -1,0 +1,12 @@
+doctype html
+html
+    head
+        title My First NodeJs
+    body
+        ul
+        each val in topics
+            li
+                a(href=`/topics/${val.id}`) #{val.title}
+        div
+            a(href=`/topics/edit`) Create
+        block content
