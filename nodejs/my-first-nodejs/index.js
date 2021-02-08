@@ -32,6 +32,11 @@ app.get("/", (async (req, res) => {
     res.render('index.pug', {topics})
 }))
 
+app.get("/topics/edit", async (req, res) => {
+    const topics = await executeQuery(`SELECT id, title FROM topic`);
+    res.render('edit.pug', {topics})
+})
+
 app.get("/topics/:id", async (req, res) => {
     const topics = await executeQuery(`SELECT id, title FROM topic`);
     const id = req.params.id;

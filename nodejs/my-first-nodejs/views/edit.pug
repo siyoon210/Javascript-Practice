@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    main
+        form(action='/topics', method='post')
+            input(type='text', placeholder='제목')
+            br
+            textarea(placeholder='내용')
+            br
+            input(type='submit', value='Create')
