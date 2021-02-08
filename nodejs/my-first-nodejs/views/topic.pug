@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+html
+    head
+        title My First NodeJs
+    body
+        each val in topics
+            li
+                a(href=`/topics/${val.id}`) #{val.title}
+        main
+            h1 #{topic.title}
+            p #{topic.description}
+            span 작성자: #{topic.name}
+            br
+            span 작성일자: #{topic.created}

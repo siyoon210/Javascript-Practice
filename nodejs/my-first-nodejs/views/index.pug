@@ -3,4 +3,6 @@ html
     head
         title My First NodeJs
     body
-        h1 Hello World
+        each val in topics
+            li
+                a(href=`/topics/${val.id}`) #{val.title}
