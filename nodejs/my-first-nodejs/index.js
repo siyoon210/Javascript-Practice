@@ -10,6 +10,8 @@ const pool = mariadb.createPool({
     database: dbConfig.database,
     connectionLimit: dbConfig.connectionLimit
 });
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
 
 async function executeQuery(sql, values) {
     let conn;
@@ -43,11 +45,17 @@ app.get("/topics/edit", async (req, res) => {
     res.render('edit.pug', req.options)
 })
 
+app.post("/topics", async (req, res) => {
+    const sql = `INSERT INTO topic(title, description, created) VALUES (?, ?, now())`
+    await executeQuery(sql, [req.body.title, req.body.description])
+    res.redirect("/")
+})
+
 app.get("/topics/:id", async (req, res) => {
     const id = req.params.id;
     const sql = `SELECT t.id, t.title, t.description, t.created, t.author_id, a.name, a.profile 
     FROM topic AS t 
-    JOIN author AS a 
+    LEFT JOIN author AS a 
     ON t.author_id = a.id 
     WHERE t.id = ?`
     const topic = await executeQuery(sql, [id])

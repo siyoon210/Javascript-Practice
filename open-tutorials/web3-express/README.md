@@ -113,17 +113,17 @@ app.listen(3000);
   npm install body-parser --save
   ```
 2. body-parser 사용하기
-```js 
-var bodyParser = require('body-parser')
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// POST /login gets urlencoded bodies
-app.post('/login', function (req, res) {
-  res.send('welcome, ' + req.body.username) //req.body를 바로 사용가능!
-})
-```
+  ```js 
+  var bodyParser = require('body-parser')
+  
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }))
+  
+  // POST /login gets urlencoded bodies
+  app.post('/login', function (req, res) {
+    res.send('welcome, ' + req.body.username) //req.body를 바로 사용가능!
+  })
+  ```
 
 # 정적파일 제공하기
 - 내장 미들웨어를 사용하여 'pulbic' 하위 디렉토리를 정적파일 루트로 설정하기

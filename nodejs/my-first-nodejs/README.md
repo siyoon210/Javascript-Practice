@@ -113,3 +113,23 @@
    INSERT INTO `topic` VALUES (4,'PostgreSQL','PostgreSQL is ...','2018-01-23 01:03:03',3);
    INSERT INTO `topic` VALUES (5,'MongoDB','MongoDB is ...','2018-01-30 12:31:03',1)
    ```
+   
+## 4. body-parser 미들웨어사용
+```shell
+npm i body-parse --save
+```
+
+```js
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.post("/topics", (req, res) => {
+   req.body.title
+   req.body.description
+})
+```
+
+## 5. 리다이렉트
+```js
+res.redirect(`/topic/${id}`);
+```
