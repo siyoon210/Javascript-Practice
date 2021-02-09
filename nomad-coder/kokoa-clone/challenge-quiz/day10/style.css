@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 * {
     box-sizing: border-box;
@@ -8,6 +8,8 @@ body {
     padding: 10px;
     display: flex;
     justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    color: #18191E;
 }
 
 .container {
@@ -29,5 +31,46 @@ header i {
 
 header h1 {
     font-size: 28px;
-    font-family: 'Hammersmith One', sans-serif;
+}
+
+.play-screen {
+    width: 94%;
+    margin-top: 45px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.play-screen__cover {
+    width: 130px;
+    height: 130px;
+    background-color: #FFBC13;
+    border: 3px solid #18191E;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-screen__cover i {
+    color: white;
+    font-size: 50px;
+}
+
+.play-screen__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 180px;
+}
+
+.play-screen__title {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.play-screen__singer {
+    font-size: 18px;
+    color: #19191E;
 }
