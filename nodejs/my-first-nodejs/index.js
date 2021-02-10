@@ -51,11 +51,18 @@ app.post("/topics", async (req, res) => {
     res.redirect("/")
 })
 
+app.post("/topics/update", async (req, res) => {
+    const sql = `UPDATE topic SET title = ?, description = ? WHERE id = ?`
+    await executeQuery(sql, [req.body.title, req.body.description, req.body.id])
+    res.redirect(`/topics/${req.body.id}`)
+})
+
 app.get("/topics/edit/:id", async (req, res) => {
     const id = req.params.id;
     const sql = `SELECT title, description FROM topic WHERE id = ?`
     const topic = await executeQuery(sql, [id])
     req.options.topic = topic[0]
+    req.options.topic.id = req.params.id
     res.render('edit.pug', req.options)
 })
 
