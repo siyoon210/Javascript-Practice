@@ -74,3 +74,37 @@ header h1 {
     font-size: 18px;
     color: #19191E;
 }
+
+.controller {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controller button {
+    background-color: white;
+    border: 2px solid #18191E;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border-bottom: 5px solid #18191E;
+}
+
+.controller__play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.controller__play {
+    width: 180px;
+    border-radius: 15px;
+}
+
+.controller__play span {
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.playlist {
+    margin: 40px 0 45px 0;
+}
