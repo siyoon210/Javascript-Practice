@@ -2,6 +2,7 @@ extends layout.pug
 
 block content
     a(href=`/topics/edit/${topic.id}`) update
+    a(href=`/topics/delete/${topic.id}`) delete
     main
         h1 #{topic.title}
         p #{topic.description}

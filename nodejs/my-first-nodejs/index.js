@@ -57,6 +57,12 @@ app.post("/topics/update", async (req, res) => {
     res.redirect(`/topics/${req.body.id}`)
 })
 
+app.get("/topics/delete/:id", async (req, res) => {
+    const sql = `DELETE FROM topic WHERE id = ?`
+    await executeQuery(sql, [req.params.id])
+    res.redirect(`/`)
+})
+
 app.get("/topics/edit/:id", async (req, res) => {
     const id = req.params.id;
     const sql = `SELECT title, description FROM topic WHERE id = ?`
