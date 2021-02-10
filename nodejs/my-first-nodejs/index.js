@@ -51,6 +51,14 @@ app.post("/topics", async (req, res) => {
     res.redirect("/")
 })
 
+app.get("/topics/edit/:id", async (req, res) => {
+    const id = req.params.id;
+    const sql = `SELECT title, description FROM topic WHERE id = ?`
+    const topic = await executeQuery(sql, [id])
+    req.options.topic = topic[0]
+    res.render('edit.pug', req.options)
+})
+
 app.get("/topics/:id", async (req, res) => {
     const id = req.params.id;
     const sql = `SELECT t.id, t.title, t.description, t.created, t.author_id, a.name, a.profile 

@@ -3,8 +3,13 @@ extends layout.pug
 block content
     main
         form(action='/topics', method='post')
-            input(type='text', name='title' placeholder='제목')
-            br
-            textarea(placeholder='내용' name='description')
+            if  topic === undefined
+                input(type='text', name='title' placeholder='제목')
+                br
+                textarea(placeholder='내용' name='description')
+            else
+                input(type='text', name='title' placeholder='제목' value=`${topic.title}`)
+                br
+                textarea(placeholder='내용' name='description')=topic.description
             br
             input(type='submit', value='Create')
