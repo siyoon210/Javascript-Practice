@@ -75,19 +75,19 @@ main {
     padding: 0 15px;
 }
 
-/* book-of-the-day */
-.book-of-the-day {
+main section {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
 }
 
-.book-of-the-day__header {
+main section div[class$="__header"] {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 25px;
 }
 
+/* book-of-the-day */
 .book-of-the-day__main {
     display: flex;
 }
@@ -161,6 +161,31 @@ main {
     border: 0;
     border-radius: 5px;
 }
+
+/* top adventures */
+.top-adventures__main {
+    display: flex;
+}
+
+.top-adventures__main__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 27px;
+}
+
+.top-adventures__main__item img {
+    object-fit: cover;
+    width: 70px;
+    height: 108px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+
+.top-adventures__main__item__stars {
+    font-size: 10px;
+}
+
 /* stars */
 .stars .scored {
     color: var(--pink)
