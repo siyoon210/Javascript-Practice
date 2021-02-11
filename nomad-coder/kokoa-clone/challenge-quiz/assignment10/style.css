@@ -87,6 +87,10 @@ main section div[class$="__header"] {
     margin-bottom: 25px;
 }
 
+main img {
+    object-fit: cover;
+}
+
 /* book-of-the-day */
 .book-of-the-day__main {
     display: flex;
@@ -175,7 +179,6 @@ main section div[class$="__header"] {
 }
 
 .top-adventures__main__item img {
-    object-fit: cover;
     width: 70px;
     height: 108px;
     border-radius: 5px;
@@ -184,6 +187,35 @@ main section div[class$="__header"] {
 
 .top-adventures__main__item__stars {
     font-size: 10px;
+}
+
+/* popular-authors */
+.popular-authors__main {
+    display: flex;
+}
+
+.popular-authors img {
+    width: 106px;
+    height: 130px;
+    border-radius: 10px;
+    margin-right: 25px;
+}
+
+.popular-authors__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.popular-authors__description h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.popular-authors__description p {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.35);
 }
 
 /* stars */
