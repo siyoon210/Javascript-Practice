@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@200;300;400;500;600;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -11,7 +11,7 @@
 
 body {
     color: var(--black);
-    font-family: 'Bree Serif', serif;
+    font-family: 'Catamaran', sans-serif;
 }
 
 /* header */
@@ -30,6 +30,7 @@ header a {
 
 header h1 {
     font-size: 20px;
+    font-weight: 700;
 }
 
 /* search */
@@ -37,7 +38,7 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 53px;
+    height: 60px;
 }
 
 .search input {
@@ -53,7 +54,8 @@ header h1 {
 
 .search input::placeholder {
     color: rgba(0, 0, 0, 0.3);
-    font-family: 'Bree Serif', serif;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
 }
 
 .search input:focus {
@@ -66,4 +68,104 @@ header h1 {
     position: absolute;
     top: 90px;
     right: 30px;
+}
+
+/* main */
+main {
+    padding: 0 15px;
+}
+
+/* book-of-the-day */
+.book-of-the-day {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.book-of-the-day__header {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.book-of-the-day__main {
+    display: flex;
+}
+
+.book-of-the-day__main img {
+    width: 108px;
+    height: 158px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.book-of-the-day__main__content h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.book-of-the-day__main__content h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+.book-of-the-day__main__content__stars {
+    font-size: 12px;
+    margin-bottom: 17px;
+}
+
+.book-of-the-day__main__content__tags {
+    font-size: 14px;
+    margin-bottom: 23px;
+}
+
+.book-of-the-day__main__content__tags span {
+    padding: 0 9px;
+    background-color: rgba(55, 55, 55, 0.05);
+    font-weight: 500;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+
+.book-of-the-day__main__content__btns {
+    display: flex;
+}
+
+.book-of-the-day__main__content__btns button:hover {
+    cursor: pointer;
+}
+
+.book-of-the-day__main__content__btns button:focus {
+    outline: none;
+}
+
+.book-of-the-day__main__content__btns__bookmark {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--pink);
+    border: 0;
+    margin-right: 35px;
+    font-size: 12px;
+}
+
+.book-of-the-day__main__content__btns__book-now {
+    width: 95px;
+    height: 36px;
+    background-color: var(--black);
+    color: white;
+    font-size: 12px;
+    border: 0;
+    border-radius: 5px;
+}
+/* stars */
+.stars .scored {
+    color: var(--pink)
+}
+
+.stars .unscored {
+    color: rgba(0,0,0,0.1);
 }
