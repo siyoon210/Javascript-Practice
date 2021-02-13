@@ -187,6 +187,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 80%;
+  font-family: "Jua", sans-serif;
 }
 
 .play-list__item__text__artist-name {
@@ -316,6 +317,29 @@ nav {
   position: relative;
   z-index: 1;
   background-color: #222222;
+}
+
+.play-screen__controller {
+  width: 100%;
+  height: 50px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.play-screen__controller button:first-child i,
+.play-screen__controller button:last-child i {
+  opacity: 0.3;
+}
+
+.play-screen__controller button:nth-child(2) i,
+.play-screen__controller button:nth-child(4) i {
+  font-size: 17px;
+}
+
+.play-screen__controller button:nth-child(3) i {
+  font-size: 45px;
 }
 
 @media screen and (max-width: 728px) {
