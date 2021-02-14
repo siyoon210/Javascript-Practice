@@ -262,6 +262,14 @@ selector {
 - 브라우저에 기본적으로 적용된 스타일을 초기화시키는 css 모음
 - https://meyerweb.com/eric/tools/css/reset/
 
+## Reset.css 없이 default 설정 초기화시키는 방법
+
+```css
+body > * {
+  all: unset;
+}
+```
+
 ## Margin vs Padding
 
 - Q) 어떤상황에서 padding을 쓰고 어떤 상황에서 margin을 써야할까?
