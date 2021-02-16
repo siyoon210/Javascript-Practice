@@ -7,32 +7,7 @@ const FINISHED_LIST_KEY = "finished-list";
 let pendingList = [];
 let finishedList = [];
 
-window.addEventListener("load", () => {
-  const pendingListJson = localStorage.getItem(PENDING_LIST_KEY);
-  if (pendingListJson !== null) {
-    pendingList = JSON.parse(pendingListJson);
-  }
-
-  drawPending();
-
-  const finishedListJson = localStorage.getItem(FINISHED_LIST_KEY);
-  if (finishedListJson !== null) {
-    finishedList = JSON.parse(finishedListJson);
-  }
-
-  drawFinished();
-});
-
 const form = document.querySelector("form");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const taskInput = event.target.querySelector("input");
-
-  addPending(taskInput.value);
-  drawPending();
-  taskInput.value = "";
-});
 
 function addPending(task) {
   pendingList.push({
@@ -140,3 +115,30 @@ function makeMovePendingBtn() {
   });
   return movePendingBtn;
 }
+
+function init() {
+  const pendingListJson = localStorage.getItem(PENDING_LIST_KEY);
+  if (pendingListJson !== null) {
+    pendingList = JSON.parse(pendingListJson);
+  }
+
+  drawPending();
+
+  const finishedListJson = localStorage.getItem(FINISHED_LIST_KEY);
+  if (finishedListJson !== null) {
+    finishedList = JSON.parse(finishedListJson);
+  }
+
+  drawFinished();
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const taskInput = event.target.querySelector("input");
+
+    addPending(taskInput.value);
+    drawPending();
+    taskInput.value = "";
+  });
+}
+
+init();
