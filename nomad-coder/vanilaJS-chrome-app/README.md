@@ -23,6 +23,12 @@ const value = localstorage.getItem(key);
 const el = document.querySelector(".myclass");
 ```
 
-# Document.createElement()
+# document.createElement()
 
 - HTML 문서에서, Document.createElement() 메서드는 지정한 tagName의 HTML 요소를 만들어 반환합니다.
+- 반환오브젝트는 `Element`다.
+  - https://developer.mozilla.org/ko/docs/Web/API/Element
+
+```js
+const newDiv = document.createElement("div");
+```
