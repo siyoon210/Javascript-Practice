@@ -32,3 +32,15 @@ const el = document.querySelector(".myclass");
 ```js
 const newDiv = document.createElement("div");
 ```
+
+# JSON 다루기
+
+- JSON.parse() : 문자열 -> JSON
+- JSON.stringify() : JSON -> 문자열
+
+# event
+
+- Event 인터페이스는 DOM 내에 위치한 이벤트를 나타냅니다.
+- 이벤트는 마우스를 클릭하거나 키보드를 누르는 등 사용자 액션에 의해 발생할 수도 있고, 혹은 비동기적 작업의 진행을 나타내기 위해 API가 생성할 수도 있습니다.
+- Event.target : 이벤트가 처음에 발생했던 대상의 참조입니다.
+- https://developer.mozilla.org/ko/docs/Web/API/Event
