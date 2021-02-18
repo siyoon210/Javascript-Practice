@@ -7,24 +7,32 @@ let num1 = null;
 let num2 = null;
 let operator = null;
 
-document.querySelectorAll(".js-number").forEach((num) => {
-  num.addEventListener("click", (event) => {
+document.querySelectorAll(".js-number").forEach((jsNum) => {
+  jsNum.addEventListener("click", (event) => {
     if (operator) {
-      if (num2) {
-        num2 = parseInt(num2 + targetValue);
-      } else {
-        num2 = parseInt(event.target.id);
-      }
-      result.innerText = num2;
+      setNum2(event.target.id);
     } else {
-      if (num1) {
-        num1 = parseInt(num1 + event.target.id);
-      } else {
-        num1 = parseInt(event.target.id);
-      }
-      result.innerText = num1;
+      setNum1(event.target.id);
     }
   });
+
+  function setNum2(targetValue) {
+    if (num2) {
+      num2 = parseInt(num2 + targetValue);
+    } else {
+      num2 = parseInt(targetValue);
+    }
+    result.innerText = num2;
+  }
+
+  function setNum1(targetValue) {
+    if (num1) {
+      num1 = parseInt(num1 + targetValue);
+    } else {
+      num1 = parseInt(targetValue);
+    }
+    result.innerText = num1;
+  }
 });
 
 document.getElementById("js-reset").addEventListener("click", () => {
@@ -34,40 +42,18 @@ document.getElementById("js-reset").addEventListener("click", () => {
   result.innerText = 0;
 });
 
-document.getElementById("js-plus").addEventListener("click", () => {
-  if (isComputable()) {
-    calculate();
-  }
-  operator = (num1, num2) => {
-    return num1 + num2;
-  };
-});
+document.querySelectorAll(".js-operator").forEach((jsOpererator) => {
+  jsOpererator.addEventListener("click", (event) => {
+    if (isComputable()) {
+      calculate();
+    }
 
-document.getElementById("js-minus").addEventListener("click", () => {
-  if (isComputable()) {
-    calculate();
-  }
-  operator = (num1, num2) => {
-    return num1 - num2;
-  };
-});
-
-document.getElementById("js-times").addEventListener("click", () => {
-  if (isComputable()) {
-    calculate();
-  }
-  operator = (num1, num2) => {
-    return num1 * num2;
-  };
-});
-
-document.getElementById("js-divider").addEventListener("click", () => {
-  if (isComputable()) {
-    calculate();
-  }
-  operator = (num1, num2) => {
-    return num1 / num2;
-  };
+    operator = new Function(
+      `num1`,
+      `num2`,
+      `return num1 ${event.target.id} num2`
+    );
+  });
 });
 
 document.getElementById("js-equals").addEventListener("click", () => {
