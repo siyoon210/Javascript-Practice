@@ -10,21 +10,24 @@ body {
 }
 
 .row {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 }
 
 .row > span {
-  width: 460px;
+  width: calc(60% + 20px);
   text-align: right;
-  margin-right: 20px;
   font-size: 30px;
+  margin-right: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
 
 button {
-  width: 150px;
+  width: 20%;
   height: 70px;
   font-size: 20px;
   border-radius: 15px;
@@ -38,7 +41,7 @@ button:not(:last-child) {
 }
 
 button.zero {
-  width: 310px;
+  width: calc(40% + 10px);
 }
 
 button.operator {

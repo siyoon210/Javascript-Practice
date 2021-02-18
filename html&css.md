@@ -344,6 +344,11 @@ body > * {
 }
 ```
 
+## Q) flex box 요소들이 각 row마다 다르다면..?
+
+- 노마드코더 바닐라JS ASSGIN8 계산기를 만들던중, 숫자 0은 width가 다른 숫자보다 2배만큼 크고 + 숫자들의 옆구리 margin 만큼 커야한다. 이걸 어떻게 해결할까?
+  - 일단 하드코딩으로 width: calc(40% + 10px); 로 함.. (다른 숫자의 WIDTH가 20%이고 MARGIN-RIGHT가 10px이라..)
+
 ## 한줄 팁
 
 - item들을 세로로 정렬해야 할때도 flex를 사용하자 Container의 display를 flex, direction을 column으로!
