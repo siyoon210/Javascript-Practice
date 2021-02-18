@@ -3,7 +3,7 @@
 // <⚠️ /DONT DELETE THIS ⚠️>
 
 const result = document.getElementById("js-result");
-let num1 = null;
+let num1 = 0;
 let num2 = null;
 let operator = null;
 
@@ -18,25 +18,25 @@ document.querySelectorAll(".js-number").forEach((jsNum) => {
 
   function setNum2(targetValue) {
     if (num2) {
-      num2 = parseInt(num2 + targetValue);
+      num2 = parseFloat(num2 + targetValue);
     } else {
-      num2 = parseInt(targetValue);
+      num2 = parseFloat(targetValue);
     }
     result.innerText = num2;
   }
 
   function setNum1(targetValue) {
     if (num1) {
-      num1 = parseInt(num1 + targetValue);
+      num1 = parseFloat(num1 + targetValue);
     } else {
-      num1 = parseInt(targetValue);
+      num1 = parseFloat(targetValue);
     }
     result.innerText = num1;
   }
 });
 
 document.getElementById("js-reset").addEventListener("click", () => {
-  num1 = null;
+  num1 = 0;
   num2 = null;
   operator = null;
   result.innerText = 0;
@@ -48,11 +48,7 @@ document.querySelectorAll(".js-operator").forEach((jsOpererator) => {
       calculate();
     }
 
-    operator = new Function(
-      `num1`,
-      `num2`,
-      `return num1 ${event.target.id} num2`
-    );
+    operator = Function(`num1`, `num2`, `return num1 ${event.target.id} num2`);
   });
 });
 
