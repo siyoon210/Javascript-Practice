@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: black;
+  padding: 50px 16px 40px 16px;
+  color: white;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.row > span {
+  width: 460px;
+  text-align: right;
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+button {
+  width: 150px;
+  height: 70px;
+  font-size: 20px;
+  border-radius: 15px;
+  color: white;
+  background-color: #363439;
+  border: 0;
+}
+
+button:not(:last-child) {
+  margin-right: 10px;
+}
+
+button.zero {
+  width: 310px;
+}
+
+button.operator {
+  background-color: #fe8e00;
+}
+
+button.reset {
+  background-color: #a7aab1;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  opacity: 0.8;
+}
