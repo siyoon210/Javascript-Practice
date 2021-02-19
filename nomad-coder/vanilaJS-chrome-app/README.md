@@ -87,3 +87,14 @@ const newDiv = document.createElement("div");
 - 위와 같이 삽입하구, app.js와 app2.js에 같은 변수가 있다면 아래에 위치한 app2.js로 덮어씌워진다.
 - funtion()을 호출한 경우, 호출된 이후에 덮어 씌워진다.
 - CONST로 선언한 경우 에러가 발생한다!
+
+# (21.02.20) 웹팩이나 gulp없이 모듈로 만드는 방법 (import, expert 키워드 사용하기)
+
+- scrpit element의 type="module" attribute와 value를 사용하면 모듈 관련한 키워드가 동작한다.
+- `<script type="module" src="app.js"></script>`
+- 예제 `practice/module`
+- https://www.youtube.com/watch?v=WHAfp-1JPMg&list=PL7jH19IHhOLMmmjrwCi7-dMFVdoU0hhgF&index=3&ab_channel=%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders
+
+# (21.02.20) script 엘레멘트의 async와 defer 설정
+
+- 드림코딩 엘리
