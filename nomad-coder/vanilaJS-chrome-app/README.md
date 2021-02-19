@@ -93,6 +93,7 @@ const newDiv = document.createElement("div");
 - scrpit element의 type="module" attribute와 value를 사용하면 모듈 관련한 키워드가 동작한다.
 - `<script type="module" src="app.js"></script>`
 - 예제 `practice/module`
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Modules#applying_the_module_to_your_html
 - https://www.youtube.com/watch?v=WHAfp-1JPMg&list=PL7jH19IHhOLMmmjrwCi7-dMFVdoU0hhgF&index=3&ab_channel=%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders
 
 # (21.02.20) script 엘레멘트의 async와 defer 설정
