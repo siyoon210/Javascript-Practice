@@ -74,3 +74,16 @@ const newDiv = document.createElement("div");
 # 결론
 
 - 너무 많은 객체들을 알지도 못하고 주먹구구식으로만 써왔다. 다른 언어나 프레임워크를 배울때도 이점을 유의하자. 문서를 가까이 한다면 느리지만 시야가 넓어질 수 있다.
+
+# (21.02.19) Script로 노출되는 건 모두 global 변수구나!
+
+```html
+<body>
+  <script src="app.js"></script>
+  <script src="app2.js"></script>
+</body>
+```
+
+- 위와 같이 삽입하구, app.js와 app2.js에 같은 변수가 있다면 아래에 위치한 app2.js로 덮어씌워진다.
+- funtion()을 호출한 경우, 호출된 이후에 덮어 씌워진다.
+- CONST로 선언한 경우 에러가 발생한다!
