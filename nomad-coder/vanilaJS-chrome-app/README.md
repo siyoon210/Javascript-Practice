@@ -98,4 +98,7 @@ const newDiv = document.createElement("div");
 
 # (21.02.20) script 엘레멘트의 async와 defer 설정
 
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts
+- 모듈 스크립트를 불러올 때 defer 속성(<script> attributes)를 사용할 필요가 없습니다. 모듈은 자동으로 defer됩니다.
+  - 아 모듈만 그러는건가?
 - 드림코딩 엘리
