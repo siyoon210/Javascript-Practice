@@ -75,3 +75,15 @@ const App = () => {
 - 두번째 인자로 배열형태의 의존하는 value를 넣어주면, 해당 value가 set 될때에만 useEffect 핸들러 콜백이 실행된다. (아무것도 명시하지 않으면 모든 경우에 반응)
 
 - `useEffect(sayHeel, [])` 이러한 경우 어떠한 변화에도 콜백이 실행되지 않고, 오로지 컴포넌트가 처음 렌더링 될때만 시행된다. (== componentDidMount와 비슷한거 같아.)
+
+# reference
+- component의 원하는 부분을 선택할 수 있는 방법 (document.getElementById와 유사하다)
+
+1. import useRef 
+	- `import React, { useRef } ` from "react"
+2. reference로 사용할 변수 생성
+	- `const potato = useRef();`
+3. ref attribute에원하는 변수명 할당
+	- `<input ref = { potato } />`
+4. ref 변수 사용하기
+	- `setTimeout(() => potato.currenct.foucse(), 5000);`
