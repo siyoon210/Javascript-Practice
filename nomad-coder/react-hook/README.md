@@ -87,3 +87,29 @@ const App = () => {
 	- `<input ref = { potato } />`
 4. ref 변수 사용하기
 	- `setTimeout(() => potato.currenct.foucse(), 5000);`
+
+# useClick
+- useEffect를 활용하여 클릭이벤트
+```js
+const useClick = onClick => {
+  const element = useRef();
+  useEffect(() => {
+    if(element.current) {
+      element.currenct.addEventListener("click", onClick);
+    }
+    return element;
+  });
+
+const App = () => { 
+ const sayHello = () => console.log("say Hello");
+ const title = useClick(sayHello);
+
+ return (
+  <div className="App">
+    <h1 ref={title}>Hi</h1>
+  </div>
+  )
+}
+ )
+}
+```
