@@ -12,8 +12,9 @@
 - Firebase 리액트앱에 사용하기
 - 처음으로 안내되는 CDN 방식 말고 npm으로 하자
 
+0. firebase 플랫폼에서 프로젝트 생성
 1. `npm install --save firebase`
-2. 설정 정보 저장 (firebase.js)
+2. 설정 정보 저장 (firebase.js) - 프로젝트 생성하면 아래 정보를 준다.
 ```js
 import firebase from "firebase/app";
 
