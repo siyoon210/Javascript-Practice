@@ -31,3 +31,12 @@ export default firebase.initializeApp(firebaseConfig);
 ```
 
 - https://www.npmjs.com/package/firebase
+
+# 1.1 Securing the Keys
+
+- github에 api key값 같은걸 올리지 않기 위한 작업
+    - 빌드 한후에는 이용하는 클라이언트 사용자들에게는 노출되게 된다. 이 작업은 오로지 github에만 올리지 않기 위한 작업
+
+1. 루트 디렉토리에 `.env` 파일 생성
+2. 키값으로 `REACT_APP_`이라는 접두사가 있어야하며 `REACT_APP_KEY_NAME=VALUE` 와 같은 형식으로 입력한다.
+3. js 파일에서 `process.env.REACT_APP_KEY_NAME`으로 불러와서 사용한다.
