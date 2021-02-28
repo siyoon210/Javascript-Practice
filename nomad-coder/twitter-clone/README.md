@@ -40,3 +40,37 @@ export default firebase.initializeApp(firebaseConfig);
 1. 루트 디렉토리에 `.env` 파일 생성
 2. 키값으로 `REACT_APP_`이라는 접두사가 있어야하며 `REACT_APP_KEY_NAME=VALUE` 와 같은 형식으로 입력한다.
 3. js 파일에서 `process.env.REACT_APP_KEY_NAME`으로 불러와서 사용한다.
+
+
+# 1.2 Router Setup
+- `npm i react-router-dom` 설치
+
+```js
+import React, { useState } from 'react';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Auth from '../routes/Auth';
+import Home from '../routes/Home';
+
+const AppRouter = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  return(
+    <Router>
+      <Switch>
+        { isLoggedIn ? (
+          <>
+            <Route exact path ="/">
+              <Home />
+            </Route>
+          </>
+        ) : (
+          <Route exact path="/">
+            <Auth />
+          </Route>
+        ) }
+      </Switch>
+    </Router>
+  )
+}
+
+export default AppRouter;
+```
