@@ -44,7 +44,7 @@ export default firebase.initializeApp(firebaseConfig);
 
 # 1.2 Router Setup
 - `npm i react-router-dom` 설치
-
+- Router.js 컴포넌트 작성
 ```js
 import React, { useState } from 'react';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -74,3 +74,45 @@ const AppRouter = () => {
 
 export default AppRouter;
 ```
+
+# 2.0 Using Firebase Auth 
+- jsconfig.json 파일로 컴파일 경로 지정하기
+  ```json
+  {
+    "compilerOptions": {
+      "baseUrl": "src"
+    },
+    "include": ["src"]
+  }
+  ```
+  - 이렇게 하는 경우 src를 기준으로 절대경로 import 할 수 있다.
+
+- firebase에서 auth 서비스 가져오기
+  ```js
+  import firebase from "firebase/app";
+  import "firebase/auth";
+
+  const firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
+    appId: process.env.REACT_APP_APP_ID
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  export const authService = firebase.auth();
+  ```
+
+- 현재 유저 가져오기
+  ```js
+  import { authService } from "fbase";
+
+  function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+    ...
+    }
+  ```
