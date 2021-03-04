@@ -152,3 +152,34 @@ export default () => {
   )
 };
 ```
+
+# 2.3 Creating Account
+- 파이어베이스 문서
+- https://firebase.google.com/docs/auth/web/start?authuser=0
+
+- 신규 사용자 가입 `createUserWithEmailAndPassword`
+- 기존 사용자 로그인 `signInWithEmailAndPassword`
+```js
+import React, {useState} from "react";
+import {authService} from "fbase";
+
+export default () => {
+    //...
+    const [newAccount, setNewAccount] = useState(true);
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        let data;
+        try {
+            if (newAccount) {
+                data = await authService.createUserWithEmailAndPassword(email, password)
+            } else {
+                data = await authService.signInWithEmailAndPassword(email, password)
+            }
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    //...
+};
+```
