@@ -5,6 +5,7 @@ export default () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [newAccount, setNewAccount] = useState(true);
+    const [errorMsg, setErrorMsg] = useState("");
     const onChange = (event) => {
         const {target: {name, value}} = event;
         if (name === "email") {
@@ -26,8 +27,10 @@ export default () => {
             console.log(data);
         } catch (error) {
             console.log(error);
+            setErrorMsg(error.message);
         }
     };
+    const toggleAccount = () => setNewAccount((prev) => !prev);
 
     return (
         <div>
@@ -37,6 +40,8 @@ export default () => {
                        required/>
                 <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
             </form>
+            <span>{errorMsg}</span>
+            <span onClick={toggleAccount}> {newAccount ? "Sign In" : "CreateAccount"} </span>
             <div>
                 <button>Continue with Google</button>
             </div>

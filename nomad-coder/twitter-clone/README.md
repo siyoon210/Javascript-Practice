@@ -183,3 +183,28 @@ export default () => {
     //...
 };
 ```
+
+# 2.4 Log In
+- firebase가 로그인 여부를 확인하기 위해서 currentUser를 가져오기 위해서 약간의 텀이 필요하다.
+- `authService.onAuthStateChanged` 를 통해서 인증상태에 대한 이벤트 리스너를 만든다.
+- 리액트 훅을 사용해서 mount 된 이후에 훅을 할당한다.
+  ```js
+  useEffect(() => {
+    //...
+  }, []);
+  ```
+
+```js
+useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+```
+
+- 파이어베이스 로그인 정보는 브라우저 indexedDB라는곳이 있네..?
