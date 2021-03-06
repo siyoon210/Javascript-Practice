@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {authService} from "fbase";
+import {firebaseInstance} from "fbase";
 
 export default () => {
     const [email, setEmail] = useState("");
@@ -31,6 +32,11 @@ export default () => {
         }
     };
     const toggleAccount = () => setNewAccount((prev) => !prev);
+    const onSocialClick = (event) => {
+        const provider = new firebaseInstance.auth.GoogleAuthProvider();
+        const data = authService.signInWithPopup(provider);
+        console.log(data);
+    }
 
     return (
         <div>
@@ -43,7 +49,7 @@ export default () => {
             <span>{errorMsg}</span>
             <span onClick={toggleAccount}> {newAccount ? "Sign In" : "CreateAccount"} </span>
             <div>
-                <button>Continue with Google</button>
+                <button onClick={onSocialClick} name="google">Continue with Google</button>
             </div>
         </div>
     )

@@ -208,3 +208,12 @@ useEffect(() => {
 ```
 
 - 파이어베이스 로그인 정보는 브라우저 indexedDB라는곳이 있네..?
+
+# 2.5 Social Login
+- firebase google로 로그인하기 문서
+- https://firebase.google.com/docs/auth/web/google-signin?authuser=0
+
+1. google용 프로바이더 생성
+  - `var provider = new firebase.auth.GoogleAuthProvider();`
+2. provider로 팝업창으로 로그인 시도히기 (리다이렉트로 하는 메서드도 존재함)
+  - `const data = await authService.signInWithPopup(provider)`
