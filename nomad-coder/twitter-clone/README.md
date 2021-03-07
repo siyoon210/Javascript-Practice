@@ -217,3 +217,13 @@ useEffect(() => {
   - `var provider = new firebase.auth.GoogleAuthProvider();`
 2. provider로 팝업창으로 로그인 시도히기 (리다이렉트로 하는 메서드도 존재함)
   - `const data = await authService.signInWithPopup(provider)`
+
+# 2.6 Log out
+- firebase.auth().signOut()을 호출하기만 하면 로그아웃이 된다.
+- react-route-dom의 useHistory()를 불러온 후 push해주면 리다이렉트를 코드수준에서 구현가능!
+  ```js
+  import { useHisotry } from "react-router-dom";
+  
+  const history = useHisotry();
+  history.push("/"/;
+  ```
