@@ -227,3 +227,6 @@ useEffect(() => {
   const history = useHisotry();
   history.push("/"/;
   ```
+
+# 3.0 Form and Database Setup
+- Cloud firebase 에서 Create Database
