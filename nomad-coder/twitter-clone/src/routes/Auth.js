@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {authService} from "fbase";
 import {firebaseInstance} from "fbase";
 
-export default () => {
+const Auth = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [newAccount, setNewAccount] = useState(true);
@@ -32,7 +32,7 @@ export default () => {
         }
     };
     const toggleAccount = () => setNewAccount((prev) => !prev);
-    const onSocialClick = (event) => {
+    const onSocialClick = () => {
         const provider = new firebaseInstance.auth.GoogleAuthProvider();
         const data = authService.signInWithPopup(provider);
         console.log(data);
@@ -54,3 +54,5 @@ export default () => {
         </div>
     )
 };
+
+export default Auth;

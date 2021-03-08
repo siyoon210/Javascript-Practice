@@ -228,5 +228,34 @@ useEffect(() => {
   history.push("/"/;
   ```
 
-# 3.0 Form and Database Setup
+# 3.0 Form and Database Setup ~ 3.1 Nweeting
 - Cloud firebase 에서 Create Database
+- Cloud firebase는 NoSQL이다.
+  - collection은 여러개의 document들로 이뤄지며, document는 json 형식과 같이 key:value로 field를 갖는다.
+  - colliction은 table과 유사하고, document는 한건의 row와 유사하다.
+
+1. firebase 인스턴스로부터 firestore 반환받기 `firebase.firestore()`
+2. firestore로 add하기
+  ```js
+  const db = firebase.firestore();
+  db.collection("컬렉션이름").add(
+          {data: myData}
+  );
+  ```
+
+```js
+import {dbService} from "fbase";
+
+const Home = () => {
+  const [nweet, setNweet] = useState("");
+  const onClick = async () => {
+    await dbService.collection("nweet").add({
+      nweet,
+      createdAt: Date.now(),
+    });
+    setNweet("");
+  }
+  //...
+}
+```
+- https://firebase.google.com/docs/firestore/quickstart?authuser=0#initialize
