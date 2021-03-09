@@ -259,3 +259,35 @@ const Home = () => {
 }
 ```
 - https://firebase.google.com/docs/firestore/quickstart?authuser=0#initialize
+
+# 3.2 Getting the Nweets
+- db.collection("컬렉션이름").get() 
+- https://firebase.google.com/docs/firestore/query-data/get-data?authuser=0
+
+- mount시에 nweets 정보 조회해서 그리기!
+  ```js
+    const readNweets = async () => {
+        const dbNweets = await dbService.collection("nweet").get();
+        dbNweets.forEach((document) =>{
+           const nweetObj = {
+               ...document.data(),
+               id : document.id
+           }
+           setNweets((prev) => [nweetObj, ...prev])
+        })
+    }
+  
+    useEffect(() => {
+        readNweets();
+    }, []);
+  ```
+- 가져온 nweets 출력
+  ```js
+  <div>
+      {nweets.map((nweet) => (
+          <div key={nweet.id}>
+              <h4>{nweet.nweet}</h4>
+          </div>
+      ))}
+  </div>
+  ```
