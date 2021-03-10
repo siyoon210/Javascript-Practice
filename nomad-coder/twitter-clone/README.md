@@ -1,4 +1,5 @@
 [트위터 클론코딩 - 노마드코더](https://nomadcoders.co/nwitter/lobby)
+
 - Cloning Twitter with React and Firebase
 
 # 0.2 What is Firebase
@@ -15,6 +16,7 @@
 0. firebase 플랫폼에서 프로젝트 생성
 1. `npm install --save firebase`
 2. 설정 정보 저장 (firebase.js) - 프로젝트 생성하면 아래 정보를 준다.
+
 ```js
 import firebase from "firebase/app";
 
@@ -41,41 +43,43 @@ export default firebase.initializeApp(firebaseConfig);
 2. 키값으로 `REACT_APP_`이라는 접두사가 있어야하며 `REACT_APP_KEY_NAME=VALUE` 와 같은 형식으로 입력한다.
 3. js 파일에서 `process.env.REACT_APP_KEY_NAME`으로 불러와서 사용한다.
 
-
 # 1.2 Router Setup
+
 - `npm i react-router-dom` 설치
 - Router.js 컴포넌트 작성
+
 ```js
-import React, { useState } from 'react';
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import React, {useState} from 'react';
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 
 const AppRouter = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  return(
-    <Router>
-      <Switch>
-        { isLoggedIn ? (
-          <>
-            <Route exact path ="/">
-              <Home />
-            </Route>
-          </>
-        ) : (
-          <Route exact path="/">
-            <Auth />
-          </Route>
-        ) }
-      </Switch>
-    </Router>
-  )
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    return (
+        <Router>
+            <Switch>
+                {isLoggedIn ? (
+                    <>
+                        <Route exact path="/">
+                            <Home/>
+                        </Route>
+                    </>
+                ) : (
+                    <Route exact path="/">
+                        <Auth/>
+                    </Route>
+                )}
+            </Switch>
+        </Router>
+    )
 }
 
 export default AppRouter;
 ```
 
-# 2.0 Using Firebase Auth 
+# 2.0 Using Firebase Auth
+
 - jsconfig.json 파일로 컴파일 경로 지정하기
   ```json
   {
@@ -85,7 +89,7 @@ export default AppRouter;
     "include": ["src"]
   }
   ```
-  - 이렇게 하는 경우 src를 기준으로 절대경로 import 할 수 있다.
+    - 이렇게 하는 경우 src를 기준으로 절대경로 import 할 수 있다.
 
 - firebase에서 auth 서비스 가져오기
   ```js
@@ -116,49 +120,54 @@ export default AppRouter;
     ...
     }
   ```
-  
+
 # 2.1 Login Form part One
+
 1. firebase 대시보드에서 Authentication 설정하기 (이건 잘되어있어서 어렵지 않군)
 2. Form
+
 ```js
 import React, {useState} from "react";
 
 export default () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const onChange = (event) => {
-    const {target: {name, value}} = event;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
-  };
-  const onSubmit = (event) => {
-    event.preventDefault();
-  };
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const onChange = (event) => {
+        const {target: {name, value}} = event;
+        if (name === "email") {
+            setEmail(value);
+        } else if (name === "password") {
+            setPassword(value);
+        }
+    };
+    const onSubmit = (event) => {
+        event.preventDefault();
+    };
 
-  return (
-          <div>
+    return (
+        <div>
             <form onSubmit={onSubmit}>
-              <input name="email" type="email" placeholder="email" value={email} onChange={onChange} required/>
-              <input name="password" type="password" placeholder="password" value={password} onChange={onChange} required/>
-              <input type="submit" value="Log In"/>
+                <input name="email" type="email" placeholder="email" value={email} onChange={onChange} required/>
+                <input name="password" type="password" placeholder="password" value={password} onChange={onChange}
+                       required/>
+                <input type="submit" value="Log In"/>
             </form>
             <div>
-              <button>Continue with Google</button>
+                <button>Continue with Google</button>
             </div>
-          </div>
-  )
+        </div>
+    )
 };
 ```
 
 # 2.3 Creating Account
+
 - 파이어베이스 문서
 - https://firebase.google.com/docs/auth/web/start?authuser=0
 
 - 신규 사용자 가입 `createUserWithEmailAndPassword`
 - 기존 사용자 로그인 `signInWithEmailAndPassword`
+
 ```js
 import React, {useState} from "react";
 import {authService} from "fbase";
@@ -185,6 +194,7 @@ export default () => {
 ```
 
 # 2.4 Log In
+
 - firebase가 로그인 여부를 확인하기 위해서 currentUser를 가져오기 위해서 약간의 텀이 필요하다.
 - `authService.onAuthStateChanged` 를 통해서 인증상태에 대한 이벤트 리스너를 만든다.
 - 리액트 훅을 사용해서 mount 된 이후에 훅을 할당한다.
@@ -197,28 +207,33 @@ export default () => {
 ```js
 useEffect(() => {
     authService.onAuthStateChanged((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-      setInit(true);
+        if (user) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+        setInit(true);
     });
-  }, []);
+}, []);
 ```
 
 - 파이어베이스 로그인 정보는 브라우저 indexedDB라는곳이 있네..?
 
 # 2.5 Social Login
+
 - firebase google로 로그인하기 문서
 - https://firebase.google.com/docs/auth/web/google-signin?authuser=0
 
 1. google용 프로바이더 생성
-  - `var provider = new firebase.auth.GoogleAuthProvider();`
+
+- `var provider = new firebase.auth.GoogleAuthProvider();`
+
 2. provider로 팝업창으로 로그인 시도히기 (리다이렉트로 하는 메서드도 존재함)
-  - `const data = await authService.signInWithPopup(provider)`
+
+- `const data = await authService.signInWithPopup(provider)`
 
 # 2.6 Log out
+
 - firebase.auth().signOut()을 호출하기만 하면 로그아웃이 된다.
 - react-route-dom의 useHistory()를 불러온 후 push해주면 리다이렉트를 코드수준에서 구현가능!
   ```js
@@ -229,39 +244,43 @@ useEffect(() => {
   ```
 
 # 3.0 Form and Database Setup ~ 3.1 Nweeting
+
 - Cloud firebase 에서 Create Database
 - Cloud firebase는 NoSQL이다.
-  - collection은 여러개의 document들로 이뤄지며, document는 json 형식과 같이 key:value로 field를 갖는다.
-  - colliction은 table과 유사하고, document는 한건의 row와 유사하다.
+    - collection은 여러개의 document들로 이뤄지며, document는 json 형식과 같이 key:value로 field를 갖는다.
+    - colliction은 table과 유사하고, document는 한건의 row와 유사하다.
 
 1. firebase 인스턴스로부터 firestore 반환받기 `firebase.firestore()`
 2. firestore로 add하기
+
   ```js
   const db = firebase.firestore();
-  db.collection("컬렉션이름").add(
-          {data: myData}
-  );
+db.collection("컬렉션이름").add(
+    {data: myData}
+);
   ```
 
 ```js
 import {dbService} from "fbase";
 
 const Home = () => {
-  const [nweet, setNweet] = useState("");
-  const onClick = async () => {
-    await dbService.collection("nweet").add({
-      nweet,
-      createdAt: Date.now(),
-    });
-    setNweet("");
-  }
-  //...
+    const [nweet, setNweet] = useState("");
+    const onClick = async () => {
+        await dbService.collection("nweet").add({
+            nweet,
+            createdAt: Date.now(),
+        });
+        setNweet("");
+    }
+    //...
 }
 ```
+
 - https://firebase.google.com/docs/firestore/quickstart?authuser=0#initialize
 
 # 3.2 Getting the Nweets
-- db.collection("컬렉션이름").get() 
+
+- db.collection("컬렉션이름").get()
 - https://firebase.google.com/docs/firestore/query-data/get-data?authuser=0
 
 - mount시에 nweets 정보 조회해서 그리기!
@@ -291,3 +310,20 @@ const Home = () => {
       ))}
   </div>
   ```
+
+# 3.3 Realtime Nweets
+
+- onSnapshot을 사용해서 데이터 베이스 변화 감지하기
+  ```js
+  useEffect(() => {
+        dbService.collection("nweet").onSnapshot(snapshot => {
+            const nweetsArray = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }))
+            setNweets(nweetsArray);
+        })
+    }, []);
+  ```
+
+- https://firebase.google.com/docs/firestore/query-data/listen
