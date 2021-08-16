@@ -3,18 +3,21 @@
 ## (21.8.16) 콜백 대신 await 사용하기
 - 콜백사용하는 경우
 ``` js
-sqs.deleteMessage(deleteParams, function(err, data) {
-      if (err) {
-        console.log("Delete Error", err);
-      } else {
-        console.log("Message Deleted", data);
-      }
+sqs.sendMessage(params, function(err, data) {
+  if (err) console.log(err, err.stack); // an error occurred
+  else     console.log(data);           // successful response
 });
 ```
 
 - async await, .promise()로 사용하는 경우
 ```js
-const response = await sqs.sendMessage(params).promise();
+try {
+  const data = await sqs.sendMessage(params).promise();
+  console.log(data); 
+}
+catch (err) {
+  console.log(err, err.stack)
+}
 ```
 
 ## (20.02.09) Prototype을 활용하여서 숫자에 콤마(,) 넣어주기
