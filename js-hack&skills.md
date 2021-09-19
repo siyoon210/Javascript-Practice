@@ -1,5 +1,79 @@
 # HTML-CSS-JS
 
+## (21.9.19) prototype vs class
+
+### 문법적 
+```js
+/**
+ * Creating objects with Classes
+ * Versus objects with prototypes
+ * Since JavaScript is not a Class-based language
+ * what is happening behind the class syntax?
+ */
+
+let PersonC = class {
+  constructor(nm, id) {
+    this.name = nm;
+    this.id = id;
+  }
+  getDetails() {
+    return `${this.name} :: ${this.id}`;
+  }
+};
+let bob = new PersonC("Bob", 123);
+console.log(bob.getDetails(), bob.name);
+
+let EmployeeC = class extends PersonC {
+  // EmployeeC prototype links to PersonC prototype
+  constructor(nm, id, salary) {
+    super(nm, id);
+    this.salary = salary;
+  }
+  employeeInfo() {
+    //exist on the prototype of EmployeeC
+    return `${this.name} :: ${this.id} :: ${this.salary}`;
+  }
+};
+let noomi = new EmployeeC("Noomi", 456, 8500000);
+console.log(noomi.employeeInfo());
+
+///////////////////////////////////////////////
+
+let PersonP = function(nm, id) {
+  this.name = nm;
+  this.id = id;
+};
+PersonP.prototype.getDetails = function() {
+  return `${this.name} :: ${this.id}`;
+};
+let fred = new PersonP("Fred", 321);
+console.log(fred.getDetails(), fred.name);
+
+let EmployeeP = function(nm, id, salary) {
+  PersonP.call(this, nm, id);
+  this.salary = salary;
+};
+Object.setPrototypeOf(EmployeeP.prototype, PersonP.prototype); //extends NOTE: THIS LINE WAS CHANGED
+EmployeeP.prototype.employeeInfo = function() {
+  return `${this.name} :: ${this.id} :: ${this.salary}`;
+};
+let mary = new EmployeeP("Mary", 654, 65000);
+console.log(mary.employeeInfo());
+```
+
+### 요약
+- 결국 class는 prototype으로 인터프리팅 된다.
+- 자바스크립트의 객체지향은 prototype 기반이다.
+- prototype은 prototype들의 link로 메모리를 더 효율적으로 사용한다.
+
+### 참고링크
+- https://www.youtube.com/watch?v=XoQKXDWbL1M
+- https://gist.github.com/prof3ssorSt3v3/c056b8b5f379ee2767bb4e8ad90f3dac
+- https://bkdevlog.netlify.app/posts/oop-class-of-js
+
+### class 문법에 장점은 뭘까?
+- https://ko.javascript.info/class
+
 ## (21.8.30) 숫자 배열 sort 시 주의사항
 - sort() 를 바로 적용하면 숫자타입이더라도 문자 방식으로 정렬이 된다.
 ```
