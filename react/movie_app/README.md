@@ -9,7 +9,8 @@
 ## 1.0 Creating your first React App
 - 프로젝트 생성
 	- 생성을 원하는 디렉토리에서 `npx create-react-app movie-app`
-	- 타입스크립트로 원한다면 `npx create-react-app app-name --typescript`
+	- 타입스크립트로 원한다면 `npx create-react-app app-name -—template typescript`\
+	- https://velog.io/@junghyeonsu/React-create-react-app-Typescript-%EC%B4%88%EA%B8%B0-%EC%84%B8%ED%8C%85-%EC%99%84%EB%B2%BD-%EC%A0%95%EB%A6%AC
 - 프로젝트 실행
 	- `cd movie-app`
 	- `npm start`
